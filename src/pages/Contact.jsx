@@ -1,5 +1,6 @@
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { socials } from '../data/content.js';
+import Reveal from '../components/Reveal.jsx';
 import './Contact.css';
 
 export default function Contact() {
@@ -18,12 +19,12 @@ export default function Contact() {
     <section className="contact-page">
       <div className="container">
         <span className="eyebrow">{t.contactPage.eyebrow}</span>
-        <h1 className="contact-page__heading">{t.contactPage.heading}</h1>
-        <p className="muted contact-page__sub">{t.contactPage.sub}</p>
+        <Reveal as="h1" y={20} className="contact-page__heading">{t.contactPage.heading}</Reveal>
+        <Reveal as="p" y={20} delay={0.08} className="muted contact-page__sub">{t.contactPage.sub}</Reveal>
 
         <div className="contact-page__grid">
-          {items.map((item) => (
-            <div key={item.label} className="card contact-item">
+          {items.map((item, i) => (
+            <Reveal key={item.label} y={20} delay={i * 0.06} className="card contact-item">
               <span className="section-label">{item.label}</span>
               {item.href ? (
                 <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer">
@@ -32,14 +33,14 @@ export default function Contact() {
               ) : (
                 <p>{item.value}</p>
               )}
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        <div className="contact-page__actions">
+        <Reveal y={20} delay={0.2} className="contact-page__actions">
           <a href={`mailto:${socials.email}`} className="btn btn-primary">{t.contactPage.emailButton}</a>
           <a href={socials.resume} download className="btn btn-secondary">{t.contactPage.resumeButton}</a>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

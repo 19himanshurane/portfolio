@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import './Navbar.css';
 
@@ -17,8 +18,15 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="container navbar__inner">
-        <NavLink to="/" className="navbar__brand" onClick={() => setOpen(false)}>
-          Himanshu Rane
+        <NavLink to="/" className="navbar__brand-link" onClick={() => setOpen(false)}>
+          <motion.span
+            className="navbar__brand"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+          >
+            Himanshu Rane
+          </motion.span>
         </NavLink>
 
         <nav className={`navbar__links ${open ? 'is-open' : ''}`}>

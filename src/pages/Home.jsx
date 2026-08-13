@@ -1,41 +1,67 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { projects, socials } from '../data/content.js';
 import Avatar from '../components/Avatar.jsx';
 import ProjectCard from '../components/ProjectCard.jsx';
+import Reveal from '../components/Reveal.jsx';
 import './Home.css';
 
+const EASE = [0.4, 0, 0.2, 1];
+
+const heroContainer = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.08, delayChildren: 0.12 },
+  },
+};
+
+const heroItem = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
+};
+
 export default function Home() {
-  const { lang, t } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <>
       <section className="hero">
         <div className="container hero__grid">
-          <div className="hero__content">
+          <motion.div
+            className="hero__content"
+            variants={heroContainer}
+            initial="hidden"
+            animate="show"
+          >
             <span className="eyebrow">{t.hero.eyebrow}</span>
-            <h1>{t.hero.name}</h1>
-            <p className="hero__lead">{t.hero.p1}</p>
-            <p className="muted hero__sub">{t.hero.p2}</p>
+            <motion.h1 variants={heroItem}>{t.hero.name}</motion.h1>
+            <motion.p variants={heroItem} className="hero__lead">{t.hero.p1}</motion.p>
+            <motion.p variants={heroItem} className="muted hero__sub">{t.hero.p2}</motion.p>
 
-            <div className="hero__cta">
+            <motion.div variants={heroItem} className="hero__cta">
               <Link to="/projects" className="btn btn-primary">{t.hero.ctaPrimary}</Link>
               <Link to="/contact" className="btn btn-secondary">{t.hero.ctaSecondary}</Link>
-            </div>
+            </motion.div>
 
-            <div className="hero__links">
+            <motion.div variants={heroItem} className="hero__links">
               <a href={socials.github} target="_blank" rel="noreferrer">GitHub</a>
               <a href={socials.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-            </div>
+            </motion.div>
 
-            <div className="hero__tags">
+            <motion.div variants={heroItem} className="hero__tags">
               {t.hero.tags.map((tag) => (
                 <span key={tag} className="tag">{tag}</span>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="hero__card">
+          <motion.div
+            className="hero__card"
+            initial={{ opacity: 0, scale: 0.96, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
+          >
             <Avatar size="lg" />
             <div className="hero__card-meta">
               <span className="eyebrow">{t.hero.eyebrow}</span>
@@ -50,31 +76,35 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section className="about-preview">
         <div className="container about-preview__grid">
-          <Avatar size="md" />
-          <div>
+          <Reveal y={20}>
+            <Avatar size="md" />
+          </Reveal>
+          <Reveal y={20} delay={0.1}>
             <span className="section-label">{t.aboutPreview.label}</span>
             <p className="about-preview__intro">{t.aboutPreview.intro}</p>
             <p className="muted">{t.aboutPreview.body}</p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="focus">
         <div className="container">
-          <span className="section-label">{t.focus.label}</span>
-          <h2 className="focus__heading">{t.focus.heading}</h2>
+          <Reveal y={20}>
+            <span className="section-label">{t.focus.label}</span>
+            <h2 className="focus__heading">{t.focus.heading}</h2>
+          </Reveal>
           <div className="grid grid-3 focus__grid">
-            {t.focus.items.map((item) => (
-              <div key={item.title} className="card focus__item">
+            {t.focus.items.map((item, i) => (
+              <Reveal key={item.title} y={24} delay={i * 0.1} className="card focus__item">
                 <h3>{item.title}</h3>
                 <p className="muted">{item.desc}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -82,8 +112,10 @@ export default function Home() {
 
       <section className="flagship">
         <div className="container">
-          <span className="section-label">{t.flagship.label}</span>
-          <div className="flagship__card">
+          <Reveal y={20}>
+            <span className="section-label">{t.flagship.label}</span>
+          </Reveal>
+          <Reveal y={28} delay={0.1} className="flagship__card">
             <div className="flagship__body">
               <h2>{t.flagship.title}</h2>
               <p className="muted">{t.flagship.desc}</p>
@@ -92,37 +124,39 @@ export default function Home() {
                   <span key={tag} className="tag">{tag}</span>
                 ))}
               </div>
-              <Link to={`/projects#${projects[0].id}`} className="flagship__link">
-                {t.flagship.link} →
+              <Link to={`/projects#${projects[0].id}`} className="flagship__link arrow-link">
+                {t.flagship.link} <span className="arrow-icon">→</span>
               </Link>
             </div>
             <div className="flagship__status">{t.flagship.status}</div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="work">
         <div className="container">
           <div className="work__header">
-            <div>
+            <Reveal y={20}>
               <span className="section-label">{t.work.label}</span>
               <h2>{t.work.heading}</h2>
-            </div>
-            <Link to="/projects" className="work__viewall">{t.work.viewAll} →</Link>
+            </Reveal>
+            <Link to="/projects" className="work__viewall arrow-link">{t.work.viewAll} <span className="arrow-icon">→</span></Link>
           </div>
           <div className="grid grid-3">
-            {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+            {projects.map((project, i) => (
+              <ProjectCard key={project.id} project={project} index={i} />
             ))}
           </div>
         </div>
       </section>
 
       <section className="contact-cta">
-        <div className="container contact-cta__inner">
-          <h2>{t.contactCta.heading}</h2>
-          <p className="muted">{t.contactCta.sub}</p>
-          <Link to="/contact" className="btn btn-primary">{t.contactCta.button}</Link>
+        <div className="container">
+          <Reveal y={20} className="contact-cta__inner">
+            <h2>{t.contactCta.heading}</h2>
+            <p className="muted">{t.contactCta.sub}</p>
+            <Link to="/contact" className="btn btn-primary">{t.contactCta.button}</Link>
+          </Reveal>
         </div>
       </section>
     </>

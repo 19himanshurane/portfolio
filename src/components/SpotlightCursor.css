@@ -1,0 +1,22 @@
+.spotlight-cursor-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 25;
+  pointer-events: none;
+  --spot-x: 50%;
+  --spot-y: 50%;
+  background: radial-gradient(
+    circle 220px at var(--spot-x) var(--spot-y),
+    rgba(152, 171, 134, 0.14) 0%,
+    rgba(139, 163, 194, 0.06) 45%,
+    transparent 72%
+  );
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+}
+
+@media (max-width: 860px) {
+  .spotlight-cursor-layer {
+    display: none;
+  }
+}

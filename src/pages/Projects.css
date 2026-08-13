@@ -29,6 +29,12 @@
   border-radius: var(--radius-card);
   padding: 40px;
   scroll-margin-top: 100px;
+  transition: box-shadow 0.3s var(--ease-standard), border-color 0.3s var(--ease-standard);
+}
+
+.project-detail:hover {
+  border-color: var(--color-text-faint);
+  box-shadow: var(--shadow-soft);
 }
 
 .project-detail__icon {
