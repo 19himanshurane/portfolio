@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { socials } from '../data/content.js';
+import { asset } from '../utils/asset.js';
 import './Footer.css';
 
 export default function Footer() {
@@ -34,7 +35,7 @@ export default function Footer() {
             <li><a href={socials.github} target="_blank" rel="noreferrer">GitHub</a></li>
             <li><a href={socials.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>
             <li><a href={`mailto:${socials.email}`}>{socials.email}</a></li>
-            <li><a href={socials.resume} download>{t.footer.resume}</a></li>
+            <li><a href={asset(socials.resume)} download>{t.footer.resume}</a></li>
           </ul>
         </div>
 
