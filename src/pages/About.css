@@ -1,0 +1,171 @@
+.about-page {
+  padding-top: 64px;
+}
+
+.about-page__intro {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.about-page__intro h1 {
+  margin: 16px 0 24px;
+}
+
+.about-page__body {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  max-width: 620px;
+}
+
+.about-page__status {
+  margin-bottom: 80px;
+}
+
+.about-page__status p {
+  font-size: 15px;
+  margin-top: 8px;
+}
+
+.about-page__section {
+  margin-bottom: 80px;
+}
+
+.timeline {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.timeline__item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.timeline__item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.timeline__period {
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.timeline__org {
+  font-size: 14px;
+  margin: 4px 0 10px;
+}
+
+.timeline__detail {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.skills-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.skills-group h3 {
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.skills-group__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.about-page__split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+
+.cert-list,
+.lang-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cert-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 15px;
+}
+
+.cert-list li:last-child {
+  border-bottom: none;
+}
+
+.cert-list__meta {
+  font-size: 13px;
+}
+
+.lang-list li {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.lang-list li:last-child {
+  border-bottom: none;
+}
+
+.lang-list__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.lang-list__note {
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .about-page__intro {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-page__intro .avatar {
+    margin: 0 auto;
+  }
+
+  .about-page__body {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-page__split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .timeline__item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,375 @@
+export const socials = {
+  github: 'https://github.com/19himanshurane',
+  linkedin: 'https://linkedin.com/in/himanshu-rane',
+  email: 'himanshu.rane005@gmail.com',
+  phone: '+49 155 10826125',
+  resume: '/Resume.docx',
+};
+
+export const projects = [
+  {
+    id: 'meter-mate',
+    letter: 'M',
+    accent: 'sage',
+    org: 'Wilken Software Group × Hochschule Neu-Ulm',
+    period: '09/2024 – 12/2024',
+    tags: ['Python', 'LangChain', 'ChromaDB', 'LLaMA 3', 'RAG', 'Streamlit'],
+    category: { en: 'Signature · AI Systems', de: 'Signature · KI-Systeme' },
+    title: 'Meter Mate',
+    summary: {
+      en: 'An AI research agent that automatically collects, structures, and retrieves information from large operational document corpora.',
+      de: 'Ein KI-Recherche-Agent, der automatisch Informationen aus großen operativen Dokumentenbeständen sammelt, strukturiert und abruft.',
+    },
+    description: {
+      en: 'Project-lead role on an automated AI research system built with Python, LangChain, and ChromaDB, designed to surface the right information and the right contacts without manual search.',
+      de: 'Projektleitung für ein automatisiertes KI-Recherchesystem mit Python, LangChain und ChromaDB, das die richtigen Informationen und Ansprechpartner findet – ganz ohne manuelle Suche.',
+    },
+    highlights: {
+      en: [
+        'Built an AI agent pipeline using LLaMA 3 and RAG architecture to identify relevant information, extract key data points, and structure outputs for end users.',
+        'Cut manual research time from 5 minutes to 30 seconds per query — an 83% improvement.',
+        'Identified stakeholders and use cases through close client collaboration, shaping the system around real workflows.',
+        'Shipped a working Python + Streamlit prototype, iterated on user feedback, and delivered a production-ready system with documentation.',
+        'Led a 5-person cross-functional team and presented findings and prototype directly to management.',
+      ],
+      de: [
+        'KI-Agenten-Pipeline mit LLaMA 3 und RAG-Architektur entwickelt, um relevante Informationen zu identifizieren, Kerndaten zu extrahieren und Ergebnisse nutzerfreundlich aufzubereiten.',
+        'Recherchezeit pro Anfrage von 5 Minuten auf 30 Sekunden gesenkt – eine Verbesserung um 83 %.',
+        'Stakeholder und Anwendungsfälle in enger Zusammenarbeit mit dem Kunden identifiziert und das System an echten Arbeitsabläufen ausgerichtet.',
+        'Funktionierenden Prototyp mit Python und Streamlit gebaut, auf Basis von Nutzerfeedback iteriert und ein produktionsreifes System mit Dokumentation ausgeliefert.',
+        'Ein 5-köpfiges interdisziplinäres Team geleitet und Ergebnisse sowie Prototyp direkt dem Management präsentiert.',
+      ],
+    },
+    status: { en: 'Delivered · Production rollout', de: 'Abgeschlossen · Produktiv im Einsatz' },
+  },
+  {
+    id: 'classification-system',
+    letter: 'A',
+    accent: 'blue',
+    org: 'Jayawantrao Sawant College of Engineering · Pune, India',
+    period: '08/2023 – 04/2024',
+    tags: ['Machine Learning', 'Python', 'Data Collection', 'Research'],
+    category: { en: 'Research · Applied ML', de: 'Forschung · Angewandtes ML' },
+    title: 'Automated Classification System',
+    summary: {
+      en: 'Peer-reviewed machine learning system for automated classification, built end-to-end from data collection to structured output.',
+      de: 'Peer-reviewed Machine-Learning-System zur automatisierten Klassifikation, end-to-end von der Datensammlung bis zur strukturierten Ausgabe.',
+    },
+    description: {
+      en: 'Co-authored a peer-reviewed publication on automated classification using machine learning, working across data collection, model training, and evaluation.',
+      de: 'Ko-Autor einer Peer-Review-Publikation zur automatisierten Klassifikation mittels Machine Learning – von der Datensammlung über das Modelltraining bis zur Evaluation.',
+    },
+    highlights: {
+      en: [
+        'Trained and evaluated a classification model on 10,000+ data points, reaching 92% accuracy.',
+        'Built the full pipeline end-to-end: data collection, preprocessing, model training, and structured output generation.',
+        'Co-authored and published the peer-reviewed research paper.',
+      ],
+      de: [
+        'Klassifikationsmodell auf 10.000+ Datenpunkten trainiert und evaluiert – 92 % Genauigkeit erreicht.',
+        'Komplette Pipeline end-to-end gebaut: Datensammlung, Vorverarbeitung, Modelltraining und strukturierte Ausgabe.',
+        'Peer-Review-Forschungsarbeit als Ko-Autor verfasst und veröffentlicht.',
+      ],
+    },
+    status: { en: 'Published · Peer-reviewed', de: 'Veröffentlicht · Peer-reviewed' },
+  },
+  {
+    id: 'bitflyer-automation',
+    letter: 'B',
+    accent: 'clay',
+    org: 'BitFlyer Technologies · Pune, India',
+    period: '02/2024 – 07/2024',
+    tags: ['Python', 'REST APIs', 'Power BI', 'Data Analysis'],
+    category: { en: 'Full-Stack Data · Process Automation', de: 'Full-Stack-Daten · Prozessautomatisierung' },
+    title: 'BitFlyer Automation & Analytics',
+    summary: {
+      en: 'Automated data pipelines and Power BI dashboards that gave Sales and Operations independent, real-time visibility into KPIs.',
+      de: 'Automatisierte Datenpipelines und Power-BI-Dashboards, die Sales und Operations unabhängige Echtzeit-Einblicke in KPIs verschafften.',
+    },
+    description: {
+      en: 'Business Analyst internship focused on automation and data analysis, working directly with management on process improvement.',
+      de: 'Praktikum als Business Analyst mit Fokus auf Automatisierung und Datenanalyse, in direkter Zusammenarbeit mit dem Management an Prozessverbesserungen.',
+    },
+    highlights: {
+      en: [
+        'Built automated data collection and processing pipelines with Python and REST APIs, eliminating 8+ hours of manual work per week.',
+        'Analysed 47,000+ records to surface patterns and actionable insights for management decision-making.',
+        'Developed Power BI dashboards that let Sales and Operations track KPIs independently, cutting the reporting cycle from 5 hours to 2 hours (60% faster).',
+        'Contributed analysis and recommendations that shaped quarterly sales strategy.',
+      ],
+      de: [
+        'Automatisierte Datenerfassungs- und Verarbeitungspipelines mit Python und REST APIs gebaut – 8+ Stunden manuelle Arbeit pro Woche eingespart.',
+        '47.000+ Datensätze analysiert, um Muster und handlungsrelevante Erkenntnisse für Managemententscheidungen aufzuzeigen.',
+        'Power-BI-Dashboards entwickelt, mit denen Sales und Operations KPIs eigenständig verfolgen konnten – Reporting-Zyklus von 5 auf 2 Stunden verkürzt (60 % schneller).',
+        'Analysen und Empfehlungen beigesteuert, die die Quartals-Vertriebsstrategie mitgeprägt haben.',
+      ],
+    },
+    status: { en: 'Completed internship', de: 'Praktikum abgeschlossen' },
+  },
+];
+
+export const education = [
+  {
+    degree: { en: 'M.Sc. Artificial Intelligence and Data Analytics', de: 'M.Sc. Artificial Intelligence and Data Analytics' },
+    org: 'Hochschule Neu-Ulm (HNU) · Germany',
+    period: '10/2024 – Present',
+    detail: {
+      en: 'Coursework: Big Data & AI, Deep Learning, Advanced NLP, Machine Learning, Data Platform Architectures, Digital Process Management, Business Intelligence.',
+      de: 'Schwerpunkte: Big Data & KI, Deep Learning, Advanced NLP, Machine Learning, Data Platform Architectures, Digital Process Management, Business Intelligence.',
+    },
+  },
+  {
+    degree: { en: 'B.E. Electronics and Telecommunication Engineering', de: 'B.E. Electronics and Telecommunication Engineering' },
+    org: 'Jayawantrao Sawant College of Engineering · Pune, India',
+    period: '08/2020 – 06/2024',
+    detail: {
+      en: 'GPA: 1.6 (German grading scale).',
+      de: 'Notendurchschnitt: 1,6 (deutsches Notensystem).',
+    },
+  },
+];
+
+export const certifications = [
+  { name: 'IBM Python for Data Science, AI and Development', issuer: 'Coursera', year: '2025' },
+  { name: 'IBM Data Visualization and Dashboards with Excel and Cognos', issuer: 'Coursera', year: '2025' },
+  { name: 'Excel Essentials for Data Analytics', issuer: 'Coursera', year: '2025' },
+  { name: 'Deloitte Australia Data Analytics Job Simulation', issuer: 'Forage', year: '2025' },
+  { name: 'Goethe-Zertifikat A1: Start Deutsch 1', issuer: 'Goethe-Institut', year: '2025' },
+];
+
+export const languages = [
+  { name: { en: 'English', de: 'Englisch' }, level: 'C1', note: { en: 'Professional Working Proficiency (CEFR)', de: 'Verhandlungssicher (CEFR)' } },
+  { name: { en: 'German', de: 'Deutsch' }, level: 'A2', note: { en: 'Goethe-Zertifikat A1 certified 2025, actively improving toward B1', de: 'Goethe-Zertifikat A1 (2025), aktiv auf dem Weg zu B1' } },
+];
+
+export const skillGroups = [
+  {
+    heading: { en: 'AI & Machine Learning', de: 'KI & Machine Learning' },
+    items: ['AI Agents', 'Agentic AI', 'RAG', 'LangChain', 'ChromaDB', 'Prompt Engineering', 'LLMs', 'NLP', 'Generative AI'],
+  },
+  {
+    heading: { en: 'Data & Engineering', de: 'Daten & Engineering' },
+    items: ['Python', 'SQL', 'pandas', 'FastAPI', 'REST APIs', 'Streamlit', 'Git'],
+  },
+  {
+    heading: { en: 'Analytics & Tools', de: 'Analytics & Tools' },
+    items: ['Power BI', 'Data Visualization', 'Data Structuring', 'Web Data Collection', 'Jira', 'Microsoft 365', 'Agile', 'Scrum'],
+  },
+];
+
+export const content = {
+  en: {
+    nav: { home: 'Home', projects: 'Projects', about: 'About', contact: 'Contact' },
+    hero: {
+      eyebrow: 'Open to working student roles & internships',
+      name: 'Himanshu Rane',
+      p1: "I'm a Master's student in AI & Data Analytics at Hochschule Neu-Ulm, building AI agents and retrieval systems that turn scattered documents into fast, reliable answers.",
+      p2: 'I care about systems that stay explainable when the data gets messy, and about shipping working prototypes fast — from the first stakeholder conversation to production rollout.',
+      ctaPrimary: 'View Projects',
+      ctaSecondary: 'Get in Touch',
+      location: 'Neu-Ulm, Germany',
+      degree: 'M.Sc. AI & Data Analytics',
+      stats: [
+        { value: '3', label: 'Projects' },
+        { value: '2+', label: 'Years Practice' },
+        { value: '1', label: 'Publication' },
+      ],
+      tags: ['AI Agents', 'RAG', 'LangChain', 'FastAPI', 'NLP', 'Process Automation'],
+    },
+    aboutPreview: {
+      label: 'About Me',
+      intro: "What drives me is simple: understand the problem before writing a line of code, ship something that actually works, and keep learning past the point where it's comfortable.",
+      body: "I'm a Master's student in AI & Data Analytics at Hochschule Neu-Ulm (HNU), based in Neu-Ulm, Germany. I build AI agents and retrieval systems that stay useful once real, messy data hits them — and I like working close enough to stakeholders to know the system is solving the right problem.",
+    },
+    focus: {
+      label: 'Focus',
+      heading: 'Turning messy data into systems people can trust',
+      items: [
+        {
+          title: 'AI Agents & RAG',
+          desc: 'End-to-end retrieval pipelines that turn raw documents into structured, trustworthy answers — LangChain, ChromaDB, and LLMs where they actually help.',
+        },
+        {
+          title: 'Data Engineering & Automation',
+          desc: 'Pipelines and dashboards that keep data traceable and reusable, replacing manual research with something a team can rely on.',
+        },
+        {
+          title: 'Business Impact',
+          desc: 'Connecting models and metrics to what teams actually feel: hours saved, faster decisions, less manual work.',
+        },
+      ],
+    },
+    flagship: {
+      label: 'Flagship Project',
+      title: 'Meter Mate',
+      desc: 'An AI research agent that automatically collects, structures, and retrieves information from large operational document corpora — cutting research time per query from 5 minutes to 30 seconds (83% faster). Built with a 5-person cross-functional team for Wilken Software Group and HNU.',
+      tags: ['Python', 'LangChain', 'ChromaDB', 'LLaMA 3', 'RAG', 'Streamlit'],
+      link: 'Read the full story',
+      status: 'Delivered · Production rollout',
+    },
+    work: {
+      label: 'Selected Work',
+      heading: 'Recent Projects',
+      viewAll: 'View All',
+      details: 'Details',
+    },
+    contactCta: {
+      heading: "Let's build something that works",
+      sub: 'Open for working student positions, internships, and practical semesters in AI, Data Engineering, and Software Development.',
+      button: 'Get in Touch',
+    },
+    footer: {
+      tagline: 'Built with intent, shipped with care.',
+      navHeading: 'Navigation',
+      elsewhereHeading: 'Elsewhere',
+      statusHeading: 'Status',
+      resume: 'Download CV',
+      roles: 'Working Student · Internship · Practical Semester',
+      country: 'Germany',
+      copyright: '© 2026 Himanshu Rane',
+      bottomLine: 'Practical AI, built to hold up under real data.',
+      backToTop: 'Back to top',
+    },
+    projectsPage: {
+      eyebrow: 'Projects',
+      heading: 'Work that turns into results',
+      sub: "A closer look at the systems I've built — from a production AI research agent to automation pipelines that saved real hours.",
+      highlightsLabel: 'Highlights',
+    },
+    aboutPage: {
+      eyebrow: 'About',
+      heading: 'A bit more about how I work',
+      body1: "I'm Himanshu Rane, a Master's student in AI & Data Analytics at Hochschule Neu-Ulm (HNU), currently applying my studies to an internship in AI in Sales with the goal of continuing into a thesis from October 2026.",
+      body2: "I've spent the last two years building AI agents, retrieval systems, and automated data pipelines — always starting from the actual stakeholders and use cases rather than the technology. My favourite part of a project is turning a vague, manual process into something structured, fast, and something a team can trust without double-checking it.",
+      body3: "Outside of coursework and projects, I'm working on my German (currently A2, aiming for B1) and staying comfortable moving between hands-on engineering and the business conversations that decide whether a system actually gets used.",
+      educationHeading: 'Education',
+      skillsHeading: 'Technical Skills',
+      certificationsHeading: 'Certifications',
+      languagesHeading: 'Languages',
+      statusHeading: 'Availability',
+      statusBody: 'Available Spring 2026, full-time. Valid German student residence permit. Open to relocation.',
+    },
+    contactPage: {
+      eyebrow: 'Contact',
+      heading: "Let's talk",
+      sub: "Open for working student positions, internships, and practical semesters in AI, Data Engineering, and Software Development. I usually reply within a day or two.",
+      emailLabel: 'Email',
+      phoneLabel: 'Phone',
+      linkedinLabel: 'LinkedIn',
+      githubLabel: 'GitHub',
+      locationLabel: 'Location',
+      locationValue: 'Neu-Ulm, Germany (open to relocating to Melle)',
+      availabilityLabel: 'Availability',
+      availabilityValue: 'Spring 2026 · Full-time',
+      emailButton: 'Send an Email',
+      resumeButton: 'Download CV',
+    },
+  },
+  de: {
+    nav: { home: 'Start', projects: 'Projekte', about: 'Über mich', contact: 'Kontakt' },
+    hero: {
+      eyebrow: 'Offen für Werkstudententätigkeiten und Praktika',
+      name: 'Himanshu Rane',
+      p1: 'Ich bin Masterstudent für KI & Data Analytics an der Hochschule Neu-Ulm und baue KI-Agenten sowie Retrieval-Systeme, die aus verstreuten Dokumenten schnelle, verlässliche Antworten machen.',
+      p2: 'Mir sind Systeme wichtig, die auch bei unruhigen Daten nachvollziehbar bleiben, und Prototypen, die schnell entstehen – vom ersten Gespräch mit Stakeholdern bis zum produktiven Rollout.',
+      ctaPrimary: 'Zu den Projekten',
+      ctaSecondary: 'Kontakt aufnehmen',
+      location: 'Neu-Ulm, Deutschland',
+      degree: 'M.Sc. AI & Data Analytics',
+      stats: [
+        { value: '3', label: 'Projekte' },
+        { value: '2+', label: 'Jahre Praxis' },
+        { value: '1', label: 'Publikation' },
+      ],
+      tags: ['AI Agents', 'RAG', 'LangChain', 'FastAPI', 'NLP', 'Prozessautomatisierung'],
+    },
+    aboutPreview: {
+      label: 'Über mich',
+      intro: 'Mich treibt etwas Einfaches an: das Problem verstehen, bevor ich eine Zeile Code schreibe, etwas bauen, das wirklich funktioniert, und weiterlernen, auch wenn es unbequem wird.',
+      body: 'Ich bin Masterstudent für KI & Data Analytics an der Hochschule Neu-Ulm (HNU) mit Sitz in Neu-Ulm, Deutschland. Ich baue KI-Agenten und Retrieval-Systeme, die auch bei echten, unruhigen Daten nützlich bleiben – und arbeite gerne nah genug an Stakeholdern, um sicherzugehen, dass das System das richtige Problem löst.',
+    },
+    focus: {
+      label: 'Schwerpunkte',
+      heading: 'Aus unruhigen Daten Systeme machen, denen man vertraut',
+      items: [
+        {
+          title: 'KI-Agenten & RAG',
+          desc: 'End-to-End-Retrieval-Pipelines, die aus Rohdokumenten strukturierte, verlässliche Antworten machen – LangChain, ChromaDB und LLMs dort, wo sie wirklich helfen.',
+        },
+        {
+          title: 'Data Engineering & Automatisierung',
+          desc: 'Pipelines und Dashboards, die Daten nachvollziehbar und wiederverwendbar halten – statt manueller Recherche, auf die sich ein Team verlassen kann.',
+        },
+        {
+          title: 'Wirkung im Unternehmen',
+          desc: 'Modelle und Kennzahlen mit dem verbinden, was Teams wirklich spüren: gesparte Stunden, schnellere Entscheidungen, weniger manuelle Arbeit.',
+        },
+      ],
+    },
+    flagship: {
+      label: 'Vorzeigeprojekt',
+      title: 'Meter Mate',
+      desc: 'Ein KI-Recherche-Agent, der automatisch Informationen aus großen operativen Dokumentenbeständen sammelt, strukturiert und abruft – und die Recherchezeit pro Anfrage von 5 Minuten auf 30 Sekunden senkt (83 % schneller). Entwickelt mit einem 5-köpfigen interdisziplinären Team für die Wilken Software Group und die HNU.',
+      tags: ['Python', 'LangChain', 'ChromaDB', 'LLaMA 3', 'RAG', 'Streamlit'],
+      link: 'Die ganze Geschichte lesen',
+      status: 'Abgeschlossen · Produktiv im Einsatz',
+    },
+    work: {
+      label: 'Ausgewählte Arbeit',
+      heading: 'Aktuelle Projekte',
+      viewAll: 'Alle ansehen',
+      details: 'Details',
+    },
+    contactCta: {
+      heading: 'Lass uns etwas bauen, das funktioniert',
+      sub: 'Offen für Werkstudententätigkeiten, Praktika und Praxissemester in KI, Data Engineering und Softwareentwicklung.',
+      button: 'Kontakt aufnehmen',
+    },
+    footer: {
+      tagline: 'Mit Bedacht gebaut, sorgfältig umgesetzt.',
+      navHeading: 'Navigation',
+      elsewhereHeading: 'Anderswo',
+      statusHeading: 'Status',
+      resume: 'Lebenslauf laden',
+      roles: 'Werkstudent · Praktikum · Praxissemester',
+      country: 'Deutschland',
+      copyright: '© 2026 Himanshu Rane',
+      bottomLine: 'Praktische KI, gebaut, um echten Daten standzuhalten.',
+      backToTop: 'Nach oben',
+    },
+    projectsPage: {
+      eyebrow: 'Projekte',
+      heading: 'Arbeit, die zu Ergebnissen wird',
+      sub: 'Ein genauerer Blick auf die Systeme, die ich gebaut habe – von einem produktiven KI-Recherche-Agenten bis zu Automatisierungspipelines, die echte Stunden gespart haben.',
+      highlightsLabel: 'Highlights',
+    },
+    aboutPage: {
+      eyebrow: 'Über mich',
+      heading: 'Etwas mehr darüber, wie ich arbeite',
+      body1: 'Ich bin Himanshu Rane, Masterstudent für KI & Data Analytics an der Hochschule Neu-Ulm (HNU) und bewerbe mich aktuell für ein Praktikum im Bereich AI in Sales, mit dem Ziel, ab Oktober 2026 in eine Abschlussarbeit überzugehen.',
+      body2: 'In den letzten zwei Jahren habe ich KI-Agenten, Retrieval-Systeme und automatisierte Datenpipelines gebaut – immer ausgehend von den tatsächlichen Stakeholdern und Anwendungsfällen, nicht von der Technologie. Am liebsten mache ich aus einem vagen, manuellen Prozess etwas Strukturiertes und Schnelles, dem ein Team vertrauen kann, ohne es zweimal zu prüfen.',
+      body3: 'Neben Studium und Projekten arbeite ich an meinem Deutsch (aktuell A2, Ziel B1) und bewege mich gerne zwischen praktischer Entwicklungsarbeit und den geschäftlichen Gesprächen, die darüber entscheiden, ob ein System am Ende wirklich genutzt wird.',
+      educationHeading: 'Ausbildung',
+      skillsHeading: 'Technische Fähigkeiten',
+      certificationsHeading: 'Zertifizierungen',
+      languagesHeading: 'Sprachen',
+      statusHeading: 'Verfügbarkeit',
+      statusBody: 'Verfügbar ab Frühjahr 2026, Vollzeit. Gültiger deutscher Aufenthaltstitel als Student. Offen für Umzug.',
+    },
+    contactPage: {
+      eyebrow: 'Kontakt',
+      heading: 'Lass uns sprechen',
+      sub: 'Offen für Werkstudententätigkeiten, Praktika und Praxissemester in KI, Data Engineering und Softwareentwicklung. Ich antworte meist innerhalb von ein bis zwei Tagen.',
+      emailLabel: 'E-Mail',
+      phoneLabel: 'Telefon',
+      linkedinLabel: 'LinkedIn',
+      githubLabel: 'GitHub',
+      locationLabel: 'Standort',
+      locationValue: 'Neu-Ulm, Deutschland (offen für Umzug nach Melle)',
+      availabilityLabel: 'Verfügbarkeit',
+      availabilityValue: 'Frühjahr 2026 · Vollzeit',
+      emailButton: 'E-Mail senden',
+      resumeButton: 'Lebenslauf laden',
+    },
+  },
+};
