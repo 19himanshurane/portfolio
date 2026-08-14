@@ -68,7 +68,8 @@ export default function Navbar() {
             <button
               type="button"
               className="navbar__burger"
-              aria-label="Open menu"
+              aria-label={open ? 'Close menu' : 'Open menu'}
+              aria-expanded={open}
               onClick={() => setOpen((o) => !o)}
             >
               <span />
