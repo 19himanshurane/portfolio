@@ -6,6 +6,12 @@
   box-shadow: 0 28px 90px -20px rgba(28, 28, 28, 0.22), 0 0 0 1px rgba(215, 219, 224, 0.8);
   background: var(--color-surface);
   flex-shrink: 0;
+  cursor: pointer;
+  transition: box-shadow 0.4s var(--ease-standard);
+}
+
+.avatar:hover {
+  box-shadow: 0 40px 110px -20px rgba(20, 22, 26, 0.32), 0 0 0 1px rgba(215, 219, 224, 0.9);
 }
 
 .avatar img {

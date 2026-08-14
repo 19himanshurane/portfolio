@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import ScrollManager from './components/ScrollManager.jsx';
+import SmoothScroll from './components/SmoothScroll.jsx';
 import SpotlightCursor from './components/SpotlightCursor.jsx';
 import BackgroundBlobs from './components/BackgroundBlobs.jsx';
 import ScrollProgress from './components/ScrollProgress.jsx';
@@ -18,6 +19,7 @@ export default function App() {
 
   return (
     <>
+      <SmoothScroll />
       <ScrollManager />
       <ScrollProgress />
       <BackgroundBlobs />

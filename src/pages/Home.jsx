@@ -151,7 +151,7 @@ export default function Home() {
                   <span key={tag} className="tag">{tag}</span>
                 ))}
               </div>
-              <Link to={`/projects#${projects[0].id}`} className="flagship__link arrow-link">
+              <Link to="/projects#meter-mate" className="flagship__link arrow-link">
                 {t.flagship.link} <span className="arrow-icon">→</span>
               </Link>
             </div>
