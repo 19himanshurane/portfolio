@@ -49,6 +49,10 @@
   background: linear-gradient(150deg, rgba(193, 154, 122, 0.4), rgba(193, 154, 122, 0.1));
 }
 
+.accent-gold {
+  background: linear-gradient(150deg, rgba(207, 169, 97, 0.4), rgba(207, 169, 97, 0.1));
+}
+
 .project-card__category {
   font-family: var(--font-mono);
   font-size: 11px;

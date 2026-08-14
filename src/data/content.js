@@ -8,6 +8,45 @@ export const socials = {
 
 export const projects = [
   {
+    id: 'llm-cost-autopilot',
+    letter: 'L',
+    accent: 'gold',
+    org: 'Personal project',
+    period: '2026',
+    tags: ['Python', 'FastAPI', 'scikit-learn', 'Streamlit', 'Docker', 'Groq'],
+    category: { en: 'Signature · AI Systems', de: 'Signature · KI-Systeme' },
+    title: 'LLM Cost Autopilot',
+    summary: {
+      en: 'A routing layer that sends every LLM request to the cheapest model that can actually handle it, and checks its own decisions in the background.',
+      de: 'Eine Routing-Schicht, die jede LLM-Anfrage an das günstigste Modell schickt, das sie tatsächlich bewältigen kann – und ihre eigenen Entscheidungen im Hintergrund überprüft.',
+    },
+    description: {
+      en: 'Most teams send every LLM request to the same, usually most expensive, model — a one-line extraction and a genuinely hard reasoning task alike. LLM Cost Autopilot scores each request for complexity, routes it to the cheapest model that can handle it, and continuously verifies its own routing decisions in the background, auto-escalating and retraining when it gets one wrong.',
+      de: 'Die meisten Teams schicken jede LLM-Anfrage an dasselbe, meist teuerste Modell – egal ob simple Extraktion oder echtes Reasoning. LLM Cost Autopilot bewertet jede Anfrage nach Komplexität, leitet sie an das günstigste passende Modell weiter und überprüft seine eigenen Routing-Entscheidungen laufend im Hintergrund – mit automatischer Eskalation und Nachtraining bei Fehlern.',
+    },
+    highlights: {
+      en: [
+        'Built a scikit-learn complexity classifier that scores prompts into 3 tiers using lightweight text features, at 86% accuracy on held-out data.',
+        'Router maps each tier to a model via a hot-reloadable config — routing changes take effect through the API with no redeploy.',
+        'Async verifier re-runs requests through a reference model in the background, comparing answers and auto-escalating on disagreement.',
+        'Escalated mismatches feed back into the training set, closing the loop for the next classifier retrain.',
+        'Shipped a live Streamlit cost dashboard (actual vs. baseline spend, routing distribution, escalation rate) reading live from a FastAPI backend, containerized with Docker and covered by CI.',
+      ],
+      de: [
+        'Scikit-learn-Klassifikator gebaut, der Prompts anhand leichtgewichtiger Textmerkmale in 3 Komplexitätsstufen einteilt – 86 % Genauigkeit auf Testdaten.',
+        'Router leitet jede Stufe über eine per API live nachladbare Konfiguration an ein Modell weiter – Routing-Änderungen wirken ohne Neudeployment.',
+        'Asynchroner Verifier führt Anfragen im Hintergrund erneut über ein Referenzmodell aus, vergleicht Antworten und eskaliert automatisch bei Abweichungen.',
+        'Eskalierte Fehlfälle fließen zurück ins Trainingsset für das nächste Nachtraining des Klassifikators.',
+        'Live-Streamlit-Kostendashboard (echte vs. Baseline-Kosten, Routing-Verteilung, Eskalationsrate) mit FastAPI-Backend, containerisiert mit Docker und mit CI abgesichert.',
+      ],
+    },
+    status: { en: 'Live · Actively maintained', de: 'Live · Aktiv gepflegt' },
+    links: {
+      github: 'https://github.com/19himanshurane/llm-cost-autopilot',
+      demo: 'https://llm-cost-autopilot-zgdswdlh66xbgjjj6hdal3.streamlit.app/',
+    },
+  },
+  {
     id: 'meter-mate',
     letter: 'M',
     accent: 'sage',
@@ -170,7 +209,7 @@ export const content = {
       location: 'Neu-Ulm, Germany',
       degree: 'M.Sc. AI & Data Analytics',
       stats: [
-        { value: '3', label: 'Projects' },
+        { value: '4', label: 'Projects' },
         { value: '2+', label: 'Years Practice' },
         { value: '1', label: 'Publication' },
       ],
@@ -235,6 +274,8 @@ export const content = {
       heading: 'Work that turns into results',
       sub: "A closer look at the systems I've built — from a production AI research agent to automation pipelines that saved real hours.",
       highlightsLabel: 'Highlights',
+      viewDemo: 'Live Demo',
+      viewCode: 'View Code',
     },
     aboutPage: {
       eyebrow: 'About',
@@ -294,7 +335,7 @@ export const content = {
       location: 'Neu-Ulm, Deutschland',
       degree: 'M.Sc. AI & Data Analytics',
       stats: [
-        { value: '3', label: 'Projekte' },
+        { value: '4', label: 'Projekte' },
         { value: '2+', label: 'Jahre Praxis' },
         { value: '1', label: 'Publikation' },
       ],
@@ -359,6 +400,8 @@ export const content = {
       heading: 'Arbeit, die zu Ergebnissen wird',
       sub: 'Ein genauerer Blick auf die Systeme, die ich gebaut habe – von einem produktiven KI-Recherche-Agenten bis zu Automatisierungspipelines, die echte Stunden gespart haben.',
       highlightsLabel: 'Highlights',
+      viewDemo: 'Live-Demo',
+      viewCode: 'Code ansehen',
     },
     aboutPage: {
       eyebrow: 'Über mich',

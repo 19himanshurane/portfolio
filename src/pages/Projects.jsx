@@ -1,6 +1,7 @@
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { projects } from '../data/content.js';
 import Reveal from '../components/Reveal.jsx';
+import { GithubIcon, ArrowUpRightIcon } from '../components/icons/ContactIcons.jsx';
 import './Projects.css';
 
 export default function Projects() {
@@ -52,7 +53,23 @@ export default function Projects() {
                   </ul>
                 </div>
 
-                <span className="project-detail__status">{project.status[lang]}</span>
+                <div className="project-detail__footer">
+                  <span className="project-detail__status">{project.status[lang]}</span>
+                  {project.links && (
+                    <div className="project-detail__links">
+                      {project.links.demo && (
+                        <a href={project.links.demo} target="_blank" rel="noreferrer" className="btn btn-secondary btn-sm">
+                          {t.projectsPage.viewDemo} <ArrowUpRightIcon className="icon-sm" />
+                        </a>
+                      )}
+                      {project.links.github && (
+                        <a href={project.links.github} target="_blank" rel="noreferrer" className="btn btn-ghost btn-sm">
+                          <GithubIcon className="icon-sm" /> {t.projectsPage.viewCode}
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
             </Reveal>
           ))}
