@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="container footer__grid">
         <div className="footer__brand">
           <Link to="/" className="footer__name">
-            Himanshu Rane
+            Himanshu.com
           </Link>
           <p className="muted">{t.footer.tagline}</p>
         </div>
