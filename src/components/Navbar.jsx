@@ -18,7 +18,7 @@ export default function Navbar() {
 
   return (
     <header className="navbar">
-      <div className="container navbar__inner">
+      <div className="navbar__inner">
         <NavLink to="/" className="navbar__brand-link" onClick={() => setOpen(false)}>
           <motion.span
             className="navbar__brand"

@@ -15,6 +15,13 @@
   align-items: center;
   justify-content: space-between;
   height: 76px;
+  padding: 0 32px;
+}
+
+@media (max-width: 640px) {
+  .navbar__inner {
+    padding: 0 20px;
+  }
 }
 
 .navbar__brand {
