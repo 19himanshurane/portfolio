@@ -198,7 +198,7 @@ export const skillGroups = [
 
 export const content = {
   en: {
-    nav: { home: 'Home', projects: 'Projects', about: 'About', blog: 'Blog', contact: 'Contact' },
+    nav: { home: 'Home', projects: 'Work', about: 'About', blog: 'Blog', contact: 'Contact' },
     hero: {
       eyebrow: 'Open to working student roles & internships',
       name: 'Himanshu Rane',
