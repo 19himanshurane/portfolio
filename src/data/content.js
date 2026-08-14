@@ -321,6 +321,8 @@ export const content = {
       emptyTitle: 'First post is on the way',
       emptyBody: "I'm still writing. Check back soon, or follow along on LinkedIn in the meantime.",
       emptyCta: 'Follow on LinkedIn',
+      readMore: 'Read the post',
+      backToBlog: '← Back to Blog',
     },
   },
   de: {
@@ -447,6 +449,8 @@ export const content = {
       emptyTitle: 'Der erste Beitrag ist unterwegs',
       emptyBody: 'Ich schreibe noch. Schau bald wieder vorbei oder folge mir in der Zwischenzeit auf LinkedIn.',
       emptyCta: 'Auf LinkedIn folgen',
+      readMore: 'Beitrag lesen',
+      backToBlog: '← Zurück zum Blog',
     },
   },
 };

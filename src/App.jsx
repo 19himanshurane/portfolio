@@ -10,6 +10,7 @@ import Home from './pages/Home.jsx';
 import Projects from './pages/Projects.jsx';
 import About from './pages/About.jsx';
 import Blog from './pages/Blog.jsx';
+import BlogPost from './pages/BlogPost.jsx';
 import Contact from './pages/Contact.jsx';
 
 export default function App() {
@@ -36,6 +37,7 @@ export default function App() {
               <Route path="/projects" element={<Projects />} />
               <Route path="/about" element={<About />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
           </motion.div>
