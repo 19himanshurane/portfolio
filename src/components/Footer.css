@@ -36,9 +36,19 @@
 }
 
 .footer__col a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 14px;
   color: var(--color-text-muted);
   transition: color 0.2s ease;
+}
+
+.footer__icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  opacity: 0.8;
 }
 
 .footer__col a:hover {

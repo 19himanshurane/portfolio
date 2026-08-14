@@ -323,6 +323,7 @@ export const content = {
       emptyCta: 'Follow on LinkedIn',
       readMore: 'Read the post',
       backToBlog: '← Back to Blog',
+      reactPrompt: 'Did this land for you?',
     },
   },
   de: {
@@ -451,6 +452,7 @@ export const content = {
       emptyCta: 'Auf LinkedIn folgen',
       readMore: 'Beitrag lesen',
       backToBlog: '← Zurück zum Blog',
+      reactPrompt: 'Hat dich das erreicht?',
     },
   },
 };

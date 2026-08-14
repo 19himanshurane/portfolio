@@ -85,8 +85,12 @@
   border-radius: var(--radius-pill);
 }
 
+.blog-post__reactions {
+  margin-top: 56px;
+}
+
 .blog-post__footer {
-  margin-top: 64px;
+  margin-top: 40px;
   padding-top: 32px;
   border-top: 1px solid var(--color-border);
 }

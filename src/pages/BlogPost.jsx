@@ -3,6 +3,7 @@ import { useLanguage } from '../context/LanguageContext.jsx';
 import { blogPosts } from '../data/blogPosts.js';
 import Reveal from '../components/Reveal.jsx';
 import CostAutopilotArt from '../components/illustrations/CostAutopilotArt.jsx';
+import Reactions from '../components/Reactions.jsx';
 import './BlogPost.css';
 
 const artBySlug = {
@@ -58,6 +59,10 @@ export default function BlogPost() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal y={20} delay={0.1} className="blog-post__reactions">
+          <Reactions slug={post.slug} />
+        </Reveal>
 
         <Reveal y={20} className="blog-post__footer">
           <Link to="/blog" className="btn btn-secondary">{t.blogPage.backToBlog}</Link>

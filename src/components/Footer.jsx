@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { socials } from '../data/content.js';
 import { asset } from '../utils/asset.js';
+import { GithubIcon, LinkedinIcon, MailIcon, FileDownIcon } from './icons/ContactIcons.jsx';
 import './Footer.css';
 
 export default function Footer() {
@@ -32,11 +33,11 @@ export default function Footer() {
 
         <div className="footer__col">
           <span className="section-label">{t.footer.elsewhereHeading}</span>
-          <ul>
-            <li><a href={socials.github} target="_blank" rel="noreferrer">GitHub</a></li>
-            <li><a href={socials.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>
-            <li><a href={`mailto:${socials.email}`}>{socials.email}</a></li>
-            <li><a href={asset(socials.resume)} download>{t.footer.resume}</a></li>
+          <ul className="footer__icon-list">
+            <li><a href={socials.github} target="_blank" rel="noreferrer"><GithubIcon className="footer__icon" /> GitHub</a></li>
+            <li><a href={socials.linkedin} target="_blank" rel="noreferrer"><LinkedinIcon className="footer__icon" /> LinkedIn</a></li>
+            <li><a href={`mailto:${socials.email}`}><MailIcon className="footer__icon" /> {socials.email}</a></li>
+            <li><a href={asset(socials.resume)} download><FileDownIcon className="footer__icon" /> {t.footer.resume}</a></li>
           </ul>
         </div>
 
