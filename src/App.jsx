@@ -4,6 +4,8 @@ import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import ScrollManager from './components/ScrollManager.jsx';
 import SpotlightCursor from './components/SpotlightCursor.jsx';
+import BackgroundBlobs from './components/BackgroundBlobs.jsx';
+import ScrollProgress from './components/ScrollProgress.jsx';
 import Home from './pages/Home.jsx';
 import Projects from './pages/Projects.jsx';
 import About from './pages/About.jsx';
@@ -15,6 +17,8 @@ export default function App() {
   return (
     <>
       <ScrollManager />
+      <ScrollProgress />
+      <BackgroundBlobs />
       <SpotlightCursor />
       <Navbar />
       <main>

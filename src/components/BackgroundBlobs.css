@@ -1,0 +1,43 @@
+.bg-blobs {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+}
+
+.bg-blob--sage {
+  width: 480px;
+  height: 480px;
+  top: -140px;
+  left: -120px;
+  background: radial-gradient(circle, rgba(152, 171, 134, 0.55), transparent 70%);
+}
+
+.bg-blob--blue {
+  width: 420px;
+  height: 420px;
+  top: 8%;
+  right: -160px;
+  background: radial-gradient(circle, rgba(139, 163, 194, 0.5), transparent 70%);
+}
+
+.bg-blob--clay {
+  width: 380px;
+  height: 380px;
+  bottom: -120px;
+  left: 22%;
+  background: radial-gradient(circle, rgba(193, 154, 122, 0.4), transparent 70%);
+}
+
+@media (max-width: 860px) {
+  .bg-blobs {
+    display: none;
+  }
+}

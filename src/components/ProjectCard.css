@@ -2,15 +2,17 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: rgba(255, 255, 255, 0.4);
-  border: 1px solid var(--color-border);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 45%), rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
   border-radius: var(--radius-card);
   padding: 32px;
   transition: box-shadow 0.3s var(--ease-standard), border-color 0.3s var(--ease-standard);
 }
 
 .project-card:hover {
-  border-color: var(--color-text-faint);
+  border-color: rgba(255, 255, 255, 0.8);
   box-shadow: var(--shadow-soft);
 }
 
