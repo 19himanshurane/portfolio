@@ -45,20 +45,23 @@ export default function Navbar() {
 
         <div className="navbar__actions">
           <div className="lang-toggle" role="group" aria-label="Language">
-            <button
-              type="button"
-              className={lang === 'en' ? 'is-active' : ''}
-              onClick={() => setLang('en')}
-            >
-              EN
-            </button>
-            <button
-              type="button"
-              className={lang === 'de' ? 'is-active' : ''}
-              onClick={() => setLang('de')}
-            >
-              DE
-            </button>
+            {['en', 'de'].map((code) => (
+              <button
+                key={code}
+                type="button"
+                className={lang === code ? 'is-active' : ''}
+                onClick={() => setLang(code)}
+              >
+                {lang === code && (
+                  <motion.span
+                    layoutId="lang-toggle-pill"
+                    className="lang-toggle__pill"
+                    transition={{ type: 'spring', stiffness: 500, damping: 34 }}
+                  />
+                )}
+                <span className="lang-toggle__label">{code.toUpperCase()}</span>
+              </button>
+            ))}
           </div>
           <button
             type="button"
