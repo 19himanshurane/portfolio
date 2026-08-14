@@ -112,20 +112,14 @@ export const projects = [
     },
     status: { en: 'Published · Peer-reviewed', de: 'Veröffentlicht · Peer-reviewed' },
   },
+];
+
+export const experience = [
   {
-    id: 'bitflyer-automation',
-    letter: 'B',
-    accent: 'clay',
+    role: { en: 'Business Analyst Intern', de: 'Praktikant Business Analyst' },
     org: 'BitFlyer Technologies · Pune, India',
     period: '02/2024 – 07/2024',
-    tags: ['Python', 'REST APIs', 'Power BI', 'Data Analysis'],
-    category: { en: 'Full-Stack Data · Process Automation', de: 'Full-Stack-Daten · Prozessautomatisierung' },
-    title: 'BitFlyer Automation & Analytics',
-    summary: {
-      en: 'Automated data pipelines and Power BI dashboards that gave Sales and Operations independent, real-time visibility into KPIs.',
-      de: 'Automatisierte Datenpipelines und Power-BI-Dashboards, die Sales und Operations unabhängige Echtzeit-Einblicke in KPIs verschafften.',
-    },
-    description: {
+    detail: {
       en: 'Business Analyst internship focused on automation and data analysis, working directly with management on process improvement.',
       de: 'Praktikum als Business Analyst mit Fokus auf Automatisierung und Datenanalyse, in direkter Zusammenarbeit mit dem Management an Prozessverbesserungen.',
     },
@@ -143,7 +137,6 @@ export const projects = [
         'Analysen und Empfehlungen beigesteuert, die die Quartals-Vertriebsstrategie mitgeprägt haben.',
       ],
     },
-    status: { en: 'Completed internship', de: 'Praktikum abgeschlossen' },
   },
 ];
 
@@ -209,7 +202,7 @@ export const content = {
       location: 'Neu-Ulm, Germany',
       degree: 'M.Sc. AI & Data Analytics',
       stats: [
-        { value: '4', label: 'Projects' },
+        { value: '3', label: 'Projects' },
         { value: '2+', label: 'Years Practice' },
         { value: '1', label: 'Publication' },
       ],
@@ -283,6 +276,7 @@ export const content = {
       body1: "I'm Himanshu Rane, a Master's student in AI & Data Analytics at Hochschule Neu-Ulm (HNU), currently applying my studies to an internship in AI in Sales with the goal of continuing into a thesis from October 2026.",
       body2: "I've spent the last two years building AI agents, retrieval systems, and automated data pipelines — always starting from the actual stakeholders and use cases rather than the technology. My favourite part of a project is turning a vague, manual process into something structured, fast, and something a team can trust without double-checking it.",
       body3: "Outside of coursework and projects, I'm working on my German (currently A2, aiming for B1) and staying comfortable moving between hands-on engineering and the business conversations that decide whether a system actually gets used.",
+      experienceHeading: 'Professional Experience',
       educationHeading: 'Education',
       skillsHeading: 'Technical Skills',
       certificationsHeading: 'Certifications',
@@ -338,7 +332,7 @@ export const content = {
       location: 'Neu-Ulm, Deutschland',
       degree: 'M.Sc. AI & Data Analytics',
       stats: [
-        { value: '4', label: 'Projekte' },
+        { value: '3', label: 'Projekte' },
         { value: '2+', label: 'Jahre Praxis' },
         { value: '1', label: 'Publikation' },
       ],
@@ -412,6 +406,7 @@ export const content = {
       body1: 'Ich bin Himanshu Rane, Masterstudent für KI & Data Analytics an der Hochschule Neu-Ulm (HNU) und bewerbe mich aktuell für ein Praktikum im Bereich AI in Sales, mit dem Ziel, ab Oktober 2026 in eine Abschlussarbeit überzugehen.',
       body2: 'In den letzten zwei Jahren habe ich KI-Agenten, Retrieval-Systeme und automatisierte Datenpipelines gebaut – immer ausgehend von den tatsächlichen Stakeholdern und Anwendungsfällen, nicht von der Technologie. Am liebsten mache ich aus einem vagen, manuellen Prozess etwas Strukturiertes und Schnelles, dem ein Team vertrauen kann, ohne es zweimal zu prüfen.',
       body3: 'Neben Studium und Projekten arbeite ich an meinem Deutsch (aktuell A2, Ziel B1) und bewege mich gerne zwischen praktischer Entwicklungsarbeit und den geschäftlichen Gesprächen, die darüber entscheiden, ob ein System am Ende wirklich genutzt wird.',
+      experienceHeading: 'Berufserfahrung',
       educationHeading: 'Ausbildung',
       skillsHeading: 'Technische Fähigkeiten',
       certificationsHeading: 'Zertifizierungen',

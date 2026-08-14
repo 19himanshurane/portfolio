@@ -1,5 +1,5 @@
 import { useLanguage } from '../context/LanguageContext.jsx';
-import { education, certifications, languages, skillGroups } from '../data/content.js';
+import { experience, education, certifications, languages, skillGroups } from '../data/content.js';
 import Avatar from '../components/Avatar.jsx';
 import Reveal from '../components/Reveal.jsx';
 import './About.css';
@@ -27,6 +27,27 @@ export default function About() {
           <span className="section-label">{t.aboutPage.statusHeading}</span>
           <p>{t.aboutPage.statusBody}</p>
         </Reveal>
+
+        <div className="about-page__section">
+          <span className="section-label">{t.aboutPage.experienceHeading}</span>
+          <div className="timeline">
+            {experience.map((ex, i) => (
+              <Reveal key={ex.org} y={20} delay={i * 0.1} as="div" className="timeline__item">
+                <span className="muted timeline__period">{ex.period}</span>
+                <div>
+                  <h3>{ex.role[lang]}</h3>
+                  <p className="muted timeline__org">{ex.org}</p>
+                  <p className="timeline__detail">{ex.detail[lang]}</p>
+                  <ul className="timeline__highlights">
+                    {ex.highlights[lang].map((h) => (
+                      <li key={h}>{h}</li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
 
         <div className="about-page__section">
           <span className="section-label">{t.aboutPage.educationHeading}</span>
