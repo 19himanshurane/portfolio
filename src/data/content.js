@@ -1,6 +1,6 @@
 export const socials = {
   github: 'https://github.com/19himanshurane',
-  linkedin: 'https://linkedin.com/in/himanshu-rane',
+  linkedin: 'https://www.linkedin.com/in/himanshu-rane-/',
   email: 'himanshu.rane005@gmail.com',
   phone: '+49 155 10826125',
   resume: 'Resume.docx',
@@ -159,7 +159,7 @@ export const skillGroups = [
 
 export const content = {
   en: {
-    nav: { home: 'Home', projects: 'Projects', about: 'About', contact: 'Contact' },
+    nav: { home: 'Home', projects: 'Projects', about: 'About', blog: 'Blog', contact: 'Contact' },
     hero: {
       eyebrow: 'Open to working student roles & internships',
       name: 'Himanshu Rane',
@@ -273,9 +273,17 @@ export const content = {
       interestsHeading: 'Areas of interest',
       interests: ['AI Agents', 'RAG & LLMs', 'Data Engineering', 'Process Automation', 'NLP', 'Business Analytics'],
     },
+    blogPage: {
+      eyebrow: 'Blog',
+      heading: 'Notes on AI, data, and building things',
+      sub: "Writing on what I'm learning building AI agents, retrieval systems, and data pipelines — plus the occasional note on the job search itself.",
+      emptyTitle: 'First post is on the way',
+      emptyBody: "I'm still writing. Check back soon, or follow along on LinkedIn in the meantime.",
+      emptyCta: 'Follow on LinkedIn',
+    },
   },
   de: {
-    nav: { home: 'Start', projects: 'Projekte', about: 'Über mich', contact: 'Kontakt' },
+    nav: { home: 'Start', projects: 'Projekte', about: 'Über mich', blog: 'Blog', contact: 'Kontakt' },
     hero: {
       eyebrow: 'Offen für Werkstudententätigkeiten und Praktika',
       name: 'Himanshu Rane',
@@ -388,6 +396,14 @@ export const content = {
       resumeFile: 'Lebenslauf (DOCX)',
       interestsHeading: 'Interessenschwerpunkte',
       interests: ['KI-Agenten', 'RAG & LLMs', 'Data Engineering', 'Prozessautomatisierung', 'NLP', 'Business Analytics'],
+    },
+    blogPage: {
+      eyebrow: 'Blog',
+      heading: 'Notizen zu KI, Daten und dem Bauen von Dingen',
+      sub: 'Texte darüber, was ich beim Bauen von KI-Agenten, Retrieval-Systemen und Datenpipelines lerne – und gelegentlich auch über die Jobsuche selbst.',
+      emptyTitle: 'Der erste Beitrag ist unterwegs',
+      emptyBody: 'Ich schreibe noch. Schau bald wieder vorbei oder folge mir in der Zwischenzeit auf LinkedIn.',
+      emptyCta: 'Auf LinkedIn folgen',
     },
   },
 };

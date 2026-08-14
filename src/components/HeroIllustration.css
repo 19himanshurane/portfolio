@@ -1,0 +1,17 @@
+.hero-illustration {
+  width: 220px;
+  height: 220px;
+  flex-shrink: 0;
+}
+
+.hero-illustration svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 640px) {
+  .hero-illustration {
+    width: 160px;
+    height: 160px;
+  }
+}

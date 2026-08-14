@@ -12,6 +12,7 @@ export default function Navbar() {
     { to: '/', label: t.nav.home },
     { to: '/projects', label: t.nav.projects },
     { to: '/about', label: t.nav.about },
+    { to: '/blog', label: t.nav.blog },
     { to: '/contact', label: t.nav.contact },
   ];
 

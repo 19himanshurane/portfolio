@@ -5,7 +5,8 @@ import { projects, socials } from '../data/content.js';
 import Avatar from '../components/Avatar.jsx';
 import ProjectCard from '../components/ProjectCard.jsx';
 import Reveal from '../components/Reveal.jsx';
-import { MapPinIcon, GraduationCapIcon } from '../components/icons/ContactIcons.jsx';
+import { MapPinIcon, GraduationCapIcon, GithubIcon, LinkedinIcon } from '../components/icons/ContactIcons.jsx';
+import HeroIllustration from '../components/HeroIllustration.jsx';
 import './Home.css';
 
 const EASE = [0.4, 0, 0.2, 1];
@@ -46,8 +47,12 @@ export default function Home() {
             </motion.div>
 
             <motion.div variants={heroItem} className="hero__links">
-              <a href={socials.github} target="_blank" rel="noreferrer">GitHub</a>
-              <a href={socials.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+              <a href={socials.github} target="_blank" rel="noreferrer" className="social-pill">
+                <GithubIcon className="icon-sm" /> GitHub
+              </a>
+              <a href={socials.linkedin} target="_blank" rel="noreferrer" className="social-pill">
+                <LinkedinIcon className="icon-sm" /> LinkedIn
+              </a>
             </motion.div>
 
             <motion.div variants={heroItem} className="hero__tags">
@@ -103,7 +108,7 @@ export default function Home() {
       <section className="about-preview">
         <div className="container about-preview__grid">
           <Reveal y={20}>
-            <Avatar size="md" />
+            <HeroIllustration />
           </Reveal>
           <Reveal y={20} delay={0.1}>
             <span className="section-label">{t.aboutPreview.label}</span>
@@ -174,8 +179,10 @@ export default function Home() {
         <div className="container">
           <Reveal y={20} className="contact-cta__inner">
             <h2>{t.contactCta.heading}</h2>
-            <p className="muted">{t.contactCta.sub}</p>
-            <Link to="/contact" className="btn btn-primary">{t.contactCta.button}</Link>
+            <p>{t.contactCta.sub}</p>
+            <Link to="/contact" className="btn btn-cta arrow-link">
+              {t.contactCta.button} <span className="arrow-icon">→</span>
+            </Link>
           </Reveal>
         </div>
       </section>
