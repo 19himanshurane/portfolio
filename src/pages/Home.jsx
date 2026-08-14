@@ -5,6 +5,7 @@ import { projects, socials } from '../data/content.js';
 import Avatar from '../components/Avatar.jsx';
 import ProjectCard from '../components/ProjectCard.jsx';
 import Reveal from '../components/Reveal.jsx';
+import { MapPinIcon, GraduationCapIcon } from '../components/icons/ContactIcons.jsx';
 import './Home.css';
 
 const EASE = [0.4, 0, 0.2, 1];
@@ -56,27 +57,46 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          <motion.div
-            className="hero__card"
-            initial={{ opacity: 0, scale: 0.96, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
-          >
-            <Avatar size="lg" />
-            <div className="hero__card-meta">
-              <span className="eyebrow">{t.hero.eyebrow}</span>
-              <p className="hero__card-location">{t.hero.location}</p>
-              <p className="muted hero__card-degree">{t.hero.degree}</p>
-            </div>
-            <div className="hero__stats">
-              {t.hero.stats.map((s) => (
-                <div key={s.label} className="hero__stat">
-                  <span className="hero__stat-value">{s.value}</span>
-                  <span className="muted hero__stat-label">{s.label}</span>
+          <div className="hero__visual">
+            <motion.div
+              className="hero__photo"
+              initial={{ opacity: 0, scale: 0.96, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
+            >
+              <Avatar size="lg" />
+            </motion.div>
+
+            <motion.div
+              className="hero__info-card"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4, ease: EASE }}
+            >
+              <div className="hero__info-rows">
+                <div className="hero__info-row">
+                  <span className="hero__status-dot" />
+                  {t.hero.eyebrow}
                 </div>
-              ))}
-            </div>
-          </motion.div>
+                <div className="hero__info-row">
+                  <MapPinIcon className="hero__info-icon" />
+                  {t.hero.location}
+                </div>
+                <div className="hero__info-row">
+                  <GraduationCapIcon className="hero__info-icon" />
+                  {t.hero.degree}
+                </div>
+              </div>
+              <div className="hero__stats">
+                {t.hero.stats.map((s) => (
+                  <div key={s.label} className="hero__stat">
+                    <span className="hero__stat-value">{s.value}</span>
+                    <span className="hero__stat-label">{s.label}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
