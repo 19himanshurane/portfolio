@@ -80,7 +80,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-sage-ink);
-  background: rgba(152, 171, 134, 0.14);
+  background: rgba(91, 122, 104, 0.14);
   padding: 5px 14px;
   border-radius: var(--radius-pill);
 }

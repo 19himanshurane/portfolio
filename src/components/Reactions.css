@@ -46,7 +46,7 @@
 
 .reactions__btn.is-active {
   border-color: var(--color-accent-sage);
-  background: rgba(152, 171, 134, 0.18);
+  background: rgba(91, 122, 104, 0.18);
 }
 
 .reactions__emoji {

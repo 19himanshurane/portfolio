@@ -7,8 +7,8 @@
   --spot-y: 50%;
   background: radial-gradient(
     circle 220px at var(--spot-x) var(--spot-y),
-    rgba(152, 171, 134, 0.14) 0%,
-    rgba(139, 163, 194, 0.06) 45%,
+    rgba(91, 122, 104, 0.14) 0%,
+    rgba(74, 111, 165, 0.06) 45%,
     transparent 72%
   );
   mix-blend-mode: multiply;

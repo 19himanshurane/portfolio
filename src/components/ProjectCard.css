@@ -38,19 +38,19 @@
 }
 
 .accent-sage {
-  background: linear-gradient(150deg, rgba(152, 171, 134, 0.4), rgba(152, 171, 134, 0.1));
+  background: linear-gradient(150deg, rgba(91, 122, 104, 0.4), rgba(91, 122, 104, 0.1));
 }
 
 .accent-blue {
-  background: linear-gradient(150deg, rgba(139, 163, 194, 0.4), rgba(139, 163, 194, 0.1));
+  background: linear-gradient(150deg, rgba(74, 111, 165, 0.4), rgba(74, 111, 165, 0.1));
 }
 
 .accent-clay {
-  background: linear-gradient(150deg, rgba(193, 154, 122, 0.4), rgba(193, 154, 122, 0.1));
+  background: linear-gradient(150deg, rgba(163, 138, 109, 0.4), rgba(163, 138, 109, 0.1));
 }
 
 .accent-gold {
-  background: linear-gradient(150deg, rgba(207, 169, 97, 0.4), rgba(207, 169, 97, 0.1));
+  background: linear-gradient(150deg, rgba(184, 147, 79, 0.4), rgba(184, 147, 79, 0.1));
 }
 
 .project-card__category {

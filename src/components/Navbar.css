@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(247, 245, 242, 0.82);
+  background: rgba(248, 249, 250, 0.82);
   backdrop-filter: blur(40px) saturate(200%);
   -webkit-backdrop-filter: blur(40px) saturate(200%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
@@ -54,7 +54,7 @@
 
 .navbar__link:hover {
   color: var(--color-text);
-  background: rgba(234, 231, 225, 0.5);
+  background: rgba(232, 234, 237, 0.5);
 }
 
 .navbar__link.is-active {

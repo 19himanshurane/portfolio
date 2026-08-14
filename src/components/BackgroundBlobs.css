@@ -17,7 +17,7 @@
   height: 480px;
   top: -140px;
   left: -120px;
-  background: radial-gradient(circle, rgba(152, 171, 134, 0.55), transparent 70%);
+  background: radial-gradient(circle, rgba(91, 122, 104, 0.55), transparent 70%);
 }
 
 .bg-blob--blue {
@@ -25,7 +25,7 @@
   height: 420px;
   top: 8%;
   right: -160px;
-  background: radial-gradient(circle, rgba(139, 163, 194, 0.5), transparent 70%);
+  background: radial-gradient(circle, rgba(74, 111, 165, 0.5), transparent 70%);
 }
 
 .bg-blob--clay {
@@ -33,7 +33,7 @@
   height: 380px;
   bottom: -120px;
   left: 22%;
-  background: radial-gradient(circle, rgba(193, 154, 122, 0.4), transparent 70%);
+  background: radial-gradient(circle, rgba(163, 138, 109, 0.4), transparent 70%);
 }
 
 @media (max-width: 860px) {

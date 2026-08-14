@@ -1,23 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  --color-bg: #f7f5f3;
-  --color-text: #1c1c1c;
-  --color-text-muted: rgba(28, 28, 28, 0.62);
-  --color-text-faint: rgba(28, 28, 28, 0.42);
-  --color-surface: #eae7e1;
-  --color-surface-soft: rgba(234, 231, 225, 0.55);
-  --color-border: #ddd9d3;
-  --color-footer-bg: rgba(234, 231, 225, 0.3);
-  --color-accent-sage: #98ab86;
-  --color-accent-blue: #8ba3c2;
-  --color-accent-clay: #c19a7a;
-  --color-accent-gold: #cfa961;
-  --color-sage-ink: #586a50;
-  --color-warm-white: #f7f5f2;
-  --color-soft-gray: #6e6e6e;
-  --color-dark: #1c1c1c;
-  --color-on-dark: #f7f5f2;
+  --color-bg: #f6f7f8;
+  --color-text: #14161a;
+  --color-text-muted: rgba(20, 22, 26, 0.64);
+  --color-text-faint: rgba(20, 22, 26, 0.44);
+  --color-surface: #e8eaed;
+  --color-surface-soft: rgba(232, 234, 237, 0.55);
+  --color-border: #d7dbe0;
+  --color-footer-bg: rgba(232, 234, 237, 0.35);
+  --color-accent-sage: #5b7a68;
+  --color-accent-blue: #4a6fa5;
+  --color-accent-clay: #a38a6d;
+  --color-accent-gold: #b8934f;
+  --color-sage-ink: #46584a;
+  --color-warm-white: #f8f9fa;
+  --color-soft-gray: #62666d;
+  --color-dark: #14161a;
+  --color-on-dark: #f8f9fa;
 
   --font-heading: 'Sora', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
