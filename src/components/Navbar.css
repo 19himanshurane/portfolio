@@ -24,6 +24,12 @@
   letter-spacing: -0.01em;
 }
 
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
 .navbar__links {
   display: flex;
   align-items: center;

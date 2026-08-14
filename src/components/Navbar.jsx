@@ -30,50 +30,52 @@ export default function Navbar() {
           </motion.span>
         </NavLink>
 
-        <nav className={`navbar__links ${open ? 'is-open' : ''}`}>
-          {links.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              end={link.to === '/'}
-              className={({ isActive }) => `navbar__link ${isActive ? 'is-active' : ''}`}
-              onClick={() => setOpen(false)}
-            >
-              {link.label}
-            </NavLink>
-          ))}
-        </nav>
-
-        <div className="navbar__actions">
-          <div className="lang-toggle" role="group" aria-label="Language">
-            {['en', 'de'].map((code) => (
-              <button
-                key={code}
-                type="button"
-                className={lang === code ? 'is-active' : ''}
-                onClick={() => setLang(code)}
+        <div className="navbar__right">
+          <nav className={`navbar__links ${open ? 'is-open' : ''}`}>
+            {links.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                end={link.to === '/'}
+                className={({ isActive }) => `navbar__link ${isActive ? 'is-active' : ''}`}
+                onClick={() => setOpen(false)}
               >
-                {lang === code && (
-                  <motion.span
-                    layoutId="lang-toggle-pill"
-                    className="lang-toggle__pill"
-                    transition={{ type: 'spring', stiffness: 500, damping: 34 }}
-                  />
-                )}
-                <span className="lang-toggle__label">{code.toUpperCase()}</span>
-              </button>
+                {link.label}
+              </NavLink>
             ))}
+          </nav>
+
+          <div className="navbar__actions">
+            <div className="lang-toggle" role="group" aria-label="Language">
+              {['en', 'de'].map((code) => (
+                <button
+                  key={code}
+                  type="button"
+                  className={lang === code ? 'is-active' : ''}
+                  onClick={() => setLang(code)}
+                >
+                  {lang === code && (
+                    <motion.span
+                      layoutId="lang-toggle-pill"
+                      className="lang-toggle__pill"
+                      transition={{ type: 'spring', stiffness: 500, damping: 34 }}
+                    />
+                  )}
+                  <span className="lang-toggle__label">{code.toUpperCase()}</span>
+                </button>
+              ))}
+            </div>
+            <button
+              type="button"
+              className="navbar__burger"
+              aria-label="Open menu"
+              onClick={() => setOpen((o) => !o)}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
           </div>
-          <button
-            type="button"
-            className="navbar__burger"
-            aria-label="Open menu"
-            onClick={() => setOpen((o) => !o)}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
         </div>
       </div>
     </header>

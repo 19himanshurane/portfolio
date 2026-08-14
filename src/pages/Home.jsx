@@ -7,6 +7,7 @@ import ProjectCard from '../components/ProjectCard.jsx';
 import Reveal from '../components/Reveal.jsx';
 import { MapPinIcon, GraduationCapIcon, GithubIcon, LinkedinIcon } from '../components/icons/ContactIcons.jsx';
 import HeroIllustration from '../components/HeroIllustration.jsx';
+import AccentLine from '../components/AccentLine.jsx';
 import './Home.css';
 
 const EASE = [0.4, 0, 0.2, 1];
@@ -123,6 +124,7 @@ export default function Home() {
           <Reveal y={20}>
             <span className="section-label">{t.focus.label}</span>
             <h2 className="focus__heading">{t.focus.heading}</h2>
+            <AccentLine />
           </Reveal>
           <div className="grid grid-3 focus__grid">
             {t.focus.items.map((item, i) => (
@@ -164,6 +166,7 @@ export default function Home() {
             <Reveal y={20}>
               <span className="section-label">{t.work.label}</span>
               <h2>{t.work.heading}</h2>
+              <AccentLine />
             </Reveal>
             <Link to="/projects" className="work__viewall arrow-link">{t.work.viewAll} <span className="arrow-icon">→</span></Link>
           </div>

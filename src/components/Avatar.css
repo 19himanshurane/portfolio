@@ -1,4 +1,5 @@
 .avatar {
+  position: relative;
   border-radius: 28px;
   overflow: hidden;
   border: 6px solid var(--color-warm-white);
@@ -13,6 +14,29 @@
   object-fit: cover;
   object-position: center top;
   display: block;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-standard);
+}
+
+.avatar img.is-loaded {
+  opacity: 1;
+}
+
+.avatar__skeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, var(--color-surface) 30%, rgba(255, 255, 255, 0.7) 50%, var(--color-surface) 70%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .avatar--lg {

@@ -318,6 +318,7 @@ section {
   width: 56px;
   height: 56px;
   border-radius: 18px;
+  transition: border-radius 0.5s var(--ease-standard), transform 0.5s var(--ease-standard);
   display: flex;
   align-items: center;
   justify-content: center;

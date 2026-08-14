@@ -17,11 +17,12 @@
 }
 
 .project-card__icon {
-  transition: transform 0.5s var(--ease-standard);
+  transition: transform 0.5s var(--ease-standard), border-radius 0.5s var(--ease-standard);
 }
 
 .project-card:hover .project-card__icon {
-  transform: scale(1.1);
+  transform: scale(1.1) rotate(-4deg);
+  border-radius: 50%;
 }
 
 .project-card__title {

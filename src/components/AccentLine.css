@@ -1,0 +1,9 @@
+.accent-line {
+  display: block;
+  width: 48px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-accent-sage), var(--color-accent-blue));
+  transform-origin: left center;
+  margin: 14px 0 4px;
+}
