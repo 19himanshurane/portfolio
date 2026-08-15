@@ -267,11 +267,11 @@ export const content = {
     },
     flagship: {
       label: 'Flagship Project',
-      title: 'Meter Mate',
-      desc: 'An AI research agent that automatically collects, structures, and retrieves information from large operational document corpora — cutting research time per query from 5 minutes to 30 seconds (83% faster). Built with a 5-person cross-functional team for Wilken Software Group and HNU.',
-      tags: ['Python', 'LangChain', 'ChromaDB', 'LLaMA 3', 'RAG', 'Streamlit'],
-      link: 'Read the full story',
-      status: 'Delivered · Production rollout',
+      title: 'EvalGate',
+      desc: 'A CI/CD-style regression gate for LLM prompts — define expected behaviour for a prompt, then automatically catch quality regressions before a change ships. Early-stage and actively being built out.',
+      tags: ['Python', 'OpenAI API', 'Pydantic', 'PyYAML', 'CI/CD'],
+      link: 'See the project',
+      status: 'Building · In progress',
     },
     work: {
       label: 'Selected Work',
@@ -397,11 +397,11 @@ export const content = {
     },
     flagship: {
       label: 'Vorzeigeprojekt',
-      title: 'Meter Mate',
-      desc: 'Ein KI-Recherche-Agent, der automatisch Informationen aus großen operativen Dokumentenbeständen sammelt, strukturiert und abruft – und die Recherchezeit pro Anfrage von 5 Minuten auf 30 Sekunden senkt (83 % schneller). Entwickelt mit einem 5-köpfigen interdisziplinären Team für die Wilken Software Group und die HNU.',
-      tags: ['Python', 'LangChain', 'ChromaDB', 'LLaMA 3', 'RAG', 'Streamlit'],
-      link: 'Die ganze Geschichte lesen',
-      status: 'Abgeschlossen · Produktiv im Einsatz',
+      title: 'EvalGate',
+      desc: 'Ein CI/CD-artiges Regressions-Gate für LLM-Prompts – erwartetes Verhalten für einen Prompt definieren und automatisch Qualitätsverluste erkennen, bevor eine Änderung live geht. Frühe Phase, aktiv im Aufbau.',
+      tags: ['Python', 'OpenAI API', 'Pydantic', 'PyYAML', 'CI/CD'],
+      link: 'Zum Projekt',
+      status: 'Im Aufbau · In Arbeit',
     },
     work: {
       label: 'Ausgewählte Arbeit',
