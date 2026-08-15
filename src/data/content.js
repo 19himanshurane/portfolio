@@ -112,6 +112,40 @@ export const projects = [
     },
     status: { en: 'Published · Peer-reviewed', de: 'Veröffentlicht · Peer-reviewed' },
   },
+  {
+    id: 'evalgate',
+    letter: 'E',
+    accent: 'clay',
+    org: 'Personal project',
+    period: '2026',
+    tags: ['Python', 'OpenAI API', 'Pydantic', 'PyYAML', 'CI/CD'],
+    category: { en: 'Building · Developer Tools', de: 'Im Aufbau · Entwickler-Tools' },
+    title: 'EvalGate',
+    summary: {
+      en: 'A CI/CD-style regression gate for LLM prompts — catches quality drops before a prompt change ships.',
+      de: 'Ein CI/CD-artiges Regressions-Gate für LLM-Prompts – erkennt Qualitätsverluste, bevor eine Prompt-Änderung live geht.',
+    },
+    description: {
+      en: 'EvalGate is a testing framework for LLM prompt changes, built to run the way a CI pipeline runs unit tests: define expected behaviour for a prompt, then automatically flag when a change regresses it before it reaches users. Early-stage and actively being built out.',
+      de: 'EvalGate ist ein Testframework für LLM-Prompt-Änderungen, das wie eine CI-Pipeline für Unit-Tests funktioniert: erwartetes Verhalten für einen Prompt definieren und automatisch erkennen, wenn eine Änderung es verschlechtert, bevor es Nutzer erreicht. Frühe Phase, aktiv im Aufbau.',
+    },
+    highlights: {
+      en: [
+        'Structuring the evaluation pipeline around versioned prompts, a Python test runner, and an OpenAI-backed classifier for automated quality scoring.',
+        'Config-driven setup (YAML + environment variables) so evaluation criteria can change without touching the runner code.',
+        'Actively building out test coverage and the CI/CD integration layer.',
+      ],
+      de: [
+        'Aufbau der Evaluierungs-Pipeline rund um versionierte Prompts, einen Python-Test-Runner und einen OpenAI-gestützten Klassifikator für automatisiertes Quality-Scoring.',
+        'Konfigurationsgetriebenes Setup (YAML + Umgebungsvariablen), damit sich Bewertungskriterien ändern lassen, ohne den Runner-Code anzufassen.',
+        'Testabdeckung und die CI/CD-Integrationsschicht werden aktiv ausgebaut.',
+      ],
+    },
+    status: { en: 'Building · In progress', de: 'Im Aufbau · In Arbeit' },
+    links: {
+      github: 'https://github.com/19himanshurane/evalgate',
+    },
+  },
 ];
 
 export const experience = [
@@ -202,7 +236,7 @@ export const content = {
       location: 'Neu-Ulm, Germany',
       degree: 'M.Sc. AI & Data Analytics',
       stats: [
-        { value: '3', label: 'Projects' },
+        { value: '4', label: 'Projects' },
         { value: '2+', label: 'Years Practice' },
         { value: '1', label: 'Publication' },
       ],
@@ -332,7 +366,7 @@ export const content = {
       location: 'Neu-Ulm, Deutschland',
       degree: 'M.Sc. AI & Data Analytics',
       stats: [
-        { value: '3', label: 'Projekte' },
+        { value: '4', label: 'Projekte' },
         { value: '2+', label: 'Jahre Praxis' },
         { value: '1', label: 'Publikation' },
       ],
