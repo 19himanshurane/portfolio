@@ -1,16 +1,42 @@
-# React + Vite
+# Himanshu Rane — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Source for [the live site](https://19himanshurane.github.io/portfolio/), a personal portfolio built with React and Vite. Covers projects, professional experience, education, and contact details, with full English/German localization.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** + **React Router 7** — component structure, client-side routing
+- **Vite** — dev server and build
+- **Framer Motion** — page/section animations
+- **Lenis** — smooth scrolling
+- **Oxlint** — linting
 
-## React Compiler
+No CSS framework — styling is hand-written per component/page (`*.css` files colocated with their `.jsx`).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project structure
 
-## Expanding the Oxlint configuration
+```
+src/
+  components/   Reusable UI (Navbar, Footer, ProjectCard, icons, illustrations, ...)
+  pages/        Route-level views (Home, Projects, About, Contact, Blog, BlogPost)
+  data/         Site content (content.js — EN/DE copy, projects, experience) and blog posts
+  context/      LanguageContext (EN/DE toggle)
+  lib/          Third-party integration glue (Lenis)
+  utils/        Small helpers (asset path resolution for GitHub Pages base path)
+public/         Static assets served as-is (résumé PDF, headshot, favicon)
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Site content — project descriptions, experience, education, skills — lives in `src/data/content.js` as plain JS objects with `en`/`de` keys, rather than hardcoded in JSX.
+
+## Getting started
+
+```bash
+npm install
+npm run dev       # start dev server (http://localhost:5173)
+npm run build     # production build to dist/
+npm run preview   # preview the production build locally
+npm run lint       # run Oxlint
+```
+
+## Deployment
+
+Pushes to `main` trigger `.github/workflows/*.yml`, which builds the site and publishes `dist/` to GitHub Pages via `peaceiris/actions-gh-pages`. The Vite `base` path is set to `/portfolio/` for production builds (see `vite.config.js`).

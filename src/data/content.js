@@ -3,7 +3,7 @@ export const socials = {
   linkedin: 'https://www.linkedin.com/in/himanshu-rane-/',
   email: 'himanshu.rane005@gmail.com',
   phone: '+49 155 10826125',
-  resume: 'Resume.docx',
+  resume: 'Resume.pdf',
 };
 
 export const projects = [
@@ -342,7 +342,7 @@ export const content = {
       englishLine: 'English (C1, professional)',
       germanLine: 'German (A2, actively improving)',
       downloadLabel: 'Download',
-      resumeFile: 'CV (DOCX)',
+      resumeFile: 'CV (PDF)',
       interestsHeading: 'Areas of interest',
       interests: ['AI Agents', 'RAG & LLMs', 'Data Engineering', 'Process Automation', 'NLP', 'Business Analytics'],
     },
@@ -472,7 +472,7 @@ export const content = {
       englishLine: 'Englisch (C1, beruflich)',
       germanLine: 'Deutsch (A2, ich übe aktiv weiter)',
       downloadLabel: 'Download',
-      resumeFile: 'Lebenslauf (DOCX)',
+      resumeFile: 'Lebenslauf (PDF)',
       interestsHeading: 'Interessenschwerpunkte',
       interests: ['KI-Agenten', 'RAG & LLMs', 'Data Engineering', 'Prozessautomatisierung', 'NLP', 'Business Analytics'],
     },
