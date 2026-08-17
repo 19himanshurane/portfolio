@@ -14,6 +14,35 @@
   margin-bottom: 64px;
 }
 
+.projects-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.projects-filter__chip {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  background: rgba(232, 234, 237, 0.5);
+  border: 1px solid transparent;
+  color: var(--color-text-muted);
+  transition: all 0.25s var(--ease-standard);
+}
+
+.projects-filter__chip:hover {
+  border-color: var(--color-accent-sage);
+  color: var(--color-text);
+}
+
+.projects-filter__chip.is-active {
+  background: var(--color-dark);
+  color: var(--color-on-dark);
+}
+
 .projects-list {
   display: flex;
   flex-direction: column;
@@ -35,7 +64,7 @@
 }
 
 .project-detail:hover {
-  border-color: var(--color-text-faint);
+  border-color: rgba(255, 255, 255, 0.8);
   box-shadow: var(--shadow-soft);
 }
 

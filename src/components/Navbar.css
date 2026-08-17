@@ -2,12 +2,18 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(248, 249, 250, 0.82);
+  background: rgba(248, 249, 250, 0.72);
   backdrop-filter: blur(40px) saturate(200%);
   -webkit-backdrop-filter: blur(40px) saturate(200%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: none;
+  transition: all 0.4s var(--ease-standard);
+}
+
+.navbar.is-scrolled {
+  background: rgba(248, 249, 250, 0.88);
+  border-bottom-color: var(--color-border);
   box-shadow: var(--shadow-soft);
-  transition: all 0.5s var(--ease-standard);
 }
 
 .navbar__inner {
@@ -44,22 +50,39 @@
 }
 
 .navbar__link {
+  position: relative;
+  display: inline-flex;
   font-size: 14px;
   font-weight: 500;
   color: var(--color-text-muted);
   padding: 8px 16px;
   border-radius: 10px;
-  transition: all 0.3s var(--ease-standard);
+  transition: color 0.3s var(--ease-standard);
 }
 
 .navbar__link:hover {
   color: var(--color-text);
+}
+
+.navbar__link:not(.is-active):hover {
   background: rgba(232, 234, 237, 0.5);
 }
 
 .navbar__link.is-active {
   color: var(--color-text);
+}
+
+.navbar__link-pill {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   background: var(--color-surface);
+  border-radius: 10px;
+}
+
+.navbar__link-label {
+  position: relative;
+  z-index: 1;
 }
 
 .navbar__actions {

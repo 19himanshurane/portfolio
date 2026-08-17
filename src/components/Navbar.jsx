@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext.jsx';
@@ -7,6 +7,14 @@ import './Navbar.css';
 export default function Navbar() {
   const { lang, setLang, t } = useLanguage();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const links = [
     { to: '/', label: t.nav.home },
@@ -17,7 +25,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="navbar">
+    <header className={`navbar ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="navbar__inner">
         <NavLink to="/" className="navbar__brand-link" onClick={() => setOpen(false)}>
           <motion.span
@@ -40,7 +48,18 @@ export default function Navbar() {
                 className={({ isActive }) => `navbar__link ${isActive ? 'is-active' : ''}`}
                 onClick={() => setOpen(false)}
               >
-                {link.label}
+                {({ isActive }) => (
+                  <>
+                    {isActive && (
+                      <motion.span
+                        layoutId="navbar-active-pill"
+                        className="navbar__link-pill"
+                        transition={{ type: 'spring', stiffness: 500, damping: 34 }}
+                      />
+                    )}
+                    <span className="navbar__link-label">{link.label}</span>
+                  </>
+                )}
               </NavLink>
             ))}
           </nav>

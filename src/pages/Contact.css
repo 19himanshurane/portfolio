@@ -154,6 +154,34 @@
   font-size: 14px;
 }
 
+.copy-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  background: transparent;
+  color: var(--color-soft-gray);
+  transition: all 0.2s var(--ease-standard);
+}
+
+.contact-card--dark .copy-btn {
+  color: rgba(248, 249, 250, 0.55);
+}
+
+.copy-btn:hover {
+  background: rgba(91, 122, 104, 0.15);
+  color: var(--color-sage-ink);
+  transform: scale(1.08);
+}
+
+.contact-card--dark .copy-btn:hover {
+  background: rgba(248, 249, 250, 0.12);
+  color: var(--color-on-dark);
+}
+
 .contact-card__arrow {
   width: 20px;
   height: 20px;
@@ -182,16 +210,6 @@
 
 .contact-card--resume:hover .contact-card__arrow--sm {
   color: var(--color-dark);
-}
-
-.icon-md {
-  width: 22px;
-  height: 22px;
-}
-
-.icon-sm {
-  width: 18px;
-  height: 18px;
 }
 
 /* right column */

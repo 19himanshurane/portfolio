@@ -6,7 +6,6 @@ import Footer from './components/Footer.jsx';
 import ScrollManager from './components/ScrollManager.jsx';
 import SmoothScroll from './components/SmoothScroll.jsx';
 import SpotlightCursor from './components/SpotlightCursor.jsx';
-import BackgroundBlobs from './components/BackgroundBlobs.jsx';
 import ScrollProgress from './components/ScrollProgress.jsx';
 import PageLoader from './components/PageLoader.jsx';
 import Home from './pages/Home.jsx';
@@ -25,7 +24,6 @@ export default function App() {
       <SmoothScroll />
       <ScrollManager />
       <ScrollProgress />
-      <BackgroundBlobs />
       <SpotlightCursor />
       <Navbar />
       <main>

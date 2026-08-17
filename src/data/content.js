@@ -246,6 +246,11 @@ export const content = {
       ],
       tags: ['AI Agents', 'RAG', 'LangChain', 'FastAPI', 'NLP', 'Process Automation'],
     },
+    signature: {
+      label: 'How It Thinks',
+      heading: 'A live trace from LLM Cost Autopilot',
+      sub: 'Every request gets scored for complexity, routed to the cheapest model that can handle it, and checked by a background verifier that catches its own mistakes — this is that loop, running.',
+    },
     aboutPreview: {
       label: 'About Me',
       intro: "What drives me is simple: understand the problem before writing a line of code, ship something that actually works, and keep learning past the point where it's comfortable.",
@@ -307,6 +312,7 @@ export const content = {
       highlightsLabel: 'Highlights',
       viewDemo: 'Live Demo',
       viewCode: 'View Code',
+      filterAll: 'All',
     },
     aboutPage: {
       eyebrow: 'About',
@@ -328,6 +334,8 @@ export const content = {
       sub: "Open for working student positions, internships, and practical semesters in AI, Data Engineering, and Software Development. I usually reply within a day or two.",
       emailLabel: 'Email',
       phoneLabel: 'Phone',
+      copyEmail: 'Copy email address',
+      copyPhone: 'Copy phone number',
       linkedinLabel: 'LinkedIn',
       githubLabel: 'GitHub',
       locationLabel: 'Location',
@@ -375,6 +383,11 @@ export const content = {
         { value: '1', label: 'Publikation' },
       ],
       tags: ['AI Agents', 'RAG', 'LangChain', 'FastAPI', 'NLP', 'Prozessautomatisierung'],
+    },
+    signature: {
+      label: 'Wie es denkt',
+      heading: 'Ein Live-Trace aus LLM Cost Autopilot',
+      sub: 'Jede Anfrage wird nach Komplexität bewertet, an das günstigste passende Modell geleitet und von einem Verifier im Hintergrund geprüft, der eigene Fehler erkennt – das ist diese Schleife, live.',
     },
     aboutPreview: {
       label: 'Über mich',
@@ -437,6 +450,7 @@ export const content = {
       highlightsLabel: 'Highlights',
       viewDemo: 'Live-Demo',
       viewCode: 'Code ansehen',
+      filterAll: 'Alle',
     },
     aboutPage: {
       eyebrow: 'Über mich',
@@ -458,6 +472,8 @@ export const content = {
       sub: 'Offen für Werkstudententätigkeiten, Praktika und Praxissemester in KI, Data Engineering und Softwareentwicklung. Ich antworte meist innerhalb von ein bis zwei Tagen.',
       emailLabel: 'E-Mail',
       phoneLabel: 'Telefon',
+      copyEmail: 'E-Mail-Adresse kopieren',
+      copyPhone: 'Telefonnummer kopieren',
       linkedinLabel: 'LinkedIn',
       githubLabel: 'GitHub',
       locationLabel: 'Standort',

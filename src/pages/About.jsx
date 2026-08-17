@@ -1,8 +1,12 @@
+import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { experience, education, certifications, languages, skillGroups } from '../data/content.js';
 import Avatar from '../components/Avatar.jsx';
 import Reveal from '../components/Reveal.jsx';
 import './About.css';
+
+const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+const cefrRatio = (level) => (CEFR_LEVELS.indexOf(level) + 1) / CEFR_LEVELS.length;
 
 export default function About() {
   const { lang, t } = useLanguage();
@@ -101,6 +105,15 @@ export default function About() {
                   <div className="lang-list__row">
                     <span>{l.name[lang]}</span>
                     <span className="tag">{l.level}</span>
+                  </div>
+                  <div className="lang-bar">
+                    <motion.div
+                      className="lang-bar__fill"
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: cefrRatio(l.level) }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.2 + i * 0.1, ease: [0.4, 0, 0.2, 1] }}
+                    />
                   </div>
                   <p className="muted lang-list__note">{l.note[lang]}</p>
                 </Reveal>

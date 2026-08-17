@@ -1,0 +1,188 @@
+.routing-demo {
+  background: var(--color-dark);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lift);
+  font-family: var(--font-mono);
+}
+
+.routing-demo__chrome {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(248, 249, 250, 0.08);
+}
+
+.routing-demo__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.routing-demo__dot--r {
+  background: #f87171;
+}
+
+.routing-demo__dot--y {
+  background: #fbbf24;
+}
+
+.routing-demo__dot--g {
+  background: #4ade80;
+}
+
+.routing-demo__title {
+  margin-left: 8px;
+  font-size: 12px;
+  color: rgba(248, 249, 250, 0.4);
+  letter-spacing: 0.04em;
+}
+
+.routing-demo__body {
+  padding: 28px 24px 32px;
+  min-height: 228px;
+}
+
+.routing-demo__line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(248, 249, 250, 0.55);
+  margin: 0 0 16px;
+  flex-wrap: wrap;
+}
+
+.routing-demo__line--prompt {
+  color: var(--color-on-dark);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.routing-demo__prompt-mark {
+  color: var(--color-accent-gold);
+  margin-right: 4px;
+}
+
+.routing-demo__marker {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1.5px solid rgba(248, 249, 250, 0.3);
+}
+
+.routing-demo__marker.is-done {
+  background: var(--color-accent-sage);
+  border-color: var(--color-accent-sage);
+}
+
+.routing-demo__marker.is-pending {
+  animation: marker-pulse 1s ease-in-out infinite;
+}
+
+@keyframes marker-pulse {
+  0%, 100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.routing-demo__label {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 11px;
+  color: rgba(248, 249, 250, 0.4);
+  min-width: 78px;
+}
+
+.routing-demo__badge {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  color: var(--color-on-dark);
+}
+
+.routing-demo__badge--tier1 {
+  background: rgba(91, 122, 104, 0.4);
+}
+
+.routing-demo__badge--tier2 {
+  background: rgba(74, 111, 165, 0.4);
+}
+
+.routing-demo__badge--tier3 {
+  background: rgba(184, 147, 79, 0.4);
+}
+
+.routing-demo__badge--warn {
+  background: rgba(248, 113, 113, 0.18);
+  color: #fca5a5;
+}
+
+.routing-demo__model {
+  color: var(--color-on-dark);
+  font-size: 13px;
+}
+
+.routing-demo__model--escalated {
+  color: var(--color-accent-gold);
+}
+
+.routing-demo__note {
+  font-size: 11px;
+  color: rgba(248, 249, 250, 0.4);
+}
+
+.routing-demo__result {
+  color: #86efac;
+  font-size: 13px;
+}
+
+.routing-demo__tabs {
+  display: flex;
+  gap: 6px;
+  padding: 0 20px 20px;
+  border-top: 1px solid rgba(248, 249, 250, 0.08);
+  padding-top: 14px;
+}
+
+.routing-demo__tab {
+  flex: 1;
+  background: rgba(248, 249, 250, 0.05);
+  color: rgba(248, 249, 250, 0.4);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 8px 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.25s var(--ease-standard);
+}
+
+.routing-demo__tab:hover {
+  color: rgba(248, 249, 250, 0.7);
+  border-color: rgba(248, 249, 250, 0.15);
+}
+
+.routing-demo__tab.is-active {
+  background: rgba(248, 249, 250, 0.14);
+  color: var(--color-on-dark);
+  border-color: rgba(248, 249, 250, 0.2);
+}
+
+@media (max-width: 560px) {
+  .routing-demo__body {
+    padding: 22px 18px 26px;
+  }
+
+  .routing-demo__label {
+    min-width: 100%;
+  }
+}

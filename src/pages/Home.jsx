@@ -8,6 +8,8 @@ import Reveal from '../components/Reveal.jsx';
 import { MapPinIcon, GraduationCapIcon, GithubIcon, LinkedinIcon } from '../components/icons/ContactIcons.jsx';
 import HeroIllustration from '../components/HeroIllustration.jsx';
 import AccentLine from '../components/AccentLine.jsx';
+import CountUp from '../components/CountUp.jsx';
+import RoutingDemo from '../components/RoutingDemo.jsx';
 import './Home.css';
 
 const EASE = [0.4, 0, 0.2, 1];
@@ -96,13 +98,26 @@ export default function Home() {
               <div className="hero__stats">
                 {t.hero.stats.map((s) => (
                   <div key={s.label} className="hero__stat">
-                    <span className="hero__stat-value">{s.value}</span>
+                    <span className="hero__stat-value"><CountUp value={s.value} /></span>
                     <span className="hero__stat-label">{s.label}</span>
                   </div>
                 ))}
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      <section className="signature">
+        <div className="container signature__grid">
+          <Reveal y={20}>
+            <span className="section-label">{t.signature.label}</span>
+            <h2>{t.signature.heading}</h2>
+            <p className="muted signature__sub">{t.signature.sub}</p>
+          </Reveal>
+          <Reveal y={24} delay={0.1}>
+            <RoutingDemo />
+          </Reveal>
         </div>
       </section>
 
@@ -163,10 +178,12 @@ export default function Home() {
       <section className="work">
         <div className="container">
           <div className="work__header">
-            <Reveal y={20}>
+            <Reveal y={20} className="work__title-row">
               <span className="section-label">{t.work.label}</span>
-              <h2>{t.work.heading}</h2>
-              <AccentLine />
+              <div className="work__heading-line">
+                <h2>{t.work.heading}</h2>
+                <span className="work__rule" aria-hidden="true" />
+              </div>
             </Reveal>
             <Link to="/projects" className="work__viewall arrow-link">{t.work.viewAll} <span className="arrow-icon">→</span></Link>
           </div>

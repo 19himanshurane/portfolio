@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { socials } from '../data/content.js';
 import { asset } from '../utils/asset.js';
@@ -11,8 +12,32 @@ import {
   MapPinIcon,
   MessageSquareIcon,
   FileDownIcon,
+  CopyIcon,
+  CheckIcon,
 } from '../components/icons/ContactIcons.jsx';
 import './Contact.css';
+
+function CopyButton({ value, label }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1600);
+    } catch {
+      // clipboard API unavailable — no-op
+    }
+  };
+
+  return (
+    <button type="button" className="copy-btn" onClick={handleCopy} aria-label={label}>
+      {copied ? <CheckIcon className="icon-sm" /> : <CopyIcon className="icon-sm" />}
+    </button>
+  );
+}
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -37,6 +62,7 @@ export default function Contact() {
                 <p className="contact-card__label contact-card__label--dark">{c.emailLabel}</p>
                 <p className="contact-card__value contact-card__value--dark">{socials.email}</p>
               </div>
+              <CopyButton value={socials.email} label={c.copyEmail} />
               <ArrowUpRightIcon className="contact-card__arrow contact-card__arrow--dark" />
             </a>
 
@@ -48,6 +74,7 @@ export default function Contact() {
                 <p className="contact-card__label">{c.phoneLabel}</p>
                 <p className="contact-card__value">{socials.phone}</p>
               </div>
+              <CopyButton value={socials.phone} label={c.copyPhone} />
               <ArrowUpRightIcon className="contact-card__arrow" />
             </a>
 
