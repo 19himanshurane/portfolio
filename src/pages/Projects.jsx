@@ -3,6 +3,7 @@ import { useLanguage } from '../context/LanguageContext.jsx';
 import { projects } from '../data/content.js';
 import Reveal from '../components/Reveal.jsx';
 import { GithubIcon, ArrowUpRightIcon, FileDownIcon, AwardIcon } from '../components/icons/ContactIcons.jsx';
+import { asset } from '../utils/asset.js';
 import './Projects.css';
 
 const domainKey = (project) => project.category.en.split('·').pop().trim();
@@ -107,12 +108,12 @@ export default function Projects() {
                         </a>
                       )}
                       {project.links.paper && (
-                        <a href={project.links.paper} target="_blank" rel="noreferrer" className="btn btn-ghost btn-sm">
+                        <a href={asset(project.links.paper)} target="_blank" rel="noreferrer" className="btn btn-ghost btn-sm">
                           <FileDownIcon className="icon-sm" /> {t.projectsPage.viewPaper}
                         </a>
                       )}
                       {project.links.certificate && (
-                        <a href={project.links.certificate} target="_blank" rel="noreferrer" className="btn btn-ghost btn-sm">
+                        <a href={asset(project.links.certificate)} target="_blank" rel="noreferrer" className="btn btn-ghost btn-sm">
                           <AwardIcon className="icon-sm" /> {t.projectsPage.viewCertificate}
                         </a>
                       )}
