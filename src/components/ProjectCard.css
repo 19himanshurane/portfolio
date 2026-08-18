@@ -85,6 +85,14 @@
   background: linear-gradient(150deg, rgba(184, 147, 79, 0.4), rgba(184, 147, 79, 0.1));
 }
 
+.accent-plum {
+  background: linear-gradient(150deg, rgba(125, 90, 122, 0.4), rgba(125, 90, 122, 0.1));
+}
+
+.accent-teal {
+  background: linear-gradient(150deg, rgba(61, 122, 114, 0.4), rgba(61, 122, 114, 0.1));
+}
+
 .project-card__category {
   font-family: var(--font-mono);
   font-size: 11px;

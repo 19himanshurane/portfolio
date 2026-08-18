@@ -150,6 +150,76 @@ export const projects = [
     },
     status: { en: 'Published · Peer-reviewed', de: 'Veröffentlicht · Peer-reviewed' },
   },
+  {
+    id: 'digitized-learning-process',
+    letter: 'D',
+    accent: 'plum',
+    org: 'Hochschule Neu-Ulm (HNU) · Digital Process Management',
+    period: 'WS 2025/26',
+    tags: ['BPMN', 'Process Redesign', 'AI Automation', 'RPA', 'KPI Analysis'],
+    category: { en: 'Coursework · Process Design', de: 'Kursarbeit · Prozessdesign' },
+    title: 'Digitized Learning Process',
+    summary: {
+      en: 'A course project redesigning student study planning as an AI- and RPA-supported BPMN process, trading manual scheduling for automated reminders, adaptive plans, and mock-exam feedback.',
+      de: 'Ein Kursprojekt, das die Studienplanung von Studierenden als KI- und RPA-gestützten BPMN-Prozess neu gestaltet – automatisierte Erinnerungen, adaptive Pläne und Mock-Exam-Feedback statt manueller Planung.',
+    },
+    description: {
+      en: 'For the Digital Process Management course at HNU, our six-person group mapped the AS-IS student study-planning process in BPMN, ran a SWOT analysis on it, and designed a TO-BE process that replaces manual scheduling with an AI-supported workflow: lecture notes are parsed into a study schedule and calendar entries automatically, reminders and mock exams are triggered by the process itself, and a feedback loop recalibrates the plan whenever practice performance drops.',
+      de: 'Für den Kurs Digital Process Management an der HNU hat unsere sechsköpfige Gruppe den AS-IS-Prozess der studentischen Studienplanung in BPMN abgebildet, eine SWOT-Analyse durchgeführt und einen TO-BE-Prozess entworfen, der die manuelle Planung durch einen KI-gestützten Workflow ersetzt: Vorlesungsunterlagen werden automatisch in einen Studienplan und Kalendereinträge überführt, Erinnerungen und Probeklausuren löst der Prozess selbst aus, und eine Feedback-Schleife passt den Plan an, sobald die Übungsleistung nachlässt.',
+    },
+    highlights: {
+      en: [
+        'Mapped two AS-IS workflows in BPMN and ran a full SWOT analysis to isolate the core problem: a 100% manual process with no system support or feedback.',
+        'Designed a TO-BE BPMN process around an AI-driven "create study schedule" service task, RPA calendar sync, and a validation gateway that blocks progress until exercises are done.',
+        'Set measurable KPI targets across time, quality, and stress — e.g., weekly planning time from 60 min to 0–5 min, on-time task completion from 70% to 90%, perceived stress down 20%.',
+        'Built a risk register mapping each AS-IS weakness (low motivation, overreliance on automation, privacy) to a specific mitigation in the TO-BE design.',
+        'Presented the full AS-IS/TO-BE comparison and a short process simulation to the course.',
+      ],
+      de: [
+        'Zwei AS-IS-Workflows in BPMN abgebildet und eine vollständige SWOT-Analyse durchgeführt, um das Kernproblem freizulegen: ein zu 100 % manueller Prozess ohne Systemunterstützung oder Feedback.',
+        'TO-BE-BPMN-Prozess entworfen mit einem KI-gestützten Service-Task „Studienplan erstellen“, RPA-Kalendersynchronisierung und einem Validierungs-Gateway, das ohne erledigte Übungen keinen Fortschritt zulässt.',
+        'Messbare KPI-Ziele für Zeit, Qualität und Stress festgelegt – z. B. wöchentliche Planungszeit von 60 auf 0–5 Minuten, pünktliche Aufgabenerledigung von 70 % auf 90 %, wahrgenommener Stress um 20 % reduziert.',
+        'Risikoregister erstellt, das jede AS-IS-Schwäche (geringe Motivation, Überautomatisierung, Datenschutz) einer konkreten Maßnahme im TO-BE-Design zuordnet.',
+        'Den vollständigen AS-IS/TO-BE-Vergleich sowie eine kurze Prozesssimulation im Kurs präsentiert.',
+      ],
+    },
+    status: { en: 'Coursework · Presented', de: 'Kursarbeit · Präsentiert' },
+  },
+  {
+    id: 'csp-banking-consulting',
+    letter: 'C',
+    accent: 'teal',
+    org: 'HNU Consulting · Hochschule Neu-Ulm',
+    period: 'WiSe 2024',
+    tags: ['Process Consulting', 'BPMN', 'Stakeholder Analysis', 'Cost-Benefit Analysis', 'Financial Services'],
+    category: { en: 'Coursework · Consulting', de: 'Kursarbeit · Consulting' },
+    title: 'Banking Process Consulting',
+    summary: {
+      en: 'A consulting case study proposing a standardized, customer-centric process framework to help a SaaS provider’s banking customers cut costs, meet compliance, and simplify mergers.',
+      de: 'Eine Consulting-Fallstudie, die einen standardisierten, kundenzentrierten Prozessrahmen vorschlägt, mit dem die Bankkunden eines SaaS-Anbieters Kosten senken, Compliance erfüllen und Fusionen vereinfachen können.',
+    },
+    description: {
+      en: 'Six-person HNU Consulting engagement analyzing CSP, a SaaS provider serving 360 banks, whose customers were facing an aging workforce, high operational costs, regulatory compliance risk, and rising customer expectations. We built a case document — situation, complication, stakeholder analysis, and a phased solution — proposing a standardized, customer-centric process framework with a cost-benefit case and rollout plan, presented to internal and external supervisors from the field.',
+      de: 'Sechsköpfiges HNU-Consulting-Projekt zur Analyse von CSP, einem SaaS-Anbieter für 360 Banken, dessen Kunden mit alternder Belegschaft, hohen Betriebskosten, regulatorischen Risiken und steigenden Kundenerwartungen konfrontiert waren. Wir erstellten ein Case-Dokument – Situation, Complication, Stakeholder-Analyse und eine mehrstufige Lösung – mit einem standardisierten, kundenzentrierten Prozessrahmen, Kosten-Nutzen-Analyse und Rollout-Plan, präsentiert vor internen und externen Betreuern aus der Praxis.',
+    },
+    highlights: {
+      en: [
+        'Structured the case with a Situation–Complication–Question framework, mapping four converging pressures: workforce attrition, cost, regulation, and customer expectations.',
+        'Ran a stakeholder analysis and defined scope, constraints, and success criteria before proposing a solution — not the other way round.',
+        'Proposed a three-part framework: process standardization, customer-centric design principles, and a regulatory compliance strategy.',
+        'Built a cost-benefit case and department-level cost estimation for the proposed process function, including departmental structure and interfaces.',
+        'Delivered a phased rollout plan — immediate actions, pilot program, full-scale rollout, continuous improvement — to internal and external supervisors.',
+      ],
+      de: [
+        'Den Case nach dem Situation–Complication–Question-Schema strukturiert und vier zusammenlaufende Problemfelder herausgearbeitet: Fachkräfteabwanderung, Kosten, Regulierung und Kundenerwartungen.',
+        'Stakeholder-Analyse durchgeführt und Scope, Rahmenbedingungen sowie Erfolgskriterien definiert, bevor eine Lösung vorgeschlagen wurde – nicht umgekehrt.',
+        'Dreiteiligen Lösungsrahmen vorgeschlagen: Prozessstandardisierung, kundenzentrierte Design-Prinzipien und eine Compliance-Strategie.',
+        'Kosten-Nutzen-Analyse und Kostenschätzung auf Abteilungsebene für die vorgeschlagene Prozessfunktion erstellt, inklusive Abteilungsstruktur und Schnittstellen.',
+        'Einen mehrstufigen Rollout-Plan – Sofortmaßnahmen, Pilotprogramm, Flächenrollout, kontinuierliche Verbesserung – vor internen und externen Betreuern vorgestellt.',
+      ],
+    },
+    status: { en: 'Coursework · Delivered', de: 'Kursarbeit · Abgeschlossen' },
+  },
 ];
 
 export const experience = [
@@ -240,7 +310,7 @@ export const content = {
       location: 'Neu-Ulm, Germany',
       degree: 'M.Sc. AI & Data Analytics',
       stats: [
-        { value: '4', label: 'Projects' },
+        { value: '6', label: 'Projects' },
         { value: '2+', label: 'Years Practice' },
         { value: '1', label: 'Publication' },
       ],
@@ -378,7 +448,7 @@ export const content = {
       location: 'Neu-Ulm, Deutschland',
       degree: 'M.Sc. AI & Data Analytics',
       stats: [
-        { value: '4', label: 'Projekte' },
+        { value: '6', label: 'Projekte' },
         { value: '2+', label: 'Jahre Praxis' },
         { value: '1', label: 'Publikation' },
       ],
