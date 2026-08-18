@@ -329,7 +329,7 @@ export const content = {
     aboutPreview: {
       label: 'About Me',
       intro: "What drives me is simple: understand the problem before writing a line of code, ship something that works, and keep learning past the point where it's comfortable.",
-      body: "I'm a Master's student in AI & Data Analytics at Hochschule Neu-Ulm (HNU), based in Neu-Ulm, Germany. I build AI agents and retrieval systems that stay useful once real, messy data hits them, and I like working close enough to stakeholders to know the system is solving the right problem.",
+      body: "Most requests start the same way: a folder of PDFs, spreadsheets, or logs that nobody fully trusts anymore, plus a deadline. I build the agent or retrieval layer that turns that pile into an answer someone can act on, then stay close enough to the people who asked for it to know I've solved their problem, not just shipped a demo.",
     },
     focus: {
       label: 'Focus',
@@ -365,7 +365,7 @@ export const content = {
     },
     contactCta: {
       heading: "Let's build something that works",
-      sub: 'Open for working student positions, internships, and practical semesters in AI, Data Engineering, and Software Development.',
+      sub: "If there's a working student role, internship, or practical semester on your team where the work has to ship, I'd like to talk.",
       button: 'Get in Touch',
     },
     footer: {
@@ -470,7 +470,7 @@ export const content = {
     aboutPreview: {
       label: 'Über mich',
       intro: 'Mich treibt etwas Einfaches an: das Problem verstehen, bevor ich eine Zeile Code schreibe, etwas bauen, das funktioniert, und weiterlernen, auch wenn es unbequem wird.',
-      body: 'Ich bin Masterstudent für KI & Data Analytics an der Hochschule Neu-Ulm (HNU) mit Sitz in Neu-Ulm, Deutschland. Ich baue KI-Agenten und Retrieval-Systeme, die auch bei echten, unruhigen Daten nützlich bleiben, und arbeite gerne nah genug an Stakeholdern, um sicherzugehen, dass das System das richtige Problem löst.',
+      body: 'Die meisten Anfragen beginnen gleich: ein Ordner voller PDFs, Tabellen oder Logs, denen niemand mehr so richtig traut, dazu eine Deadline. Ich baue den Agenten oder die Retrieval-Schicht, die aus diesem Haufen eine Antwort macht, auf die man sich verlassen kann, und bleibe nah genug an den Leuten, die gefragt haben, um zu wissen, dass ich ihr Problem gelöst habe, nicht nur eine Demo abgeliefert habe.',
     },
     focus: {
       label: 'Schwerpunkte',
@@ -506,7 +506,7 @@ export const content = {
     },
     contactCta: {
       heading: 'Lass uns etwas bauen, das funktioniert',
-      sub: 'Offen für Werkstudententätigkeiten, Praktika und Praxissemester in KI, Data Engineering und Softwareentwicklung.',
+      sub: 'Gesucht: eine Werkstudentenstelle, ein Praktikum oder ein Praxissemester, bei dem die Arbeit zum Einsatz kommt, statt in der Schublade zu landen.',
       button: 'Kontakt aufnehmen',
     },
     footer: {
