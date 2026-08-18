@@ -55,7 +55,7 @@
 
 :root[data-theme='dark'] {
   /* Linear's palette (linear.app): a near-black canvas with a faint blue tint, a four-step */
-  /* surface ladder for hierarchy instead of shadow, and one chromatic accent — lavender-blue. */
+  /* surface ladder for hierarchy instead of shadow, and one chromatic accent: lavender-blue. */
   --color-bg: #010102;
   --color-text: #f7f8f8;
   --color-text-muted: #d0d6e0;
@@ -73,7 +73,7 @@
   --color-soft-gray: #8a8f98;
   --color-accent-hover: #828fff;
 
-  /* Flat technical panels: solid surfaces, hairline borders, no blur, almost no shadow — */
+  /* Flat technical panels: solid surfaces, hairline borders, no blur, almost no shadow. */
   /* Linear "resists drop shadows on dark almost entirely," carrying depth via the surface ladder. */
   --glass-surface: var(--color-surface);
   --glass-surface-strong: #18191a;

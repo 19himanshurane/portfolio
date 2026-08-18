@@ -21,20 +21,20 @@ export const projects = [
       de: 'Eine CI/CD-artige Regressions-Pipeline, die LLM-Features bei jeder Prompt-Änderung gegen einen Golden-Datensatz testet und den PR blockiert, bevor ein schlechter Output Nutzer erreicht.',
     },
     description: {
-      en: 'Every AI team ships prompt changes blind. EvalGate runs an LLM-powered feature against a hand-curated golden dataset whenever its prompt or model changes, scores the outputs across multiple dimensions, diffs the run against the previous baseline, and alerts the team via Slack — catching regressions before they reach production. Early-stage and actively being built out.',
-      de: 'Die meisten KI-Teams shippen Prompt-Änderungen blind. EvalGate testet ein LLM-Feature bei jeder Prompt- oder Modelländerung gegen einen von Hand kuratierten Golden-Datensatz, bewertet die Outputs anhand mehrerer Dimensionen, vergleicht den Lauf mit dem letzten Baseline-Ergebnis und alarmiert das Team per Slack – noch bevor eine Regression in Produktion landet. Frühe Phase, aktiv im Aufbau.',
+      en: "EvalGate exists because prompt changes are usually shipped on faith. Whenever a prompt or model changes, it runs the feature against a hand-curated golden dataset, scores the output across several dimensions, diffs the run against the last baseline, and pings the team on Slack before a regression reaches production. Still early, and I'm actively building it out.",
+      de: 'EvalGate gibt es, weil Prompt-Änderungen meist auf gut Glück deployt werden. Bei jeder Prompt- oder Modelländerung testet es das Feature gegen einen von Hand kuratierten Golden-Datensatz, bewertet die Outputs anhand mehrerer Dimensionen, vergleicht den Lauf mit dem letzten Baseline-Ergebnis und meldet sich per Slack, bevor eine Regression in Produktion landet. Frühe Phase, ich baue laufend daran weiter.',
     },
     highlights: {
       en: [
-        'Golden dataset of 50–100 hand-labeled test cases (not LLM-generated) with deliberate edge cases — ambiguous, mixed-language, sarcastic — tagged by difficulty.',
-        'Multi-dimensional scoring: exact-match category accuracy, LLM-as-judge relevance (1–5), latency, and token usage, diffed case-by-case against the previous run.',
+        'Golden dataset of 50 to 100 hand-labeled test cases (not LLM-generated) with deliberate edge cases (ambiguous, mixed-language, sarcastic), tagged by difficulty.',
+        'Multi-dimensional scoring: exact-match category accuracy, LLM-as-judge relevance (1 to 5), latency, and token usage, diffed case-by-case against the previous run.',
         'Statistical thresholds (warning at 3% delta, critical at 8%) plus a 7-run rolling average to catch slow drift that no single run would flag on its own.',
         'GitHub Actions workflow that runs on every prompt-touching PR, posts a pass/fail summary comment, and blocks merge on critical regressions.',
         'Slack alerts and an HTML diff report showing old vs. new output side-by-side for every regressed case.',
       ],
       de: [
-        'Golden-Datensatz mit 50–100 von Hand gelabelten Testfällen (nicht LLM-generiert), inklusive gezielter Grenzfälle – mehrdeutig, mehrsprachig, sarkastisch – getaggt nach Schwierigkeit.',
-        'Mehrdimensionales Scoring: exakte Kategorie-Treffer, LLM-as-Judge-Relevanz (1–5), Latenz und Token-Verbrauch, pro Testfall gegen den letzten Lauf verglichen.',
+        'Golden-Datensatz mit 50 bis 100 von Hand gelabelten Testfällen (nicht LLM-generiert), inklusive gezielter Grenzfälle (mehrdeutig, mehrsprachig, sarkastisch), getaggt nach Schwierigkeit.',
+        'Mehrdimensionales Scoring: exakte Kategorie-Treffer, LLM-as-Judge-Relevanz (1 bis 5), Latenz und Token-Verbrauch, pro Testfall gegen den letzten Lauf verglichen.',
         'Statistische Schwellenwerte (Warnung ab 3 % Abweichung, kritisch ab 8 %) plus ein gleitender 7-Lauf-Durchschnitt, um langsame Drift zu erkennen, die ein einzelner Lauf übersehen würde.',
         'GitHub-Actions-Workflow, der bei jedem PR mit Prompt-Änderungen läuft, einen Pass/Fail-Kommentar postet und bei kritischen Regressionen den Merge blockiert.',
         'Slack-Alerts und ein HTML-Diff-Report, der für jeden regressierten Fall alten und neuen Output nebeneinander zeigt.',
@@ -56,23 +56,23 @@ export const projects = [
     title: 'LLM Cost Autopilot',
     summary: {
       en: 'A routing layer that sends every LLM request to the cheapest model that can actually handle it, and checks its own decisions in the background.',
-      de: 'Eine Routing-Schicht, die jede LLM-Anfrage an das günstigste Modell schickt, das sie tatsächlich bewältigen kann – und ihre eigenen Entscheidungen im Hintergrund überprüft.',
+      de: 'Eine Routing-Schicht, die jede LLM-Anfrage an das günstigste Modell schickt, das sie tatsächlich bewältigen kann, und ihre eigenen Entscheidungen im Hintergrund überprüft.',
     },
     description: {
-      en: 'Most teams send every LLM request to the same, usually most expensive, model — a one-line extraction and a genuinely hard reasoning task alike. LLM Cost Autopilot scores each request for complexity, routes it to the cheapest model that can handle it, and continuously verifies its own routing decisions in the background, auto-escalating and retraining when it gets one wrong.',
-      de: 'Die meisten Teams schicken jede LLM-Anfrage an dasselbe, meist teuerste Modell – egal ob simple Extraktion oder echtes Reasoning. LLM Cost Autopilot bewertet jede Anfrage nach Komplexität, leitet sie an das günstigste passende Modell weiter und überprüft seine eigenen Routing-Entscheidungen laufend im Hintergrund – mit automatischer Eskalation und Nachtraining bei Fehlern.',
+      en: "Send a one-line extraction and a genuinely hard reasoning task to the same model, and you're either overpaying on the easy one or shortchanging the hard one. Most teams just eat that cost across the board. LLM Cost Autopilot scores each request for difficulty, routes it to the cheapest model that can handle it, and keeps checking its own routing calls in the background, escalating and retraining itself whenever it gets one wrong.",
+      de: 'Schickt man eine einzeilige Extraktion und eine wirklich schwierige Reasoning-Aufgabe an dasselbe Modell, zahlt man bei der einfachen drauf oder bei der schwierigen zu wenig. Die meisten Teams nehmen diese Kosten einfach in Kauf. LLM Cost Autopilot bewertet jede Anfrage nach Schwierigkeit, leitet sie an das günstigste passende Modell weiter und überprüft die eigenen Routing-Entscheidungen laufend im Hintergrund, mit automatischer Eskalation und Nachtraining, wenn es einmal danebenliegt.',
     },
     highlights: {
       en: [
         'Built a scikit-learn complexity classifier that scores prompts into 3 tiers using lightweight text features, at 86% accuracy on held-out data.',
-        'Router maps each tier to a model via a hot-reloadable config — routing changes take effect through the API with no redeploy.',
+        'Router maps each tier to a model via a hot-reloadable config: routing changes take effect through the API with no redeploy.',
         'Async verifier re-runs requests through a reference model in the background, comparing answers and auto-escalating on disagreement.',
         'Escalated mismatches feed back into the training set, closing the loop for the next classifier retrain.',
         'Shipped a live Streamlit cost dashboard (actual vs. baseline spend, routing distribution, escalation rate) reading live from a FastAPI backend, containerized with Docker and covered by CI.',
       ],
       de: [
-        'Scikit-learn-Klassifikator gebaut, der Prompts anhand leichtgewichtiger Textmerkmale in 3 Komplexitätsstufen einteilt – 86 % Genauigkeit auf Testdaten.',
-        'Router leitet jede Stufe über eine per API live nachladbare Konfiguration an ein Modell weiter – Routing-Änderungen wirken ohne Neudeployment.',
+        'Scikit-learn-Klassifikator gebaut, der Prompts anhand leichtgewichtiger Textmerkmale in 3 Komplexitätsstufen einteilt (86 % Genauigkeit auf Testdaten).',
+        'Router leitet jede Stufe über eine per API live nachladbare Konfiguration an ein Modell weiter: Routing-Änderungen wirken ohne Neudeployment.',
         'Asynchroner Verifier führt Anfragen im Hintergrund erneut über ein Referenzmodell aus, vergleicht Antworten und eskaliert automatisch bei Abweichungen.',
         'Eskalierte Fehlfälle fließen zurück ins Trainingsset für das nächste Nachtraining des Klassifikators.',
         'Live-Streamlit-Kostendashboard (echte vs. Baseline-Kosten, Routing-Verteilung, Eskalationsrate) mit FastAPI-Backend, containerisiert mit Docker und mit CI abgesichert.',
@@ -89,7 +89,7 @@ export const projects = [
     letter: 'M',
     accent: 'sage',
     org: 'Wilken Software Group × Hochschule Neu-Ulm',
-    period: '09/2024 – 12/2024',
+    period: '09/2024 to 12/2024',
     tags: ['Python', 'LangChain', 'ChromaDB', 'LLaMA 3', 'RAG', 'Streamlit'],
     category: { en: 'Signature · AI Systems', de: 'Signature · KI-Systeme' },
     title: 'Meter Mate',
@@ -99,19 +99,19 @@ export const projects = [
     },
     description: {
       en: 'Project-lead role on an automated AI research system built with Python, LangChain, and ChromaDB, designed to surface the right information and the right contacts without manual search.',
-      de: 'Projektleitung für ein automatisiertes KI-Recherchesystem mit Python, LangChain und ChromaDB, das die richtigen Informationen und Ansprechpartner findet – ganz ohne manuelle Suche.',
+      de: 'Projektleitung für ein automatisiertes KI-Recherchesystem mit Python, LangChain und ChromaDB, das die richtigen Informationen und Ansprechpartner findet, ganz ohne manuelle Suche.',
     },
     highlights: {
       en: [
         'Built an AI agent pipeline using LLaMA 3 and RAG architecture to identify relevant information, extract key data points, and structure outputs for end users.',
-        'Cut manual research time from 5 minutes to 30 seconds per query — an 83% improvement.',
+        'Cut manual research time from 5 minutes to 30 seconds per query (an 83% improvement).',
         'Identified stakeholders and use cases through close client collaboration, shaping the system around real workflows.',
         'Shipped a working Python + Streamlit prototype, iterated on user feedback, and delivered a production-ready system with documentation.',
         'Led a 5-person cross-functional team and presented findings and prototype directly to management.',
       ],
       de: [
         'KI-Agenten-Pipeline mit LLaMA 3 und RAG-Architektur entwickelt, um relevante Informationen zu identifizieren, Kerndaten zu extrahieren und Ergebnisse nutzerfreundlich aufzubereiten.',
-        'Recherchezeit pro Anfrage von 5 Minuten auf 30 Sekunden gesenkt – eine Verbesserung um 83 %.',
+        'Recherchezeit pro Anfrage von 5 Minuten auf 30 Sekunden gesenkt (eine Verbesserung um 83 %).',
         'Stakeholder und Anwendungsfälle in enger Zusammenarbeit mit dem Kunden identifiziert und das System an echten Arbeitsabläufen ausgerichtet.',
         'Funktionierenden Prototyp mit Python und Streamlit gebaut, auf Basis von Nutzerfeedback iteriert und ein produktionsreifes System mit Dokumentation ausgeliefert.',
         'Ein 5-köpfiges interdisziplinäres Team geleitet und Ergebnisse sowie Prototyp direkt dem Management präsentiert.',
@@ -124,7 +124,7 @@ export const projects = [
     letter: 'A',
     accent: 'blue',
     org: 'Jayawantrao Sawant College of Engineering · Pune, India',
-    period: '08/2023 – 04/2024',
+    period: '08/2023 to 04/2024',
     tags: ['Machine Learning', 'Python', 'Data Collection', 'Research'],
     category: { en: 'Research · Applied ML', de: 'Forschung · Angewandtes ML' },
     title: 'Automated Classification System',
@@ -134,7 +134,7 @@ export const projects = [
     },
     description: {
       en: 'Co-authored a peer-reviewed publication on automated classification using machine learning, working across data collection, model training, and evaluation.',
-      de: 'Ko-Autor einer Peer-Review-Publikation zur automatisierten Klassifikation mittels Machine Learning – von der Datensammlung über das Modelltraining bis zur Evaluation.',
+      de: 'Ko-Autor einer Peer-Review-Publikation zur automatisierten Klassifikation mittels Machine Learning: von der Datensammlung über das Modelltraining bis zur Evaluation.',
     },
     highlights: {
       en: [
@@ -143,7 +143,7 @@ export const projects = [
         'Co-authored and published the peer-reviewed research paper.',
       ],
       de: [
-        'Klassifikationsmodell auf 10.000+ Datenpunkten trainiert und evaluiert – 92 % Genauigkeit erreicht.',
+        'Klassifikationsmodell auf 10.000+ Datenpunkten trainiert und evaluiert (92 % Genauigkeit erreicht).',
         'Komplette Pipeline end-to-end gebaut: Datensammlung, Vorverarbeitung, Modelltraining und strukturierte Ausgabe.',
         'Peer-Review-Forschungsarbeit als Ko-Autor verfasst und veröffentlicht.',
       ],
@@ -165,7 +165,7 @@ export const projects = [
     title: 'Digitized Learning Process',
     summary: {
       en: 'A course project redesigning student study planning as an AI- and RPA-supported BPMN process, trading manual scheduling for automated reminders, adaptive plans, and mock-exam feedback.',
-      de: 'Ein Kursprojekt, das die Studienplanung von Studierenden als KI- und RPA-gestützten BPMN-Prozess neu gestaltet – automatisierte Erinnerungen, adaptive Pläne und Mock-Exam-Feedback statt manueller Planung.',
+      de: 'Ein Kursprojekt, das die Studienplanung von Studierenden als KI- und RPA-gestützten BPMN-Prozess neu gestaltet: automatisierte Erinnerungen, adaptive Pläne und Mock-Exam-Feedback statt manueller Planung.',
     },
     description: {
       en: 'For the Digital Process Management course at HNU, our six-person group mapped the AS-IS student study-planning process in BPMN, ran a SWOT analysis on it, and designed a TO-BE process that replaces manual scheduling with an AI-supported workflow: lecture notes are parsed into a study schedule and calendar entries automatically, reminders and mock exams are triggered by the process itself, and a feedback loop recalibrates the plan whenever practice performance drops.',
@@ -175,14 +175,14 @@ export const projects = [
       en: [
         'Mapped two AS-IS workflows in BPMN and ran a full SWOT analysis to isolate the core problem: a 100% manual process with no system support or feedback.',
         'Designed a TO-BE BPMN process around an AI-driven "create study schedule" service task, RPA calendar sync, and a validation gateway that blocks progress until exercises are done.',
-        'Set measurable KPI targets across time, quality, and stress — e.g., weekly planning time from 60 min to 0–5 min, on-time task completion from 70% to 90%, perceived stress down 20%.',
+        'Set measurable KPI targets across time, quality, and stress: weekly planning time cut from 60 minutes to between 0 and 5 minutes, on-time task completion from 70% to 90%, perceived stress down 20%.',
         'Built a risk register mapping each AS-IS weakness (low motivation, overreliance on automation, privacy) to a specific mitigation in the TO-BE design.',
         'Presented the full AS-IS/TO-BE comparison and a short process simulation to the course.',
       ],
       de: [
         'Zwei AS-IS-Workflows in BPMN abgebildet und eine vollständige SWOT-Analyse durchgeführt, um das Kernproblem freizulegen: ein zu 100 % manueller Prozess ohne Systemunterstützung oder Feedback.',
         'TO-BE-BPMN-Prozess entworfen mit einem KI-gestützten Service-Task „Studienplan erstellen“, RPA-Kalendersynchronisierung und einem Validierungs-Gateway, das ohne erledigte Übungen keinen Fortschritt zulässt.',
-        'Messbare KPI-Ziele für Zeit, Qualität und Stress festgelegt – z. B. wöchentliche Planungszeit von 60 auf 0–5 Minuten, pünktliche Aufgabenerledigung von 70 % auf 90 %, wahrgenommener Stress um 20 % reduziert.',
+        'Messbare KPI-Ziele für Zeit, Qualität und Stress festgelegt: wöchentliche Planungszeit von 60 Minuten auf 0 bis 5 Minuten reduziert, pünktliche Aufgabenerledigung von 70 % auf 90 %, wahrgenommener Stress um 20 % reduziert.',
         'Risikoregister erstellt, das jede AS-IS-Schwäche (geringe Motivation, Überautomatisierung, Datenschutz) einer konkreten Maßnahme im TO-BE-Design zuordnet.',
         'Den vollständigen AS-IS/TO-BE-Vergleich sowie eine kurze Prozesssimulation im Kurs präsentiert.',
       ],
@@ -203,23 +203,23 @@ export const projects = [
       de: 'Eine Consulting-Fallstudie, die einen standardisierten, kundenzentrierten Prozessrahmen vorschlägt, mit dem die Bankkunden eines SaaS-Anbieters Kosten senken, Compliance erfüllen und Fusionen vereinfachen können.',
     },
     description: {
-      en: 'Six-person HNU Consulting engagement analyzing CSP, a SaaS provider serving 360 banks, whose customers were facing an aging workforce, high operational costs, regulatory compliance risk, and rising customer expectations. We built a case document — situation, complication, stakeholder analysis, and a phased solution — proposing a standardized, customer-centric process framework with a cost-benefit case and rollout plan, presented to internal and external supervisors from the field.',
-      de: 'Sechsköpfiges HNU-Consulting-Projekt zur Analyse von CSP, einem SaaS-Anbieter für 360 Banken, dessen Kunden mit alternder Belegschaft, hohen Betriebskosten, regulatorischen Risiken und steigenden Kundenerwartungen konfrontiert waren. Wir erstellten ein Case-Dokument – Situation, Complication, Stakeholder-Analyse und eine mehrstufige Lösung – mit einem standardisierten, kundenzentrierten Prozessrahmen, Kosten-Nutzen-Analyse und Rollout-Plan, präsentiert vor internen und externen Betreuern aus der Praxis.',
+      en: 'Six-person HNU Consulting engagement analyzing CSP, a SaaS provider serving 360 banks, whose customers were facing an aging workforce, high operational costs, regulatory compliance risk, and rising customer expectations. We built a case document (situation, complication, stakeholder analysis, and a phased solution) proposing a standardized, customer-centric process framework with a cost-benefit case and rollout plan, presented to internal and external supervisors from the field.',
+      de: 'Sechsköpfiges HNU-Consulting-Projekt zur Analyse von CSP, einem SaaS-Anbieter für 360 Banken, dessen Kunden mit alternder Belegschaft, hohen Betriebskosten, regulatorischen Risiken und steigenden Kundenerwartungen konfrontiert waren. Wir erstellten ein Case-Dokument (Situation, Complication, Stakeholder-Analyse und eine mehrstufige Lösung) mit einem standardisierten, kundenzentrierten Prozessrahmen, Kosten-Nutzen-Analyse und Rollout-Plan, präsentiert vor internen und externen Betreuern aus der Praxis.',
     },
     highlights: {
       en: [
-        'Structured the case with a Situation–Complication–Question framework, mapping four converging pressures: workforce attrition, cost, regulation, and customer expectations.',
-        'Ran a stakeholder analysis and defined scope, constraints, and success criteria before proposing a solution — not the other way round.',
+        'Structured the case with a Situation-Complication-Question framework, mapping four converging pressures: workforce attrition, cost, regulation, and customer expectations.',
+        'Ran a stakeholder analysis and defined scope, constraints, and success criteria before proposing a solution, not the other way round.',
         'Proposed a three-part framework: process standardization, customer-centric design principles, and a regulatory compliance strategy.',
         'Built a cost-benefit case and department-level cost estimation for the proposed process function, including departmental structure and interfaces.',
-        'Delivered a phased rollout plan — immediate actions, pilot program, full-scale rollout, continuous improvement — to internal and external supervisors.',
+        'Delivered a phased rollout plan (immediate actions, pilot program, full-scale rollout, continuous improvement) to internal and external supervisors.',
       ],
       de: [
-        'Den Case nach dem Situation–Complication–Question-Schema strukturiert und vier zusammenlaufende Problemfelder herausgearbeitet: Fachkräfteabwanderung, Kosten, Regulierung und Kundenerwartungen.',
-        'Stakeholder-Analyse durchgeführt und Scope, Rahmenbedingungen sowie Erfolgskriterien definiert, bevor eine Lösung vorgeschlagen wurde – nicht umgekehrt.',
+        'Den Case nach dem Situation-Complication-Question-Schema strukturiert und vier zusammenlaufende Problemfelder herausgearbeitet: Fachkräfteabwanderung, Kosten, Regulierung und Kundenerwartungen.',
+        'Stakeholder-Analyse durchgeführt und Scope, Rahmenbedingungen sowie Erfolgskriterien definiert, bevor eine Lösung vorgeschlagen wurde, nicht umgekehrt.',
         'Dreiteiligen Lösungsrahmen vorgeschlagen: Prozessstandardisierung, kundenzentrierte Design-Prinzipien und eine Compliance-Strategie.',
         'Kosten-Nutzen-Analyse und Kostenschätzung auf Abteilungsebene für die vorgeschlagene Prozessfunktion erstellt, inklusive Abteilungsstruktur und Schnittstellen.',
-        'Einen mehrstufigen Rollout-Plan – Sofortmaßnahmen, Pilotprogramm, Flächenrollout, kontinuierliche Verbesserung – vor internen und externen Betreuern vorgestellt.',
+        'Einen mehrstufigen Rollout-Plan (Sofortmaßnahmen, Pilotprogramm, Flächenrollout, kontinuierliche Verbesserung) vor internen und externen Betreuern vorgestellt.',
       ],
     },
     status: { en: 'Coursework · Delivered', de: 'Kursarbeit · Abgeschlossen' },
@@ -230,7 +230,7 @@ export const experience = [
   {
     role: { en: 'Business Analyst Intern', de: 'Praktikant Business Analyst' },
     org: 'BitFlyer Technologies · Pune, India',
-    period: '02/2024 – 07/2024',
+    period: '02/2024 to 07/2024',
     detail: {
       en: 'Business Analyst internship focused on automation and data analysis, working directly with management on process improvement.',
       de: 'Praktikum als Business Analyst mit Fokus auf Automatisierung und Datenanalyse, in direkter Zusammenarbeit mit dem Management an Prozessverbesserungen.',
@@ -243,9 +243,9 @@ export const experience = [
         'Contributed analysis and recommendations that shaped quarterly sales strategy.',
       ],
       de: [
-        'Automatisierte Datenerfassungs- und Verarbeitungspipelines mit Python und REST APIs gebaut – 8+ Stunden manuelle Arbeit pro Woche eingespart.',
+        'Automatisierte Datenerfassungs- und Verarbeitungspipelines mit Python und REST APIs gebaut (8+ Stunden manuelle Arbeit pro Woche eingespart).',
         '47.000+ Datensätze analysiert, um Muster und handlungsrelevante Erkenntnisse für Managemententscheidungen aufzuzeigen.',
-        'Power-BI-Dashboards entwickelt, mit denen Sales und Operations KPIs eigenständig verfolgen konnten – Reporting-Zyklus von 5 auf 2 Stunden verkürzt (60 % schneller).',
+        'Power-BI-Dashboards entwickelt, mit denen Sales und Operations KPIs eigenständig verfolgen konnten: Reporting-Zyklus von 5 auf 2 Stunden verkürzt (60 % schneller).',
         'Analysen und Empfehlungen beigesteuert, die die Quartals-Vertriebsstrategie mitgeprägt haben.',
       ],
     },
@@ -256,7 +256,7 @@ export const education = [
   {
     degree: { en: 'M.Sc. Artificial Intelligence and Data Analytics', de: 'M.Sc. Artificial Intelligence and Data Analytics' },
     org: 'Hochschule Neu-Ulm (HNU) · Germany',
-    period: '10/2024 – Present',
+    period: '10/2024 to Present',
     detail: {
       en: 'Coursework: Big Data & AI, Deep Learning, Advanced NLP, Machine Learning, Data Platform Architectures, Digital Process Management, Business Intelligence.',
       de: 'Schwerpunkte: Big Data & KI, Deep Learning, Advanced NLP, Machine Learning, Data Platform Architectures, Digital Process Management, Business Intelligence.',
@@ -265,7 +265,7 @@ export const education = [
   {
     degree: { en: 'B.E. Electronics and Telecommunication Engineering', de: 'B.E. Electronics and Telecommunication Engineering' },
     org: 'Jayawantrao Sawant College of Engineering · Pune, India',
-    period: '08/2020 – 06/2024',
+    period: '08/2020 to 06/2024',
     detail: {
       en: 'GPA: 1.6 (German grading scale).',
       de: 'Notendurchschnitt: 1,6 (deutsches Notensystem).',
@@ -308,7 +308,7 @@ export const content = {
       eyebrow: 'Open to working student roles & internships',
       name: 'Himanshu Rane',
       p1: "I'm a Master's student in AI & Data Analytics at Hochschule Neu-Ulm, building AI agents and retrieval systems that turn scattered documents into fast, reliable answers.",
-      p2: 'I care about systems that stay explainable when the data gets messy, and about shipping working prototypes fast — from the first stakeholder conversation to production rollout.',
+      p2: 'I care about systems that stay explainable when the data gets messy, and about shipping working prototypes fast, from the first stakeholder conversation to production rollout.',
       ctaPrimary: 'View Projects',
       ctaSecondary: 'Get in Touch',
       location: 'Neu-Ulm, Germany',
@@ -324,12 +324,12 @@ export const content = {
     signature: {
       label: 'How It Thinks',
       heading: 'A live trace from LLM Cost Autopilot',
-      sub: 'Every request gets scored for complexity, routed to the cheapest model that can handle it, and checked by a background verifier that catches its own mistakes — this is that loop, running.',
+      sub: 'Every request gets scored for complexity, routed to the cheapest model that can handle it, and checked by a background verifier that catches its own mistakes. This is that loop, running.',
     },
     aboutPreview: {
       label: 'About Me',
-      intro: "What drives me is simple: understand the problem before writing a line of code, ship something that actually works, and keep learning past the point where it's comfortable.",
-      body: "I'm a Master's student in AI & Data Analytics at Hochschule Neu-Ulm (HNU), based in Neu-Ulm, Germany. I build AI agents and retrieval systems that stay useful once real, messy data hits them — and I like working close enough to stakeholders to know the system is solving the right problem.",
+      intro: "What drives me is simple: understand the problem before writing a line of code, ship something that works, and keep learning past the point where it's comfortable.",
+      body: "I'm a Master's student in AI & Data Analytics at Hochschule Neu-Ulm (HNU), based in Neu-Ulm, Germany. I build AI agents and retrieval systems that stay useful once real, messy data hits them, and I like working close enough to stakeholders to know the system is solving the right problem.",
     },
     focus: {
       label: 'Focus',
@@ -337,7 +337,7 @@ export const content = {
       items: [
         {
           title: 'AI Agents & RAG',
-          desc: 'End-to-end retrieval pipelines that turn raw documents into structured, trustworthy answers — LangChain, ChromaDB, and LLMs where they actually help.',
+          desc: 'End-to-end retrieval pipelines that turn raw documents into structured, trustworthy answers: LangChain, ChromaDB, and LLMs where they actually help.',
         },
         {
           title: 'Data Engineering & Automation',
@@ -352,7 +352,7 @@ export const content = {
     flagship: {
       label: 'Flagship Project',
       title: 'EvalGate',
-      desc: 'A CI/CD-style regression pipeline that tests LLM-powered features against a golden dataset on every prompt change, scores outputs across multiple dimensions, and blocks the PR — with Slack alerts — before a regression reaches users. Early-stage and actively being built out.',
+      desc: 'A CI/CD-style regression pipeline that catches prompt regressions before they reach users: every prompt or model change gets tested against a golden dataset, scored across multiple dimensions, and blocked from merging (with a Slack alert) if something breaks. Early days, still adding to it.',
       tags: ['Python', 'OpenAI API', 'Pydantic', 'GitHub Actions', 'Slack API', 'Docker'],
       link: 'See the project',
       status: 'Building · In progress',
@@ -383,7 +383,7 @@ export const content = {
     projectsPage: {
       eyebrow: 'Projects',
       heading: 'Work that turns into results',
-      sub: "A closer look at the systems I've built — from a production AI research agent to automation pipelines that saved real hours.",
+      sub: "A closer look at the systems I've built, from a production AI research agent to automation pipelines that saved real hours.",
       highlightsLabel: 'Highlights',
       viewDemo: 'Live Demo',
       viewCode: 'View Code',
@@ -394,8 +394,8 @@ export const content = {
     aboutPage: {
       eyebrow: 'About',
       heading: 'A bit more about how I work',
-      body1: "I'm Himanshu Rane, a Master's student in AI & Data Analytics at Hochschule Neu-Ulm (HNU), currently applying my studies to an internship in AI in Sales with the goal of continuing into a thesis from October 2026.",
-      body2: "I've spent the last two years building AI agents, retrieval systems, and automated data pipelines — always starting from the actual stakeholders and use cases rather than the technology. My favourite part of a project is turning a vague, manual process into something structured, fast, and something a team can trust without double-checking it.",
+      body1: "I'm Himanshu Rane, a Master's student in AI & Data Analytics at Hochschule Neu-Ulm (HNU). Right now I'm applying for an internship in AI for Sales, with the plan to move into a thesis from October 2026.",
+      body2: "I've spent the last two years building AI agents, retrieval systems, and automated data pipelines, and I try to start from the stakeholders and the actual use case rather than the technology. The part I like best is turning a vague, manual process into something structured and fast enough that a team can trust it without double-checking every output.",
       body3: "Outside of coursework and projects, I'm working on my German (currently A2, aiming for B1) and staying comfortable moving between hands-on engineering and the business conversations that decide whether a system actually gets used.",
       experienceHeading: 'Professional Experience',
       educationHeading: 'Education',
@@ -434,7 +434,7 @@ export const content = {
     blogPage: {
       eyebrow: 'Blog',
       heading: 'Notes on AI, data, and building things',
-      sub: "Writing on what I'm learning building AI agents, retrieval systems, and data pipelines — plus the occasional note on the job search itself.",
+      sub: "Writing on what I'm learning building AI agents, retrieval systems, and data pipelines, plus the occasional note on the job search itself.",
       emptyTitle: 'First post is on the way',
       emptyBody: "I'm still writing. Check back soon, or follow along on LinkedIn in the meantime.",
       emptyCta: 'Follow on LinkedIn',
@@ -449,7 +449,7 @@ export const content = {
       eyebrow: 'Offen für Werkstudententätigkeiten und Praktika',
       name: 'Himanshu Rane',
       p1: 'Ich bin Masterstudent für KI & Data Analytics an der Hochschule Neu-Ulm und baue KI-Agenten sowie Retrieval-Systeme, die aus verstreuten Dokumenten schnelle, verlässliche Antworten machen.',
-      p2: 'Mir sind Systeme wichtig, die auch bei unruhigen Daten nachvollziehbar bleiben, und Prototypen, die schnell entstehen – vom ersten Gespräch mit Stakeholdern bis zum produktiven Rollout.',
+      p2: 'Mir sind Systeme wichtig, die auch bei unruhigen Daten nachvollziehbar bleiben, und Prototypen, die schnell entstehen, vom ersten Gespräch mit Stakeholdern bis zum produktiven Rollout.',
       ctaPrimary: 'Zu den Projekten',
       ctaSecondary: 'Kontakt aufnehmen',
       location: 'Neu-Ulm, Deutschland',
@@ -465,12 +465,12 @@ export const content = {
     signature: {
       label: 'Wie es denkt',
       heading: 'Ein Live-Trace aus LLM Cost Autopilot',
-      sub: 'Jede Anfrage wird nach Komplexität bewertet, an das günstigste passende Modell geleitet und von einem Verifier im Hintergrund geprüft, der eigene Fehler erkennt – das ist diese Schleife, live.',
+      sub: 'Jede Anfrage wird nach Komplexität bewertet, an das günstigste passende Modell geleitet und von einem Verifier im Hintergrund geprüft, der eigene Fehler erkennt. Das ist diese Schleife, live.',
     },
     aboutPreview: {
       label: 'Über mich',
-      intro: 'Mich treibt etwas Einfaches an: das Problem verstehen, bevor ich eine Zeile Code schreibe, etwas bauen, das wirklich funktioniert, und weiterlernen, auch wenn es unbequem wird.',
-      body: 'Ich bin Masterstudent für KI & Data Analytics an der Hochschule Neu-Ulm (HNU) mit Sitz in Neu-Ulm, Deutschland. Ich baue KI-Agenten und Retrieval-Systeme, die auch bei echten, unruhigen Daten nützlich bleiben – und arbeite gerne nah genug an Stakeholdern, um sicherzugehen, dass das System das richtige Problem löst.',
+      intro: 'Mich treibt etwas Einfaches an: das Problem verstehen, bevor ich eine Zeile Code schreibe, etwas bauen, das funktioniert, und weiterlernen, auch wenn es unbequem wird.',
+      body: 'Ich bin Masterstudent für KI & Data Analytics an der Hochschule Neu-Ulm (HNU) mit Sitz in Neu-Ulm, Deutschland. Ich baue KI-Agenten und Retrieval-Systeme, die auch bei echten, unruhigen Daten nützlich bleiben, und arbeite gerne nah genug an Stakeholdern, um sicherzugehen, dass das System das richtige Problem löst.',
     },
     focus: {
       label: 'Schwerpunkte',
@@ -478,11 +478,11 @@ export const content = {
       items: [
         {
           title: 'KI-Agenten & RAG',
-          desc: 'End-to-End-Retrieval-Pipelines, die aus Rohdokumenten strukturierte, verlässliche Antworten machen – LangChain, ChromaDB und LLMs dort, wo sie wirklich helfen.',
+          desc: 'End-to-End-Retrieval-Pipelines, die aus Rohdokumenten strukturierte, verlässliche Antworten machen: LangChain, ChromaDB und LLMs dort, wo sie wirklich helfen.',
         },
         {
           title: 'Data Engineering & Automatisierung',
-          desc: 'Pipelines und Dashboards, die Daten nachvollziehbar und wiederverwendbar halten – statt manueller Recherche, auf die sich ein Team verlassen kann.',
+          desc: 'Pipelines und Dashboards, die Daten nachvollziehbar und wiederverwendbar halten, statt manueller Recherche, auf die sich ein Team verlassen kann.',
         },
         {
           title: 'Wirkung im Unternehmen',
@@ -493,7 +493,7 @@ export const content = {
     flagship: {
       label: 'Vorzeigeprojekt',
       title: 'EvalGate',
-      desc: 'Eine CI/CD-artige Regressions-Pipeline, die LLM-Features bei jeder Prompt-Änderung gegen einen Golden-Datensatz testet, Outputs anhand mehrerer Dimensionen bewertet und den PR – mit Slack-Alerts – blockiert, bevor eine Regression Nutzer erreicht. Frühe Phase, aktiv im Aufbau.',
+      desc: 'Eine CI/CD-artige Regressions-Pipeline, die Prompt-Regressionen abfängt, bevor sie Nutzer erreichen: Bei jeder Prompt- oder Modelländerung wird das Feature gegen einen Golden-Datensatz getestet, anhand mehrerer Dimensionen bewertet und der Merge blockiert (mit Slack-Alert), wenn etwas kaputtgeht. Frühe Phase, ich baue weiter daran.',
       tags: ['Python', 'OpenAI API', 'Pydantic', 'GitHub Actions', 'Slack API', 'Docker'],
       link: 'Zum Projekt',
       status: 'Im Aufbau · In Arbeit',
@@ -524,7 +524,7 @@ export const content = {
     projectsPage: {
       eyebrow: 'Projekte',
       heading: 'Arbeit, die zu Ergebnissen wird',
-      sub: 'Ein genauerer Blick auf die Systeme, die ich gebaut habe – von einem produktiven KI-Recherche-Agenten bis zu Automatisierungspipelines, die echte Stunden gespart haben.',
+      sub: 'Ein genauerer Blick auf die Systeme, die ich gebaut habe, von einem produktiven KI-Recherche-Agenten bis zu Automatisierungspipelines, die echte Stunden gespart haben.',
       highlightsLabel: 'Highlights',
       viewDemo: 'Live-Demo',
       viewCode: 'Code ansehen',
@@ -536,7 +536,7 @@ export const content = {
       eyebrow: 'Über mich',
       heading: 'Etwas mehr darüber, wie ich arbeite',
       body1: 'Ich bin Himanshu Rane, Masterstudent für KI & Data Analytics an der Hochschule Neu-Ulm (HNU) und bewerbe mich aktuell für ein Praktikum im Bereich AI in Sales, mit dem Ziel, ab Oktober 2026 in eine Abschlussarbeit überzugehen.',
-      body2: 'In den letzten zwei Jahren habe ich KI-Agenten, Retrieval-Systeme und automatisierte Datenpipelines gebaut – immer ausgehend von den tatsächlichen Stakeholdern und Anwendungsfällen, nicht von der Technologie. Am liebsten mache ich aus einem vagen, manuellen Prozess etwas Strukturiertes und Schnelles, dem ein Team vertrauen kann, ohne es zweimal zu prüfen.',
+      body2: 'In den letzten zwei Jahren habe ich KI-Agenten, Retrieval-Systeme und automatisierte Datenpipelines gebaut, und ich starte dabei von den Stakeholdern und dem eigentlichen Anwendungsfall aus, nicht von der Technologie. Am liebsten mache ich aus einem vagen, manuellen Prozess etwas Strukturiertes und Schnelles, dem ein Team vertraut, ohne jede Ausgabe zweimal zu prüfen.',
       body3: 'Neben Studium und Projekten arbeite ich an meinem Deutsch (aktuell A2, Ziel B1) und bewege mich gerne zwischen praktischer Entwicklungsarbeit und den geschäftlichen Gesprächen, die darüber entscheiden, ob ein System am Ende wirklich genutzt wird.',
       experienceHeading: 'Berufserfahrung',
       educationHeading: 'Ausbildung',
@@ -575,7 +575,7 @@ export const content = {
     blogPage: {
       eyebrow: 'Blog',
       heading: 'Notizen zu KI, Daten und dem Bauen von Dingen',
-      sub: 'Texte darüber, was ich beim Bauen von KI-Agenten, Retrieval-Systemen und Datenpipelines lerne – und gelegentlich auch über die Jobsuche selbst.',
+      sub: 'Texte darüber, was ich beim Bauen von KI-Agenten, Retrieval-Systemen und Datenpipelines lerne, und gelegentlich auch über die Jobsuche selbst.',
       emptyTitle: 'Der erste Beitrag ist unterwegs',
       emptyBody: 'Ich schreibe noch. Schau bald wieder vorbei oder folge mir in der Zwischenzeit auf LinkedIn.',
       emptyCta: 'Auf LinkedIn folgen',

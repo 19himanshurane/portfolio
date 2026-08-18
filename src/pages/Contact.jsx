@@ -28,7 +28,7 @@ function CopyButton({ value, label }) {
       setCopied(true);
       setTimeout(() => setCopied(false), 1600);
     } catch {
-      // clipboard API unavailable — no-op
+      // clipboard API unavailable, no-op
     }
   };
 
