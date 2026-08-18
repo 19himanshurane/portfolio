@@ -48,7 +48,10 @@
   --depth-1: 1000px;
   --depth-2: 1400px;
 
-  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  /* Bricolage Grotesque over the usual Space Grotesk or Geist: optical-size
+     aware, and enough contrast against Inter Tight that display and body
+     read as two deliberate voices rather than one family at two sizes. */
+  --font-heading: 'Bricolage Grotesque', system-ui, sans-serif;
   --font-body: 'Inter Tight', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
