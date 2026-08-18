@@ -10,3 +10,12 @@ Thumbs.db
 !.vscode/extensions.json
 
 .claude/settings.local.json
+.claude/skills/
+.agents/
+.codex/
+.github/skills/
+.github/agents/
+.github/hooks/
+skills-lock.json
+design-md/
+Documents/

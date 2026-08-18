@@ -28,10 +28,10 @@
   max-width: 460px;
   margin: 0 auto;
   text-align: center;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 45%), rgba(255, 255, 255, 0.42);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: var(--glass-surface);
+  backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-card);
   padding: 48px 32px;
   display: flex;
@@ -44,7 +44,7 @@
   width: 56px;
   height: 56px;
   border-radius: 16px;
-  background: rgba(91, 122, 104, 0.18);
+  background: color-mix(in srgb, var(--color-accent-sage) 18%, transparent);
   color: var(--color-sage-ink);
   display: flex;
   align-items: center;
@@ -71,16 +71,16 @@
 }
 
 .blog-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 45%), rgba(255, 255, 255, 0.42);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: var(--glass-surface);
+  backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-card);
   transition: box-shadow 0.3s var(--ease-standard), border-color 0.3s var(--ease-standard);
 }
 
 .blog-card:hover {
-  border-color: rgba(255, 255, 255, 0.8);
+  border-color: var(--glass-surface-strong);
   box-shadow: var(--shadow-soft);
 }
 
@@ -115,7 +115,7 @@
 .blog-card__excerpt {
   font-size: 15px;
   line-height: 1.65;
-  color: rgba(28, 28, 28, 0.75);
+  color: var(--color-text-muted);
   margin-bottom: 20px;
 }
 

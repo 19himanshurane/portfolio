@@ -10,6 +10,8 @@ import HeroIllustration from '../components/HeroIllustration.jsx';
 import AccentLine from '../components/AccentLine.jsx';
 import CountUp from '../components/CountUp.jsx';
 import RoutingDemo from '../components/RoutingDemo.jsx';
+import TiltCard from '../components/TiltCard.jsx';
+import LiveClock from '../components/LiveClock.jsx';
 import './Home.css';
 
 const EASE = [0.4, 0, 0.2, 1];
@@ -67,42 +69,51 @@ export default function Home() {
 
           <div className="hero__visual">
             <motion.div
-              className="hero__photo"
               initial={{ opacity: 0, scale: 0.96, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
             >
-              <Avatar size="lg" />
+              <TiltCard className="hero__photo" tiltRange={8} shine={false}>
+                <Avatar size="lg" />
+              </TiltCard>
             </motion.div>
 
             <motion.div
-              className="hero__info-card"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4, ease: EASE }}
             >
-              <div className="hero__info-rows">
-                <div className="hero__info-row">
-                  <span className="hero__status-dot" />
-                  {t.hero.eyebrow}
+              <TiltCard className="hero__info-card" tiltRange={5}>
+                <div className="hero__info-bar">
+                  <span className="hero__info-dots" aria-hidden="true">
+                    <span /><span /><span />
+                  </span>
+                  <span className="hero__info-bar-label">STATUS.LOG</span>
+                  <LiveClock className="hero__info-clock" tz={t.hero.tz} />
                 </div>
-                <div className="hero__info-row">
-                  <MapPinIcon className="hero__info-icon" />
-                  {t.hero.location}
-                </div>
-                <div className="hero__info-row">
-                  <GraduationCapIcon className="hero__info-icon" />
-                  {t.hero.degree}
-                </div>
-              </div>
-              <div className="hero__stats">
-                {t.hero.stats.map((s) => (
-                  <div key={s.label} className="hero__stat">
-                    <span className="hero__stat-value"><CountUp value={s.value} /></span>
-                    <span className="hero__stat-label">{s.label}</span>
+                <div className="hero__info-rows">
+                  <div className="hero__info-row">
+                    <span className="hero__status-dot" />
+                    {t.hero.eyebrow}
                   </div>
-                ))}
-              </div>
+                  <div className="hero__info-row">
+                    <MapPinIcon className="hero__info-icon" />
+                    {t.hero.location}
+                  </div>
+                  <div className="hero__info-row">
+                    <GraduationCapIcon className="hero__info-icon" />
+                    {t.hero.degree}
+                  </div>
+                </div>
+                <div className="hero__stats">
+                  {t.hero.stats.map((s) => (
+                    <div key={s.label} className="hero__stat">
+                      <span className="hero__stat-value"><CountUp value={s.value} /></span>
+                      <span className="hero__stat-label">{s.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </TiltCard>
             </motion.div>
           </div>
         </div>
@@ -143,9 +154,11 @@ export default function Home() {
           </Reveal>
           <div className="grid grid-3 focus__grid">
             {t.focus.items.map((item, i) => (
-              <Reveal key={item.title} y={24} delay={i * 0.1} className="card focus__item">
-                <h3>{item.title}</h3>
-                <p className="muted">{item.desc}</p>
+              <Reveal key={item.title} y={24} delay={i * 0.1}>
+                <TiltCard className="card focus__item" tiltRange={5}>
+                  <h3>{item.title}</h3>
+                  <p className="muted">{item.desc}</p>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
@@ -157,20 +170,22 @@ export default function Home() {
           <Reveal y={20}>
             <span className="section-label">{t.flagship.label}</span>
           </Reveal>
-          <Reveal y={28} delay={0.1} className="flagship__card">
-            <div className="flagship__body">
-              <h2>{t.flagship.title}</h2>
-              <p className="muted">{t.flagship.desc}</p>
-              <div className="flagship__tags">
-                {t.flagship.tags.map((tag) => (
-                  <span key={tag} className="tag">{tag}</span>
-                ))}
+          <Reveal y={28} delay={0.1}>
+            <TiltCard className="flagship__card" tiltRange={3}>
+              <div className="flagship__body">
+                <h2>{t.flagship.title}</h2>
+                <p className="muted">{t.flagship.desc}</p>
+                <div className="flagship__tags">
+                  {t.flagship.tags.map((tag) => (
+                    <span key={tag} className="tag">{tag}</span>
+                  ))}
+                </div>
+                <Link to="/projects#evalgate" className="flagship__link arrow-link">
+                  {t.flagship.link} <span className="arrow-icon">→</span>
+                </Link>
               </div>
-              <Link to="/projects#evalgate" className="flagship__link arrow-link">
-                {t.flagship.link} <span className="arrow-icon">→</span>
-              </Link>
-            </div>
-            <div className="flagship__status">{t.flagship.status}</div>
+              <div className="flagship__status">{t.flagship.status}</div>
+            </TiltCard>
           </Reveal>
         </div>
       </section>

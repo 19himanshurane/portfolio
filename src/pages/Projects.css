@@ -27,7 +27,7 @@
   letter-spacing: 0.03em;
   padding: 9px 18px;
   border-radius: var(--radius-pill);
-  background: rgba(232, 234, 237, 0.5);
+  background: var(--color-surface-soft);
   border: 1px solid transparent;
   color: var(--color-text-muted);
   transition: all 0.25s var(--ease-standard);
@@ -39,8 +39,9 @@
 }
 
 .projects-filter__chip.is-active {
-  background: var(--color-dark);
-  color: var(--color-on-dark);
+  background: var(--glass-surface-strong);
+  border-color: var(--color-accent-sage);
+  color: var(--color-accent-sage);
 }
 
 .projects-list {
@@ -53,10 +54,10 @@
   display: grid;
   grid-template-columns: 56px 1fr;
   gap: 32px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 45%), rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: var(--glass-surface);
+  backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-card);
   padding: 40px;
   scroll-margin-top: 100px;
@@ -64,7 +65,7 @@
 }
 
 .project-detail:hover {
-  border-color: rgba(255, 255, 255, 0.8);
+  border-color: var(--glass-surface-strong);
   box-shadow: var(--shadow-soft);
 }
 

@@ -313,6 +313,7 @@ export const content = {
       ctaSecondary: 'Get in Touch',
       location: 'Neu-Ulm, Germany',
       degree: 'M.Sc. AI & Data Analytics',
+      tz: 'CET · Neu-Ulm',
       stats: [
         { value: '6', label: 'Projects' },
         { value: '2+', label: 'Years Practice' },
@@ -453,6 +454,7 @@ export const content = {
       ctaSecondary: 'Kontakt aufnehmen',
       location: 'Neu-Ulm, Deutschland',
       degree: 'M.Sc. AI & Data Analytics',
+      tz: 'MEZ · Neu-Ulm',
       stats: [
         { value: '6', label: 'Projekte' },
         { value: '2+', label: 'Jahre Praxis' },

@@ -55,7 +55,7 @@
 
 .timeline__item:hover {
   border-left-color: var(--color-accent-sage);
-  background: rgba(232, 234, 237, 0.3);
+  background: var(--color-surface-soft);
 }
 
 .timeline__item:last-child {
@@ -188,7 +188,7 @@
   height: 100%;
   width: 100%;
   border-radius: 4px;
-  background: var(--gradient-accent);
+  background: var(--color-accent-sage);
   transform-origin: left center;
 }
 

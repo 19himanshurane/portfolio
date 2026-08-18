@@ -1,9 +1,9 @@
 .footer {
   position: relative;
   z-index: 1;
-  background: rgba(232, 234, 237, 0.35);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: var(--color-surface-soft);
+  backdrop-filter: blur(var(--glass-blur-px));
+  -webkit-backdrop-filter: blur(var(--glass-blur-px));
   border-top: 1px solid var(--color-border);
   padding: 72px 0 32px;
   margin-top: 96px;

@@ -4,24 +4,24 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 45%), rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: var(--glass-surface);
+  backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-card);
   padding: 32px;
   transition: box-shadow 0.3s var(--ease-standard), border-color 0.3s var(--ease-standard);
 }
 
 .project-card:hover {
-  border-color: rgba(255, 255, 255, 0.8);
+  border-color: var(--glass-surface-strong);
   box-shadow: var(--shadow-lift);
 }
 
 .project-card__shine {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle 260px at var(--shine-x, 50%) var(--shine-y, 50%), rgba(255, 255, 255, 0.5), transparent 70%);
+  background: radial-gradient(circle 260px at var(--shine-x, 50%) var(--shine-y, 50%), var(--glass-sheen), transparent 70%);
   opacity: 0;
   transition: opacity 0.3s var(--ease-standard);
   pointer-events: none;
@@ -65,12 +65,12 @@
 }
 
 .project-card__ext:hover {
-  background: rgba(91, 122, 104, 0.15);
+  background: color-mix(in srgb, var(--color-accent-sage) 15%, transparent);
   color: var(--color-sage-ink);
 }
 
 .accent-sage {
-  background: linear-gradient(150deg, rgba(91, 122, 104, 0.4), rgba(91, 122, 104, 0.1));
+  background: linear-gradient(150deg, color-mix(in srgb, var(--color-accent-sage) 40%, transparent), color-mix(in srgb, var(--color-accent-sage) 10%, transparent));
 }
 
 .accent-blue {

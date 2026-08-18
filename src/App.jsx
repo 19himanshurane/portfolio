@@ -5,7 +5,6 @@ import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import ScrollManager from './components/ScrollManager.jsx';
 import SmoothScroll from './components/SmoothScroll.jsx';
-import SpotlightCursor from './components/SpotlightCursor.jsx';
 import ScrollProgress from './components/ScrollProgress.jsx';
 import PageLoader from './components/PageLoader.jsx';
 import Home from './pages/Home.jsx';
@@ -24,7 +23,6 @@ export default function App() {
       <SmoothScroll />
       <ScrollManager />
       <ScrollProgress />
-      <SpotlightCursor />
       <Navbar />
       <main>
         <AnimatePresence mode="wait">

@@ -3,15 +3,6 @@
   width: 48px;
   height: 3px;
   border-radius: 2px;
-  background: linear-gradient(90deg, var(--color-accent-sage), var(--color-accent-blue), var(--color-accent-gold), var(--color-accent-sage));
-  background-size: 300% 100%;
-  transform-origin: left center;
+  background: var(--color-accent-sage);
   margin: 14px 0 4px;
-  animation: accent-shimmer 4s linear infinite;
-}
-
-@keyframes accent-shimmer {
-  to {
-    background-position: -300% 0;
-  }
 }

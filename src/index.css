@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
   --color-bg: #f6f7f8;
@@ -8,24 +8,37 @@
   --color-surface: #e8eaed;
   --color-surface-soft: rgba(232, 234, 237, 0.55);
   --color-border: #d7dbe0;
-  --color-accent-sage: #5b7a68;
+  --color-accent-sage: #4a54c4;
   --color-accent-blue: #4a6fa5;
   --color-accent-clay: #a38a6d;
   --color-accent-gold: #b8934f;
   --color-accent-plum: #7d5a7a;
   --color-accent-teal: #3d7a72;
-  --color-sage-ink: #46584a;
+  --color-sage-ink: #4a54c4;
   --color-warm-white: #f8f9fa;
   --color-soft-gray: #62666d;
   --color-dark: #14161a;
   --color-on-dark: #f8f9fa;
 
+  --color-on-accent: #ffffff;
+  --color-accent-hover: #3f48ab;
+
+  --glass-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0) 45%), rgba(255, 255, 255, 0.44);
+  --glass-surface-strong: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-sheen: rgba(255, 255, 255, 0.5);
+  --glass-inset: inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  --glass-blur-px: 18px;
+
+  --depth-1: 1000px;
+  --depth-2: 1400px;
+
   --font-heading: 'Sora', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --font-body: 'Hanken Grotesk', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --radius-btn: 16px;
-  --radius-card: 24px;
+  --radius-btn: 8px;
+  --radius-card: 12px;
   --radius-pill: 9999px;
 
   --container-w: 1120px;
@@ -35,7 +48,54 @@
   --shadow-soft: 0 4px 20px -4px rgba(28, 28, 28, 0.08);
   --shadow-card: 0 2px 12px -2px rgba(28, 28, 28, 0.06);
   --shadow-lift: 0 28px 70px -24px rgba(28, 28, 28, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.5);
-  --gradient-accent: linear-gradient(120deg, var(--color-accent-sage) 0%, var(--color-accent-blue) 55%, var(--color-accent-gold) 100%);
+
+  color-scheme: light;
+  transition: background-color 0.4s var(--ease-standard);
+}
+
+:root[data-theme='dark'] {
+  /* Linear's palette (linear.app): a near-black canvas with a faint blue tint, a four-step */
+  /* surface ladder for hierarchy instead of shadow, and one chromatic accent — lavender-blue. */
+  --color-bg: #010102;
+  --color-text: #f7f8f8;
+  --color-text-muted: #d0d6e0;
+  --color-text-faint: #8a8f98;
+  --color-surface: #0f1011;
+  --color-surface-soft: #141516;
+  --color-border: #23252a;
+  --color-accent-sage: #5e6ad2;
+  --color-accent-blue: #6e7bc4;
+  --color-accent-clay: #9a8f7a;
+  --color-accent-gold: #a89568;
+  --color-accent-plum: #8a7ba3;
+  --color-accent-teal: #6a9490;
+  --color-sage-ink: #a3aaf0;
+  --color-soft-gray: #8a8f98;
+  --color-accent-hover: #828fff;
+
+  /* Flat technical panels: solid surfaces, hairline borders, no blur, almost no shadow — */
+  /* Linear "resists drop shadows on dark almost entirely," carrying depth via the surface ladder. */
+  --glass-surface: var(--color-surface);
+  --glass-surface-strong: #18191a;
+  --glass-border: var(--color-border);
+  --glass-sheen: rgba(255, 255, 255, 0.05);
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --glass-blur-px: 0px;
+
+  --shadow-soft: 0 1px 0 rgba(255, 255, 255, 0.03) inset;
+  --shadow-card: none;
+  --shadow-lift: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 0 0 1px var(--color-border);
+
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 * {
@@ -121,15 +181,21 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(2.8rem, 6.4vw, 5.6rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
 }
 
 h2 {
-  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  font-size: clamp(2.1rem, 4.4vw, 3.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
 }
 
 h3 {
   font-size: 1.3rem;
+  letter-spacing: -0.01em;
 }
 
 p {
@@ -180,6 +246,7 @@ section {
   gap: 8px;
   font-family: var(--font-mono);
   font-size: 12px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-muted);
   animation: kicker-rise 0.5s var(--ease-standard) both;
@@ -233,12 +300,12 @@ section {
 }
 
 .btn-primary {
-  background: var(--color-dark);
-  color: var(--color-on-dark);
+  background: var(--color-accent-sage);
+  color: var(--color-on-accent);
 }
 
 .btn-primary:hover {
-  background: rgba(28, 28, 28, 0.9);
+  background: var(--color-accent-hover);
 }
 
 .btn-secondary {
@@ -248,7 +315,7 @@ section {
 }
 
 .btn-secondary:hover {
-  background: rgba(152, 171, 134, 0.2);
+  background: color-mix(in srgb, var(--color-accent-sage) 15%, var(--color-surface));
 }
 
 .btn-ghost {
@@ -274,18 +341,19 @@ section {
 
 .tag:hover {
   transform: translateY(-2px);
-  border-color: rgba(91, 122, 104, 0.4);
+  border-color: color-mix(in srgb, var(--color-accent-sage) 40%, transparent);
   color: var(--color-text);
 }
 
 .card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 45%), rgba(255, 255, 255, 0.42);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: var(--glass-surface);
+  backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-card);
   padding: 32px;
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-card), var(--glass-inset);
+  overflow: hidden;
 }
 
 .transition-smooth {
@@ -350,6 +418,31 @@ section {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
+}
+
+.live-clock {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.live-clock__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #4ade80;
+  flex-shrink: 0;
+  animation: dot-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.live-clock__tz {
+  color: var(--color-text-faint);
 }
 
 .visually-hidden {

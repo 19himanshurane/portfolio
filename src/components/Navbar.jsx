@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext.jsx';
+import { useTheme } from '../context/ThemeContext.jsx';
+import { SunIcon, MoonIcon } from './icons/ContactIcons.jsx';
 import './Navbar.css';
 
 export default function Navbar() {
   const { lang, setLang, t } = useLanguage();
+  const { theme, toggle } = useTheme();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -83,6 +86,20 @@ export default function Navbar() {
                   <span className="lang-toggle__label">{code.toUpperCase()}</span>
                 </button>
               ))}
+            </div>
+            <div className="theme-toggle" role="group" aria-label="Theme">
+              <button
+                type="button"
+                aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+                onClick={toggle}
+              >
+                <motion.span
+                  layoutId="theme-toggle-pill"
+                  className="theme-toggle__pill"
+                  transition={{ type: 'spring', stiffness: 500, damping: 34 }}
+                />
+                {theme === 'dark' ? <MoonIcon className="theme-toggle__icon" /> : <SunIcon className="theme-toggle__icon" />}
+              </button>
             </div>
             <button
               type="button"

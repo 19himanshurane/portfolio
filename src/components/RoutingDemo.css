@@ -109,7 +109,7 @@
 }
 
 .routing-demo__badge--tier1 {
-  background: rgba(91, 122, 104, 0.4);
+  background: color-mix(in srgb, var(--color-accent-sage) 40%, transparent);
 }
 
 .routing-demo__badge--tier2 {

@@ -4,10 +4,10 @@
   align-items: center;
   gap: 16px;
   padding: 32px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 45%), rgba(255, 255, 255, 0.42);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: var(--glass-surface);
+  backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-card);
   text-align: center;
 }
@@ -35,7 +35,7 @@
   padding: 10px 16px;
   border-radius: var(--radius-pill);
   border: 1px solid var(--color-border);
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--color-surface-soft);
   transition: all 0.25s var(--ease-standard);
 }
 
@@ -46,7 +46,7 @@
 
 .reactions__btn.is-active {
   border-color: var(--color-accent-sage);
-  background: rgba(91, 122, 104, 0.18);
+  background: color-mix(in srgb, var(--color-accent-sage) 18%, transparent);
 }
 
 .reactions__emoji {

@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--color-accent-sage), var(--color-accent-blue));
+  background: var(--color-accent-sage);
   transform-origin: 0%;
   z-index: 60;
 }
