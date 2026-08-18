@@ -1,8 +1,9 @@
 /* ==========================================================================
-   Signal: design tokens
-   Industrial-technical: true-neutral ink, one signal-orange accent, hairline
-   rules instead of shadows. Fonts are loaded in index.html (preconnect +
-   stylesheet) rather than @import here, which is render-blocking.
+   Design tokens
+   True-neutral greys, one indigo accent, hairline rules instead of shadows.
+   Neutrals stay free of any blue cast so the accent is the only chromatic
+   voice on the page. Fonts are loaded in index.html (preconnect + stylesheet)
+   rather than @import here, which is render-blocking.
    ========================================================================== */
 
 :root {
@@ -16,10 +17,13 @@
   --color-border: #e2e2de;
   --color-rule: #d8d8d3;
 
-  /* One accent. Signal orange, dark enough for 6.4:1 text contrast on --color-bg. */
-  --color-accent: #b8410f;
-  --color-accent-hover: #9a3509;
-  --color-accent-soft: rgba(184, 65, 15, 0.1);
+  /* One accent, in two roles. `accent` fills (buttons, dots, badges);
+     `accent-ink` is the same hue tuned to sit as text on the page canvas.
+     On light they can be the same value; on dark they cannot. */
+  --color-accent: #4a54c4;
+  --color-accent-hover: #3f48ab;
+  --color-accent-ink: #4a54c4;
+  --color-accent-soft: rgba(74, 84, 196, 0.1);
   --color-on-accent: #ffffff;
 
   /* Project badge ladder: differentiated by value, not hue, so the accent
@@ -102,11 +106,13 @@
   --color-border: #2b2b28;
   --color-rule: #333330;
 
-  /* Accent lifts in dark so it clears 6:1 against the canvas. */
-  --color-accent: #ff7a2f;
-  --color-accent-hover: #ff9354;
-  --color-accent-soft: rgba(255, 122, 47, 0.14);
-  --color-on-accent: #1a0d05;
+  /* Fill stays saturated so buttons keep their weight. Ink lifts to a lighter
+     tint because the fill value only reaches 3.9:1 as text on this canvas,
+     which is under AA. */
+  --color-accent: #5e6ad2;
+  --color-accent-hover: #828fff;
+  --color-accent-ink: #a3aaf0;
+  --color-accent-soft: rgba(94, 106, 210, 0.16);
 
   --tint-1: #232321;
   --tint-2: #2a2a27;
@@ -138,7 +144,7 @@
 :root,
 :root[data-theme='dark'] {
   --color-accent-sage: var(--color-accent);
-  --color-sage-ink: var(--color-accent);
+  --color-sage-ink: var(--color-accent-ink);
   --color-accent-blue: var(--color-accent);
   --color-accent-clay: var(--color-accent);
   --color-accent-gold: var(--color-accent);
@@ -394,7 +400,7 @@ section {
 
 .btn-secondary:hover {
   border-color: var(--color-accent);
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
 }
 
 .btn-ghost {
@@ -405,7 +411,7 @@ section {
 
 .btn-ghost:hover {
   border-color: var(--color-accent);
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
 }
 
 .tag {
