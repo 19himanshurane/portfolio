@@ -1,6 +1,6 @@
 .routing-demo {
   background: var(--color-dark);
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lift);
   font-family: var(--font-mono);
@@ -9,35 +9,16 @@
 .routing-demo__chrome {
   display: flex;
   align-items: center;
-  gap: 7px;
-  padding: 14px 20px;
+  padding: 13px 20px;
   border-bottom: 1px solid rgba(248, 249, 250, 0.08);
 }
 
-.routing-demo__dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  opacity: 0.5;
-}
-
-.routing-demo__dot--r {
-  background: #f87171;
-}
-
-.routing-demo__dot--y {
-  background: #fbbf24;
-}
-
-.routing-demo__dot--g {
-  background: #4ade80;
-}
-
 .routing-demo__title {
-  margin-left: 8px;
-  font-size: 12px;
-  color: rgba(248, 249, 250, 0.4);
-  letter-spacing: 0.04em;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(248, 249, 250, 0.42);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .routing-demo__body {
@@ -104,20 +85,22 @@
 .routing-demo__badge {
   font-size: 11px;
   padding: 3px 10px;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-sm);
   color: var(--color-on-dark);
 }
 
+/* Tier is ordinal, so it reads as one accent ramping up in intensity
+   rather than three unrelated hues. Heavier badge means costlier model. */
 .routing-demo__badge--tier1 {
-  background: color-mix(in srgb, var(--color-accent-sage) 40%, transparent);
+  background: color-mix(in srgb, var(--color-accent) 22%, transparent);
 }
 
 .routing-demo__badge--tier2 {
-  background: rgba(74, 111, 165, 0.4);
+  background: color-mix(in srgb, var(--color-accent) 45%, transparent);
 }
 
 .routing-demo__badge--tier3 {
-  background: rgba(184, 147, 79, 0.4);
+  background: color-mix(in srgb, var(--color-accent) 72%, transparent);
 }
 
 .routing-demo__badge--warn {
@@ -157,7 +140,7 @@
   background: rgba(248, 249, 250, 0.05);
   color: rgba(248, 249, 250, 0.4);
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   padding: 8px 4px;
   font-family: var(--font-mono);
   font-size: 10px;

@@ -40,12 +40,10 @@
 
 .project-card__icon {
   margin-bottom: 0;
-  transition: transform 0.5s var(--ease-standard), border-radius 0.5s var(--ease-standard);
-}
-
-.project-card:hover .project-card__icon {
-  transform: scale(1.1) rotate(-4deg);
-  border-radius: 50%;
+  transition: transform 0.4s var(--ease-spring),
+              background-color 0.3s var(--ease-standard),
+              border-color 0.3s var(--ease-standard),
+              color 0.3s var(--ease-standard);
 }
 
 .project-card__ext {
@@ -54,7 +52,7 @@
   justify-content: center;
   width: 34px;
   height: 34px;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   color: var(--color-soft-gray);
   opacity: 0.55;
   transition: all 0.25s var(--ease-standard);
@@ -69,28 +67,30 @@
   color: var(--color-sage-ink);
 }
 
-.accent-sage {
-  background: linear-gradient(150deg, color-mix(in srgb, var(--color-accent-sage) 40%, transparent), color-mix(in srgb, var(--color-accent-sage) 10%, transparent));
-}
-
-.accent-blue {
-  background: linear-gradient(150deg, rgba(74, 111, 165, 0.4), rgba(74, 111, 165, 0.1));
-}
-
-.accent-clay {
-  background: linear-gradient(150deg, rgba(163, 138, 109, 0.4), rgba(163, 138, 109, 0.1));
-}
-
-.accent-gold {
-  background: linear-gradient(150deg, rgba(184, 147, 79, 0.4), rgba(184, 147, 79, 0.1));
-}
-
-.accent-plum {
-  background: linear-gradient(150deg, rgba(125, 90, 122, 0.4), rgba(125, 90, 122, 0.1));
-}
-
+/* Project badges read as one family: same hue, stepped value, hairline edge.
+   Colour differentiation belongs to the accent alone. */
+.accent-sage,
+.accent-blue,
+.accent-clay,
+.accent-gold,
+.accent-plum,
 .accent-teal {
-  background: linear-gradient(150deg, rgba(61, 122, 114, 0.4), rgba(61, 122, 114, 0.1));
+  border: 1px solid var(--color-border);
+}
+
+.accent-sage  { background: var(--tint-1); }
+.accent-blue  { background: var(--tint-2); }
+.accent-clay  { background: var(--tint-3); }
+.accent-gold  { background: var(--tint-4); }
+.accent-plum  { background: var(--tint-5); }
+.accent-teal  { background: var(--tint-6); }
+
+/* The hovered card is the one that earns the accent. */
+.project-card:hover .project-card__icon {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-on-accent);
+  transform: translateY(-2px);
 }
 
 .project-card__category {

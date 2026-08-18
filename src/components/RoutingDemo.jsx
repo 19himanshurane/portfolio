@@ -107,9 +107,6 @@ export default function RoutingDemo() {
   return (
     <div className="routing-demo">
       <div className="routing-demo__chrome">
-        <span className="routing-demo__dot routing-demo__dot--r" />
-        <span className="routing-demo__dot routing-demo__dot--y" />
-        <span className="routing-demo__dot routing-demo__dot--g" />
         <span className="routing-demo__title">router.trace</span>
       </div>
       <div className="routing-demo__body">

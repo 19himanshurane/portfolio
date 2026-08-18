@@ -47,7 +47,7 @@
 .blog-empty__icon {
   width: 56px;
   height: 56px;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   background: color-mix(in srgb, var(--color-accent-sage) 18%, transparent);
   color: var(--color-sage-ink);
   display: flex;

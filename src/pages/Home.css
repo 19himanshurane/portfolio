@@ -1,5 +1,7 @@
+/* Hero is tuned so the primary CTA clears the fold on a 720px-tall laptop.
+   Every gap below is load-bearing for that; loosen one and the CTA sinks. */
 .hero {
-  padding-top: 72px;
+  padding-top: 56px;
 }
 
 .hero__grid {
@@ -10,37 +12,38 @@
 }
 
 .hero__content .eyebrow {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .hero__content h1 {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .hero__lead {
-  font-size: 19px;
-  line-height: 1.6;
-  margin-bottom: 16px;
+  font-size: 18px;
+  line-height: 1.55;
+  max-width: 48ch;
+  margin-bottom: 14px;
 }
 
 .hero__sub {
-  font-size: 16px;
-  line-height: 1.7;
-  max-width: 520px;
-  margin-bottom: 36px;
+  font-size: 15.5px;
+  line-height: 1.65;
+  max-width: 46ch;
+  margin-bottom: 28px;
 }
 
 .hero__cta {
   display: flex;
-  gap: 16px;
-  margin-bottom: 28px;
+  gap: 12px;
+  margin-bottom: 22px;
   flex-wrap: wrap;
 }
 
 .hero__links {
   display: flex;
-  gap: 12px;
-  margin-bottom: 32px;
+  gap: 10px;
+  margin-bottom: 26px;
   flex-wrap: wrap;
 }
 
@@ -48,19 +51,18 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 20px;
-  border-radius: var(--radius-pill);
+  padding: 9px 16px;
+  border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
-  background: var(--color-surface-soft);
+  background: transparent;
   font-size: 14px;
   font-weight: 500;
   color: var(--color-text-muted);
-  transition: all 0.3s var(--ease-standard);
+  transition: border-color 0.2s var(--ease-standard), color 0.2s var(--ease-standard);
 }
 
 .social-pill:hover {
-  border-color: var(--glass-surface-strong);
-  background: var(--color-surface);
+  border-color: var(--color-accent);
   color: var(--color-text);
 }
 
@@ -89,7 +91,7 @@
   backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
   -webkit-backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
   border: 1px solid var(--glass-border);
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
   padding: 0 20px 20px;
   box-shadow: var(--shadow-card), var(--glass-inset);
   overflow: hidden;
@@ -98,36 +100,13 @@
 .hero__info-bar {
   display: flex;
   align-items: center;
-  gap: 10px;
   margin: 0 -20px 18px;
   padding: 12px 20px;
   border-bottom: 1px solid var(--color-border);
 }
 
-.hero__info-dots {
-  display: inline-flex;
-  gap: 5px;
-}
-
-.hero__info-dots span {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-}
-
-.hero__info-dots span:nth-child(1) { background: #f87171; }
-.hero__info-dots span:nth-child(2) { background: #fbbf24; }
-.hero__info-dots span:nth-child(3) { background: #4ade80; }
-
-.hero__info-bar-label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: var(--color-text-faint);
-}
-
 .hero__info-clock {
-  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero__info-rows {
@@ -155,7 +134,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #4ade80;
+  background: var(--color-accent);
   flex-shrink: 0;
   animation: dot-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
@@ -167,7 +146,7 @@
   margin-top: 16px;
   border-top: 1px solid var(--color-border);
   background: var(--color-border);
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
 

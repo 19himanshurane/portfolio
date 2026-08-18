@@ -1,6 +1,6 @@
 .avatar {
   position: relative;
-  border-radius: 28px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   border: 6px solid var(--color-warm-white);
   box-shadow: 0 28px 90px -20px rgba(28, 28, 28, 0.22), 0 0 0 1px rgba(215, 219, 224, 0.8);

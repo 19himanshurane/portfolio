@@ -41,7 +41,7 @@ export default function Home() {
             initial="hidden"
             animate="show"
           >
-            <span className="eyebrow">{t.hero.eyebrow}</span>
+            <span className="eyebrow eyebrow--status">{t.hero.eyebrow}</span>
             <motion.h1 variants={heroItem}>{t.hero.name}</motion.h1>
             <motion.p variants={heroItem} className="hero__lead">{t.hero.p1}</motion.p>
             <motion.p variants={heroItem} className="muted hero__sub">{t.hero.p2}</motion.p>
@@ -85,10 +85,6 @@ export default function Home() {
             >
               <TiltCard className="hero__info-card" tiltRange={5}>
                 <div className="hero__info-bar">
-                  <span className="hero__info-dots" aria-hidden="true">
-                    <span /><span /><span />
-                  </span>
-                  <span className="hero__info-bar-label">STATUS.LOG</span>
                   <LiveClock className="hero__info-clock" tz={t.hero.tz} />
                 </div>
                 <div className="hero__info-rows">
@@ -122,7 +118,6 @@ export default function Home() {
       <section className="signature">
         <div className="container signature__grid">
           <Reveal y={20}>
-            <span className="section-label">{t.signature.label}</span>
             <h2>{t.signature.heading}</h2>
             <p className="muted signature__sub">{t.signature.sub}</p>
           </Reveal>
@@ -138,7 +133,6 @@ export default function Home() {
             <HeroIllustration />
           </Reveal>
           <Reveal y={20} delay={0.1}>
-            <span className="section-label">{t.aboutPreview.label}</span>
             <p className="about-preview__intro">{t.aboutPreview.intro}</p>
             <p className="muted">{t.aboutPreview.body}</p>
           </Reveal>
@@ -167,9 +161,6 @@ export default function Home() {
 
       <section className="flagship">
         <div className="container">
-          <Reveal y={20}>
-            <span className="section-label">{t.flagship.label}</span>
-          </Reveal>
           <Reveal y={28} delay={0.1}>
             <TiltCard className="flagship__card" tiltRange={3}>
               <div className="flagship__body">

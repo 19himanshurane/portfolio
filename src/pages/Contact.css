@@ -48,7 +48,7 @@
   align-items: center;
   gap: 18px;
   padding: 22px;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   transition: all 0.5s var(--ease-standard);
 }
 
@@ -86,7 +86,7 @@
 .contact-card__icon {
   width: 52px;
   height: 52px;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -161,7 +161,7 @@
   justify-content: center;
   width: 34px;
   height: 34px;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   flex-shrink: 0;
   background: transparent;
   color: var(--color-soft-gray);
@@ -226,7 +226,7 @@
   backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
   -webkit-backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
   border: 1px solid var(--glass-border);
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   padding: 32px;
 }
 
@@ -250,7 +250,7 @@
 .quick-info__icon {
   width: 40px;
   height: 40px;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   background: var(--color-surface);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   display: flex;
@@ -299,7 +299,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #4ade80;
+  background: var(--color-accent);
   flex-shrink: 0;
   animation: dot-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
@@ -321,7 +321,7 @@
   backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
   -webkit-backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   padding: 24px;
 }
 
@@ -334,7 +334,7 @@
 
 .interests-card__tag {
   padding: 6px 12px;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-sm);
   background: var(--color-surface-soft);
   font-size: 14px;
   color: var(--color-text-muted);
