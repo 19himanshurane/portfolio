@@ -1,5 +1,6 @@
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { projects, socials } from '../data/content.js';
 import Avatar from '../components/Avatar.jsx';
@@ -30,10 +31,23 @@ const heroItem = {
 
 export default function Home() {
   const { t } = useLanguage();
+  const heroRef = useRef(null);
+  const reduceMotion = useReducedMotion();
+
+  // Hero depth: the photo and the info panel leave the viewport at slightly
+  // different rates, so the two read as separate planes rather than one flat
+  // column. Driven by useScroll rather than a scroll listener, so it stays on
+  // the compositor and never touches React state per frame.
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  const photoY = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const panelY = useTransform(scrollYProgress, [0, 1], [0, -14]);
 
   return (
     <>
-      <section className="hero">
+      <section className="hero" ref={heroRef}>
         <div className="container hero__grid">
           <motion.div
             className="hero__content"
@@ -68,48 +82,52 @@ export default function Home() {
           </motion.div>
 
           <div className="hero__visual">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
-            >
-              <TiltCard className="hero__photo" tiltRange={8} shine={false}>
-                <Avatar size="lg" />
-              </TiltCard>
+            <motion.div style={reduceMotion ? undefined : { y: photoY }}>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.96, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
+              >
+                <TiltCard className="hero__photo" tiltRange={8} shine={false}>
+                  <Avatar size="lg" />
+                </TiltCard>
+              </motion.div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4, ease: EASE }}
-            >
-              <TiltCard className="hero__info-card" tiltRange={5}>
-                <div className="hero__info-bar">
-                  <LiveClock className="hero__info-clock" tz={t.hero.tz} />
-                </div>
-                <div className="hero__info-rows">
-                  <div className="hero__info-row">
-                    <span className="hero__status-dot" />
-                    {t.hero.eyebrow}
+            <motion.div style={reduceMotion ? undefined : { y: panelY }}>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4, ease: EASE }}
+              >
+                <TiltCard className="hero__info-card" tiltRange={5}>
+                  <div className="hero__info-bar">
+                    <LiveClock className="hero__info-clock" tz={t.hero.tz} />
                   </div>
-                  <div className="hero__info-row">
-                    <MapPinIcon className="hero__info-icon" />
-                    {t.hero.location}
-                  </div>
-                  <div className="hero__info-row">
-                    <GraduationCapIcon className="hero__info-icon" />
-                    {t.hero.degree}
-                  </div>
-                </div>
-                <div className="hero__stats">
-                  {t.hero.stats.map((s) => (
-                    <div key={s.label} className="hero__stat">
-                      <span className="hero__stat-value"><CountUp value={s.value} /></span>
-                      <span className="hero__stat-label">{s.label}</span>
+                  <div className="hero__info-rows">
+                    <div className="hero__info-row">
+                      <span className="hero__status-dot" />
+                      {t.hero.eyebrow}
                     </div>
-                  ))}
-                </div>
-              </TiltCard>
+                    <div className="hero__info-row">
+                      <MapPinIcon className="hero__info-icon" />
+                      {t.hero.location}
+                    </div>
+                    <div className="hero__info-row">
+                      <GraduationCapIcon className="hero__info-icon" />
+                      {t.hero.degree}
+                    </div>
+                  </div>
+                  <div className="hero__stats">
+                    {t.hero.stats.map((s) => (
+                      <div key={s.label} className="hero__stat">
+                        <span className="hero__stat-value"><CountUp value={s.value} /></span>
+                        <span className="hero__stat-label">{s.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </TiltCard>
+              </motion.div>
             </motion.div>
           </div>
         </div>

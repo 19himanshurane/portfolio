@@ -124,13 +124,15 @@
 
   --color-soft-gray: #a8a8a3;
 
-  /* Dark drops the frosted material for flat panels and hairline rules. */
-  --glass-surface: var(--color-surface);
-  --glass-surface-strong: #1f1f1d;
-  --glass-border: var(--color-border);
-  --glass-sheen: rgba(255, 255, 255, 0.045);
-  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.035);
-  --glass-blur-px: 0px;
+  /* Dark runs a lighter frost than light mode: enough translucency to read as
+     material, not so much that the panels lose their edge. The surface must
+     stay partly transparent or the blur has nothing to sample. */
+  --glass-surface: linear-gradient(150deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.012) 58%), rgba(22, 22, 21, 0.74);
+  --glass-surface-strong: rgba(31, 31, 29, 0.86);
+  --glass-border: rgba(255, 255, 255, 0.085);
+  --glass-sheen: rgba(255, 255, 255, 0.06);
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --glass-blur-px: 8px;
 
   --shadow-soft: inset 0 1px 0 rgba(255, 255, 255, 0.03);
   --shadow-card: none;
@@ -161,9 +163,13 @@
   }
 }
 
+/* Both selectors are needed: the dark block above wins on specificity, so a
+   bare :root rule here would silently fail to switch dark mode back to solid. */
 @media (prefers-reduced-transparency: reduce) {
-  :root {
+  :root,
+  :root[data-theme='dark'] {
     --glass-surface: var(--color-surface);
+    --glass-surface-strong: var(--color-surface);
     --glass-blur-px: 0px;
   }
 }
