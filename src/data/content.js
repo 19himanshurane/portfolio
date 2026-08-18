@@ -149,6 +149,10 @@ export const projects = [
       ],
     },
     status: { en: 'Published · Peer-reviewed', de: 'Veröffentlicht · Peer-reviewed' },
+    links: {
+      paper: '/Leaf-Scanning-Disease-Detection.pdf',
+      certificate: '/IJSREM-Publication-Certificate.png',
+    },
   },
   {
     id: 'digitized-learning-process',
@@ -382,6 +386,8 @@ export const content = {
       highlightsLabel: 'Highlights',
       viewDemo: 'Live Demo',
       viewCode: 'View Code',
+      viewPaper: 'Read Paper',
+      viewCertificate: 'View Certificate',
       filterAll: 'All',
     },
     aboutPage: {
@@ -520,6 +526,8 @@ export const content = {
       highlightsLabel: 'Highlights',
       viewDemo: 'Live-Demo',
       viewCode: 'Code ansehen',
+      viewPaper: 'Paper lesen',
+      viewCertificate: 'Zertifikat ansehen',
       filterAll: 'Alle',
     },
     aboutPage: {

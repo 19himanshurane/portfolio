@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { projects } from '../data/content.js';
 import Reveal from '../components/Reveal.jsx';
-import { GithubIcon, ArrowUpRightIcon } from '../components/icons/ContactIcons.jsx';
+import { GithubIcon, ArrowUpRightIcon, FileDownIcon, AwardIcon } from '../components/icons/ContactIcons.jsx';
 import './Projects.css';
 
 const domainKey = (project) => project.category.en.split('·').pop().trim();
@@ -104,6 +104,16 @@ export default function Projects() {
                       {project.links.github && (
                         <a href={project.links.github} target="_blank" rel="noreferrer" className="btn btn-ghost btn-sm">
                           <GithubIcon className="icon-sm" /> {t.projectsPage.viewCode}
+                        </a>
+                      )}
+                      {project.links.paper && (
+                        <a href={project.links.paper} target="_blank" rel="noreferrer" className="btn btn-ghost btn-sm">
+                          <FileDownIcon className="icon-sm" /> {t.projectsPage.viewPaper}
+                        </a>
+                      )}
+                      {project.links.certificate && (
+                        <a href={project.links.certificate} target="_blank" rel="noreferrer" className="btn btn-ghost btn-sm">
+                          <AwardIcon className="icon-sm" /> {t.projectsPage.viewCertificate}
                         </a>
                       )}
                     </div>
