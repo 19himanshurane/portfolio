@@ -4,7 +4,24 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f7f5f3" />
+    <meta name="theme-color" content="#f6f7f8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#010102" media="(prefers-color-scheme: dark)" />
+    <script>
+      (function () {
+        var pref = localStorage.getItem('theme') || 'system';
+        var theme = pref === 'system'
+          ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          : pref;
+        document.documentElement.setAttribute('data-theme', theme);
+        var meta = document.querySelector('meta[name="theme-color"]:not([media])');
+        if (!meta) {
+          meta = document.createElement('meta');
+          meta.setAttribute('name', 'theme-color');
+          document.head.appendChild(meta);
+        }
+        meta.setAttribute('content', theme === 'dark' ? '#010102' : '#f6f7f8');
+      })();
+    </script>
     <title>Himanshu Rane | AI & Data Analytics Portfolio</title>
     <meta name="description" content="Himanshu Rane — AI agents, retrieval systems, and data engineering. M.Sc. AI & Data Analytics student at Hochschule Neu-Ulm." />
 
@@ -17,8 +34,8 @@
     <meta name="twitter:title" content="Himanshu Rane | AI & Data Analytics Portfolio" />
     <meta name="twitter:description" content="AI agents, retrieval systems, and data engineering. M.Sc. AI & Data Analytics student at Hochschule Neu-Ulm." />
     <meta name="twitter:image" content="https://19himanshurane.github.io/portfolio/headshot.jpg" />
-    <script type="module" crossorigin src="/portfolio/assets/index-MLH1pK5V.js"></script>
-    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-BReA61XV.css">
+    <script type="module" crossorigin src="/portfolio/assets/index-Dhm3EISG.js"></script>
+    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-9ypzIG0Y.css">
   </head>
   <body>
     <script>
