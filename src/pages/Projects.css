@@ -108,6 +108,38 @@
   margin-bottom: 20px;
 }
 
+.project-detail__metric {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin-bottom: 24px;
+  font-family: var(--font-mono);
+}
+
+.project-detail__metric-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  align-self: center;
+  flex-shrink: 0;
+}
+
+.project-detail__metric-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-accent-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.project-detail__metric-label {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
 .project-detail__tags {
   display: flex;
   flex-wrap: wrap;

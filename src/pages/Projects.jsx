@@ -78,6 +78,14 @@ export default function Projects() {
                 <p className="muted project-detail__org">{project.org}</p>
                 <p className="project-detail__desc">{project.description[lang]}</p>
 
+                {project.metric && (
+                  <div className="project-detail__metric">
+                    <span className="project-detail__metric-dot" aria-hidden="true" />
+                    <span className="project-detail__metric-value">{project.metric.value}</span>
+                    <span className="project-detail__metric-label">{project.metric.label[lang]}</span>
+                  </div>
+                )}
+
                 <div className="project-detail__tags">
                   {project.tags.map((tag) => (
                     <span key={tag} className="tag">{tag}</span>
