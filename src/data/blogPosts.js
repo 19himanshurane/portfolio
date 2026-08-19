@@ -1,5 +1,95 @@
 export const blogPosts = [
   {
+    slug: 'quorum-build',
+    date: '2026-08-19',
+    readTime: { en: '8 min read', de: '8 Min. Lesezeit' },
+    tags: ['Multi-Agent Systems', 'LangGraph', 'Side Project'],
+    title: {
+      en: 'Turning Model Disagreement Into a Signal, Not Noise',
+      de: 'Modell-Uneinigkeit zum Signal machen, nicht zum Rauschen',
+    },
+    excerpt: {
+      en: 'Why I built a system where three independently modeled LLM critics review the same output in parallel, and let their disagreements, not their agreement, do the actual diagnostic work.',
+      de: 'Warum ich ein System gebaut habe, in dem drei unabhängig modellierte LLM-Kritiker dieselbe Ausgabe parallel prüfen, und ihre Meinungsverschiedenheiten, nicht ihre Übereinstimmung, die eigentliche diagnostische Arbeit leisten lässt.',
+    },
+    sections: {
+      en: [
+        {
+          label: 'Situation',
+          heading: "Every review that shares the reviewer's blind spots",
+          body: [
+            "A model checking its own output has the same problem a person does proofreading their own writing: the mistakes that would jump out to someone else are exactly the ones you're least likely to catch, because you already believe the sentence you wrote. Ask an LLM to grade the answer it just gave, and you're asking it to notice a blind spot it's currently standing inside of.",
+            "I'd run into this from the other side while building EvalGate: an LLM-as-judge step is only as good as the judge's own limits, and a single judge has exactly one set of limits. What I wanted to know this time was whether disagreement itself, not agreement, could be made into the actual signal. Not one model checking an output. Several, deliberately unable to share a blind spot, forced to reconcile.",
+          ],
+        },
+        {
+          label: 'Task',
+          heading: 'Three critics, one adjudicator, no averaging',
+          body: [
+            "The target: take any LLM output and put three critic agents on it in parallel, each scoped to one dimension only (accuracy, logic, completeness), each routed through a genuinely different model so a shared failure mode couldn't sneak in disguised as agreement. Where they disagreed, an adjudicator would have to read the actual disagreement and decide, not just average three scores into one number that means nothing on its own.",
+            'The failure mode I wanted to avoid: three critics that all secretly share the same weaknesses because they\'re all variations of one model family, producing a consensus that looks like confidence and is actually just correlated blindness.',
+          ],
+        },
+        {
+          label: 'Action',
+          heading: 'Building the critics, then watching them actually disagree',
+          body: [
+            "Provider diversity wasn't a nice-to-have, it was the entire point: accuracy and completeness route through two different Groq models (openai/gpt-oss-120b and qwen/qwen3.6-27b), logic routes through Mistral's mistral-large-latest. NVIDIA NIM was the original plan for a genuine third provider family, which would have made for a cleaner three-way split. Its free tier turned out to be too unreliable to build around: calls regularly took 51 to 180 seconds, sometimes longer, a difference you feel immediately the first time you're staring at a spinner mid-demo. I swapped it for a second Groq model instead. Trading a tidier design for something that actually responds is the kind of call that only shows up once you're running the thing for real, not reading the architecture diagram.",
+            "The harder design problem was disagreement detection itself. Critics don't quote the same span of text identically, so naive string matching between what one critic flagged and what another validated would miss real overlaps. I ended up fuzzy-matching quotes with difflib's SequenceMatcher, treating anything above a 0.35 similarity ratio (or an outright substring match) as the same underlying span. On top of that sit four distinct kinds of disagreement, not just one: issue_presence, when one critic calls something a problem and another explicitly validated overlapping text as correct; severity_gap, when two critics flag the same span but rate its severity more than two points apart; unique_finding, when a critic catches something no one else even mentions; and score_gap, when overall scores diverge sharply with no specific span behind it at all. Collapsing these into one generic \"disagreement\" bucket would have thrown away exactly the distinction that makes the output useful: a critic catching something alone is a different kind of signal than two critics rating the same problem differently.",
+            "LangGraph handles the actual orchestration: parse the input, fan out to all three critics in parallel, fan back in, run disagreement detection, then route conditionally. A clean sweep, every critic scoring the output well with nothing flagged and nothing to disagree about, skips the adjudicator entirely and short-circuits straight to a verdict; there's no reason to spend an extra LLM call reconciling critics that already agree. If every critic fails outright, the graph returns a verdict that says so instead of pretending it evaluated anything. And if some critics fail but not all, the surviving critics' verdict still goes out, just with an explicit note that it's missing a dimension and its confidence should be read accordingly. None of those paths were things I could just assume worked; each needed its own test forcing that exact state.",
+            "The bug I'm most glad I hit: the very first live run deadlocked on Windows, every time, with no traceback pointing anywhere useful. It turned out constructing an OpenAI-compatible client isn't just cheap object setup, it lazily builds an SSL context that touches the OS certificate store, and LangGraph's parallel critic dispatch was calling that constructor from three threads at once on the very first request. Three threads racing to touch the same OS resource simultaneously is exactly the kind of thing that only shows up under real concurrency, never in a single-threaded test. The fix was a lock and a cache in providers.py: only the first caller for a given provider actually builds the client, everyone else just reuses it, and actual concurrent requests against an already-built client were never the problem.",
+            "I also refused to let \"works when I have API keys loaded\" count as done. Every provider path has a deterministic offline mock standing behind it, so the entire pipeline, dispatch through storage through the API through the Streamlit UI, runs end to end with zero cost and zero network calls. That mode wasn't a demo convenience bolted on afterward; it's what let me build and test the LangGraph routing logic itself before I'd spent a single real request on it. Four canonical test cases anchor the suite: a factually wrong answer the accuracy critic should catch, a logically fallacious one the logic critic should catch, one that answers half the question and only the completeness critic should flag, and one genuinely clean response that should short-circuit straight through. Getting all four to route down the correct path, not just produce a plausible-looking verdict, is what the pytest suite actually checks.",
+          ],
+        },
+        {
+          label: 'Result',
+          heading: 'What holds up when the models are real',
+          body: [
+            "What exists now is an MIT-licensed, Dockerized system I've run against real Groq and Mistral calls, not just the mock path: three critics that read the same output and actually land in different places often enough that the Analytics tab tracking which critic disagrees most, and which one gets overruled most, is tracking something real instead of noise.",
+            "The broader thing I keep relearning, this time from the other direction of the EvalGate project: a single model's confidence isn't evidence of correctness, and neither is a single model's judgment of someone else's output. What's evidence is whether an independent second opinion, built so it genuinely can't inherit the first one's blind spot, agrees or doesn't. Getting three of those to actually disagree with each other, deliberately, on purpose, turned out to be the whole project.",
+          ],
+        },
+      ],
+      de: [
+        {
+          label: 'Situation',
+          heading: 'Jede Prüfung, die die blinden Flecken der prüfenden Instanz teilt',
+          body: [
+            'Ein Modell, das die eigene Ausgabe überprüft, hat dasselbe Problem wie jemand, der den eigenen Text Korrektur liest: Die Fehler, die einer anderen Person sofort auffallen würden, sind genau die, die man selbst am wenigsten bemerkt, weil man den Satz, den man geschrieben hat, bereits für richtig hält. Ein LLM zu bitten, die eigene, gerade gegebene Antwort zu bewerten, heißt, es zu bitten, einen blinden Fleck zu erkennen, in dem es selbst gerade steht.',
+            'Auf dieses Problem bin ich schon von der anderen Seite gestoßen, beim Bau von EvalGate: Ein LLM-as-Judge-Schritt ist nur so gut wie die eigenen Grenzen des Richters, und ein einzelner Richter hat genau einen Satz Grenzen. Diesmal wollte ich wissen, ob sich Uneinigkeit selbst, nicht Übereinstimmung, zum eigentlichen Signal machen lässt. Nicht ein Modell, das eine Ausgabe prüft. Mehrere, die absichtlich keinen gemeinsamen blinden Fleck teilen können und gezwungen sind, sich zu einigen.',
+          ],
+        },
+        {
+          label: 'Task',
+          heading: 'Drei Kritiker, ein Adjudicator, kein Mitteln',
+          body: [
+            'Das Ziel: eine beliebige LLM-Ausgabe nehmen und drei Kritiker-Agenten parallel darauf ansetzen, jeden auf genau eine Dimension beschränkt (Genauigkeit, Logik, Vollständigkeit), jeden über ein wirklich anderes Modell angebunden, damit sich kein gemeinsamer Fehlermodus als Übereinstimmung tarnen kann. Wo sie sich uneinig sind, sollte ein Adjudicator die tatsächliche Meinungsverschiedenheit lesen und entscheiden, statt einfach drei Werte zu einer Zahl zu mitteln, die für sich genommen nichts bedeutet.',
+            'Der Fehlermodus, den ich vermeiden wollte: drei Kritiker, die insgeheim dieselben Schwächen teilen, weil sie alle Varianten derselben Modellfamilie sind, und die einen Konsens erzeugen, der wie Sicherheit aussieht, aber eigentlich nur korrelierte Blindheit ist.',
+          ],
+        },
+        {
+          label: 'Action',
+          heading: 'Die Kritiker bauen und dann zusehen, wie sie sich wirklich uneinig sind',
+          body: [
+            'Anbietervielfalt war kein nettes Extra, sie war der ganze Punkt: Genauigkeit und Vollständigkeit laufen über zwei verschiedene Groq-Modelle (openai/gpt-oss-120b und qwen/qwen3.6-27b), Logik über Mistrals mistral-large-latest. NVIDIA NIM war ursprünglich für eine echte dritte Anbieterfamilie vorgesehen, was eine sauberere Dreiteilung ergeben hätte. Die kostenlose Stufe erwies sich als zu unzuverlässig, um darauf zu bauen: Aufrufe brauchten regelmäßig 51 bis 180 Sekunden, manchmal länger, ein Unterschied, den man sofort spürt, sobald man mitten in einer Demo auf einen Spinner starrt. Ich habe es gegen ein zweites Groq-Modell getauscht. Das sauberere Design gegen etwas einzutauschen, das tatsächlich antwortet, ist genau die Art von Entscheidung, die erst auffällt, wenn man das System wirklich laufen lässt, statt nur das Architekturdiagramm zu lesen.',
+            'Das schwierigere Design-Problem war die Erkennung von Meinungsverschiedenheiten selbst. Kritiker zitieren dieselbe Textstelle nicht identisch, also hätte naiver String-Abgleich zwischen dem, was ein Kritiker markiert und ein anderer bestätigt hat, echte Überschneidungen übersehen. Ich habe Zitate am Ende mit difflibs SequenceMatcher fuzzy abgeglichen und alles über einer Ähnlichkeit von 0,35 (oder einer direkten Teilstring-Übereinstimmung) als dieselbe zugrunde liegende Textstelle behandelt. Darüber liegen vier unterschiedliche Arten von Meinungsverschiedenheit, nicht nur eine: issue_presence, wenn ein Kritiker etwas als Problem bezeichnet und ein anderer überlappenden Text ausdrücklich als korrekt bestätigt hat; severity_gap, wenn zwei Kritiker dieselbe Textstelle markieren, ihre Schweregrade sich aber um mehr als zwei Punkte unterscheiden; unique_finding, wenn ein Kritiker etwas findet, das kein anderer auch nur erwähnt; und score_gap, wenn die Gesamtwertungen stark auseinandergehen, ganz ohne konkrete Textstelle dahinter. Das alles in einen einzigen, generischen „Meinungsverschiedenheit"-Topf zu werfen, hätte genau die Unterscheidung weggeworfen, die die Ausgabe nützlich macht: Ein Kritiker, der allein etwas findet, ist ein anderes Signal als zwei Kritiker, die dasselbe Problem unterschiedlich bewerten.',
+            'LangGraph übernimmt die eigentliche Orchestrierung: Eingabe parsen, parallel an alle drei Kritiker verteilen, wieder zusammenführen, Meinungsverschiedenheiten erkennen, dann bedingt weiterleiten. Ein sauberer Durchlauf, bei dem jeder Kritiker die Ausgabe gut bewertet, nichts markiert und nichts zum Uneinigsein da ist, überspringt den Adjudicator komplett und springt direkt zu einem Verdikt; es gibt keinen Grund, einen zusätzlichen LLM-Aufruf für Kritiker zu verschwenden, die sich ohnehin schon einig sind. Fallen alle Kritiker komplett aus, gibt der Graph ein Verdikt zurück, das das offen sagt, statt so zu tun, als hätte er irgendetwas bewertet. Und fallen einige, aber nicht alle Kritiker aus, geht das Verdikt der verbliebenen trotzdem raus, nur mit einem expliziten Hinweis, dass eine Dimension fehlt und die Konfidenz entsprechend gelesen werden sollte. Keiner dieser Pfade war etwas, das ich einfach als funktionierend voraussetzen konnte; jeder brauchte einen eigenen Test, der genau diesen Zustand erzwingt.',
+            'Der Bug, über den ich am meisten froh bin, ihn getroffen zu haben: Der allererste Live-Lauf blockierte unter Windows, jedes Mal, ohne einen Traceback, der irgendwohin führte. Es stellte sich heraus, dass die Erstellung eines OpenAI-kompatiblen Clients kein billiges Objekt-Setup ist, sondern lazy einen SSL-Kontext aufbaut, der auf den Zertifikatsspeicher des Betriebssystems zugreift, und LangGraphs paralleles Kritiker-Dispatching rief diesen Konstruktor beim allerersten Request von drei Threads gleichzeitig auf. Drei Threads, die gleichzeitig um dieselbe Betriebssystem-Ressource wettlaufen, ist genau die Art von Problem, die nur unter echter Nebenläufigkeit auftaucht, nie in einem Einzel-Thread-Test. Der Fix war ein Lock und ein Cache in providers.py: Nur der erste Aufrufer für einen bestimmten Provider baut den Client tatsächlich, alle anderen nutzen ihn einfach mit, und echte gleichzeitige Requests gegen einen bereits gebauten Client waren nie das Problem.',
+            'Ich wollte außerdem nicht gelten lassen, dass „funktioniert, wenn ich API-Keys geladen habe" als fertig zählt. Hinter jedem Provider-Pfad steht ein deterministischer Offline-Mock, sodass die gesamte Pipeline, vom Dispatch über die Speicherung bis zur API und zur Streamlit-UI, end-to-end ohne Kosten und ohne einen einzigen Netzwerkaufruf läuft. Dieser Modus war keine nachträglich angeflanschte Demo-Bequemlichkeit, er hat mir erst ermöglicht, die LangGraph-Routing-Logik selbst zu bauen und zu testen, bevor ich auch nur einen echten Request dafür ausgegeben hatte. Vier feste Testfälle verankern die Suite: eine faktisch falsche Antwort, die der Accuracy-Kritiker fangen soll, eine logisch fehlerhafte, die der Logic-Kritiker fangen soll, eine, die nur die Hälfte der Frage beantwortet und die nur der Completeness-Kritiker markieren soll, und eine wirklich saubere Antwort, die direkt durchspringen soll. Ob alle vier tatsächlich den richtigen Pfad nehmen, nicht nur ein plausibel aussehendes Verdikt liefern, ist das, was die pytest-Suite wirklich prüft.',
+          ],
+        },
+        {
+          label: 'Result',
+          heading: 'Was hält, wenn die Modelle echt sind',
+          body: [
+            'Was jetzt existiert, ist ein MIT-lizenziertes, containerisiertes System, das ich gegen echte Groq- und Mistral-Aufrufe laufen lassen habe, nicht nur über den Mock-Pfad: drei Kritiker, die dieselbe Ausgabe lesen und oft genug tatsächlich zu unterschiedlichen Einschätzungen kommen, dass der Analytics-Tab, der verfolgt, welcher Kritiker am häufigsten widerspricht und welcher am häufigsten überstimmt wird, etwas Echtes verfolgt und kein Rauschen.',
+            'Die größere Erkenntnis, die ich diesmal aus der anderen Richtung als beim EvalGate-Projekt neu gelernt habe: Die Sicherheit eines einzelnen Modells ist kein Beleg für Richtigkeit, und das Urteil eines einzelnen Modells über die Ausgabe eines anderen ebenso wenig. Beleg ist, ob eine unabhängige zweite Meinung, so gebaut, dass sie den blinden Fleck der ersten wirklich nicht erben kann, zustimmt oder nicht. Drei davon dazu zu bringen, sich absichtlich, wirklich uneinig zu sein, war am Ende das ganze Projekt.',
+          ],
+        },
+      ],
+    },
+  },
+  {
     slug: 'evalgate-build',
     date: '2026-08-19',
     readTime: { en: '7 min read', de: '7 Min. Lesezeit' },

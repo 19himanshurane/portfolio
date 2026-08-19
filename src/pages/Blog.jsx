@@ -5,9 +5,11 @@ import { blogPosts } from '../data/blogPosts.js';
 import Reveal from '../components/Reveal.jsx';
 import CostAutopilotArt from '../components/illustrations/CostAutopilotArt.jsx';
 import EvalGateArt from '../components/illustrations/EvalGateArt.jsx';
+import QuorumArt from '../components/illustrations/QuorumArt.jsx';
 import './Blog.css';
 
 const artBySlug = {
+  'quorum-build': QuorumArt,
   'llm-cost-autopilot-build': CostAutopilotArt,
   'evalgate-build': EvalGateArt,
 };
