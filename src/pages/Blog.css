@@ -1,31 +1,18 @@
 .blog-page {
-  padding: 96px 0;
+  padding: 64px 0 96px;
   min-height: 60vh;
 }
 
-.blog-page__header {
-  text-align: center;
-  max-width: 820px;
-  margin: 0 auto 56px;
-}
-
-.blog-page__header h1 {
-  font-size: clamp(2.2rem, 4.6vw, 3.6rem);
-}
-
-.blog-page__eyebrow {
-  justify-content: center;
-  margin-bottom: 16px;
-}
-
-.blog-page__header h1 {
-  margin-bottom: 20px;
+.blog-page__heading {
+  margin: 16px 0;
+  max-width: 720px;
 }
 
 .blog-page__sub {
-  color: var(--color-soft-gray);
+  max-width: 620px;
   font-size: 17px;
   line-height: 1.6;
+  margin-bottom: 64px;
 }
 
 .blog-empty {
@@ -67,88 +54,200 @@
 }
 
 .blog-list {
-  max-width: 760px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 }
 
-.blog-card {
-  background: var(--glass-surface);
-  backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
-  -webkit-backdrop-filter: blur(var(--glass-blur-px)) saturate(160%);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-card);
-  transition: box-shadow 0.3s var(--ease-standard), border-color 0.3s var(--ease-standard);
-}
-
-.blog-card:hover {
-  border-color: var(--glass-surface-strong);
-  box-shadow: var(--shadow-soft);
-}
-
-.blog-card__link {
-  display: block;
-}
-
-.blog-card__thumb {
-  border-radius: var(--radius-card) var(--radius-card) 0 0;
-  overflow: hidden;
-}
-
-.blog-card__thumb .evalgate-art,
-.blog-card__thumb .autopilot-art {
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.blog-card__body {
-  padding: 28px 36px 36px;
-}
-
-.blog-card__thumb + .blog-card__body {
-  padding-top: 24px;
-}
-
-.blog-card__meta {
+.blog-meta {
   display: flex;
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
   font-size: 12px;
   color: var(--color-soft-gray);
-  margin-bottom: 14px;
 }
 
-.blog-card__title {
-  font-size: 24px;
-  margin-bottom: 12px;
-  transition: text-decoration-color 0.2s var(--ease-standard);
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-underline-offset: 4px;
+.blog-meta__dot {
+  color: var(--color-text-faint);
 }
 
-.blog-card:hover .blog-card__title {
-  text-decoration-color: var(--color-accent-sage);
+/* Featured post: the newest entry, in the same flat hairline-card family as
+   the rows below it, just given a little more room. Not a hero — a blog
+   list is a reading surface, not a landing page, so the emphasis comes from
+   size and position alone, not borrowed spectacle. */
+.blog-featured {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  transition: border-color 0.25s var(--ease-standard), background-color 0.25s var(--ease-standard);
 }
 
-.blog-card__excerpt {
-  font-size: 15px;
-  line-height: 1.65;
+.blog-featured:hover {
+  border-color: var(--color-accent);
+  background: var(--color-surface-soft);
+}
+
+.blog-featured__media {
+  flex-shrink: 0;
+  width: 240px;
+  aspect-ratio: 800 / 340;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  line-height: 0;
+}
+
+.blog-featured__media .evalgate-art,
+.blog-featured__media .autopilot-art {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.blog-featured__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.blog-featured__kicker {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-ink);
+  margin-bottom: 8px;
+}
+
+.blog-featured__title {
+  font-size: 21px;
+  margin-bottom: 6px;
+  transition: color 0.2s var(--ease-standard);
+}
+
+.blog-featured:hover .blog-featured__title {
+  color: var(--color-accent-ink);
+}
+
+.blog-featured .blog-meta {
+  margin-bottom: 10px;
+}
+
+.blog-featured__excerpt {
+  font-size: 14.5px;
+  line-height: 1.55;
   color: var(--color-text-muted);
-  margin-bottom: 20px;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.blog-card__tags {
+.blog-featured__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
+}
+
+/* Everything after the featured post: the same flat row, unmarked as such
+   beyond a small label, so the two tiers stay one family. */
+.blog-more .section-label {
   margin-bottom: 20px;
 }
 
-.blog-card__cta {
+.blog-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.blog-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  transition: border-color 0.25s var(--ease-standard), background-color 0.25s var(--ease-standard);
+}
+
+.blog-row:hover {
+  border-color: var(--color-accent);
+  background: var(--color-surface-soft);
+}
+
+.blog-row__thumb {
+  flex-shrink: 0;
+  width: 168px;
+  aspect-ratio: 800 / 340;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  line-height: 0;
+}
+
+.blog-row__thumb .evalgate-art,
+.blog-row__thumb .autopilot-art {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.blog-row__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.blog-row__body .blog-meta {
+  margin-bottom: 6px;
+}
+
+.blog-row__title {
+  font-size: 18px;
+  margin-bottom: 6px;
+  transition: color 0.2s var(--ease-standard);
+}
+
+.blog-row:hover .blog-row__title {
+  color: var(--color-accent-ink);
+}
+
+.blog-row__excerpt {
   font-size: 14px;
-  font-weight: 500;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-row__arrow {
+  flex-shrink: 0;
+  font-size: 18px;
+  color: var(--color-text-faint);
+  transition: transform 0.2s var(--ease-standard), color 0.2s var(--ease-standard);
+}
+
+.blog-row:hover .blog-row__arrow {
+  color: var(--color-accent-ink);
+  transform: translateX(4px);
+}
+
+@media (max-width: 640px) {
+  .blog-featured,
+  .blog-row {
+    flex-wrap: wrap;
+  }
+
+  .blog-featured__media,
+  .blog-row__thumb {
+    width: 100%;
+  }
+
+  .blog-row__arrow {
+    display: none;
+  }
 }

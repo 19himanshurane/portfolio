@@ -27,7 +27,9 @@ export default function BlogPost() {
     <article className="blog-post">
       <div className="container blog-post__container">
         <Reveal y={20}>
-          <Link to="/blog" className="blog-post__back">{t.blogPage.backToBlog}</Link>
+          <Link to="/blog" className="blog-post__back">
+            <span className="blog-post__back-arrow" aria-hidden="true">←</span> {t.blogPage.backToBlog}
+          </Link>
           <div className="blog-post__meta">
             <span className="blog-post__date">
               {new Date(post.date).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}

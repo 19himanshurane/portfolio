@@ -7,7 +7,9 @@
 }
 
 .blog-post__back {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 14px;
   font-weight: 500;
   color: var(--color-soft-gray);
@@ -17,6 +19,14 @@
 
 .blog-post__back:hover {
   color: var(--color-text);
+}
+
+.blog-post__back-arrow {
+  transition: transform 0.2s var(--ease-standard);
+}
+
+.blog-post__back:hover .blog-post__back-arrow {
+  transform: translateX(-4px);
 }
 
 .blog-post__meta {
