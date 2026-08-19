@@ -123,6 +123,38 @@
   margin-top: 10px;
 }
 
+.project-card__metric {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  margin-top: 14px;
+  font-family: var(--font-mono);
+}
+
+.project-card__metric-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  align-self: center;
+  flex-shrink: 0;
+}
+
+.project-card__metric-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-accent-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.project-card__metric-label {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
 .project-card__footer {
   margin-top: 20px;
   padding-top: 20px;

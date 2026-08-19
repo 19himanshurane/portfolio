@@ -77,6 +77,14 @@ export default function ProjectCard({ project, index = 0 }) {
         </Link>
         <p className="muted project-card__summary">{project.summary[lang]}</p>
 
+        {project.metric && (
+          <div className="project-card__metric">
+            <span className="project-card__metric-dot" aria-hidden="true" />
+            <span className="project-card__metric-value">{project.metric.value}</span>
+            <span className="project-card__metric-label">{project.metric.label[lang]}</span>
+          </div>
+        )}
+
         <div className="project-card__footer">
           <ul className="project-card__tags">
             {visibleTags.map((tag) => (

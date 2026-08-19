@@ -43,6 +43,10 @@ export const projects = [
       ],
     },
     status: { en: 'Shipped · Open source', de: 'Veröffentlicht · Open Source' },
+    metric: {
+      value: '84 → 100%',
+      label: { en: 'golden-set pass rate', de: 'Trefferquote Golden-Set' },
+    },
     links: {
       github: 'https://github.com/19himanshurane/evalgate',
     },
@@ -121,6 +125,10 @@ export const projects = [
       ],
     },
     status: { en: 'Live · Actively maintained', de: 'Live · Aktiv gepflegt' },
+    metric: {
+      value: '86%',
+      label: { en: 'classifier accuracy', de: 'Klassifikator-Genauigkeit' },
+    },
     links: {
       github: 'https://github.com/19himanshurane/llm-cost-autopilot',
       demo: 'https://llm-cost-autopilot-zgdswdlh66xbgjjj6hdal3.streamlit.app/',
@@ -160,6 +168,10 @@ export const projects = [
       ],
     },
     status: { en: 'Delivered · Production rollout', de: 'Abgeschlossen · Produktiv im Einsatz' },
+    metric: {
+      value: '5m → 30s',
+      label: { en: 'research time per query', de: 'Recherchezeit pro Anfrage' },
+    },
   },
   {
     id: 'classification-system',
@@ -191,6 +203,10 @@ export const projects = [
       ],
     },
     status: { en: 'Published · Peer-reviewed', de: 'Veröffentlicht · Peer-reviewed' },
+    metric: {
+      value: '92%',
+      label: { en: 'accuracy · 10k+ samples', de: 'Genauigkeit · 10.000+ Proben' },
+    },
     links: {
       paper: '/Leaf-Scanning-Disease-Detection.pdf',
       certificate: '/IJSREM-Publication-Certificate.png',
@@ -230,6 +246,10 @@ export const projects = [
       ],
     },
     status: { en: 'Coursework · Presented', de: 'Kursarbeit · Präsentiert' },
+    metric: {
+      value: '60m → 5m',
+      label: { en: 'weekly planning time', de: 'wöchentliche Planungszeit' },
+    },
   },
   {
     id: 'csp-banking-consulting',

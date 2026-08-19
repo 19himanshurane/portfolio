@@ -60,6 +60,7 @@
   inset: 0;
   background-image: radial-gradient(circle, var(--bg3d-dot) 1px, transparent 1px);
   opacity: var(--bg3d-grid-opacity);
+  transition: opacity 0.4s var(--ease-standard);
 }
 
 .bg3d__grid--far {
@@ -83,6 +84,7 @@
   height: 46vw;
   background: radial-gradient(circle, var(--bg3d-glow-accent), transparent 70%);
   animation: bg3d-drift-a 48s ease-in-out infinite;
+  transition: background 0.4s var(--ease-standard);
 }
 
 .bg3d__orb--neutral {
@@ -93,6 +95,7 @@
   background: radial-gradient(circle, var(--bg3d-glow-neutral), transparent 72%);
   opacity: 0.85;
   animation: bg3d-drift-b 60s ease-in-out infinite;
+  transition: background 0.4s var(--ease-standard);
 }
 
 @keyframes bg3d-drift-a {
