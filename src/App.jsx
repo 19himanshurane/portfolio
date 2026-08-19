@@ -7,6 +7,7 @@ import ScrollManager from './components/ScrollManager.jsx';
 import SmoothScroll from './components/SmoothScroll.jsx';
 import ScrollProgress from './components/ScrollProgress.jsx';
 import PageLoader from './components/PageLoader.jsx';
+import Background3D from './components/Background3D.jsx';
 import Home from './pages/Home.jsx';
 
 const Projects = lazy(() => import('./pages/Projects.jsx'));
@@ -20,6 +21,7 @@ export default function App() {
 
   return (
     <>
+      <Background3D />
       <SmoothScroll />
       <ScrollManager />
       <ScrollProgress />
