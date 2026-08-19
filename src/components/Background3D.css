@@ -1,3 +1,22 @@
+/* Light and dark need different intensities, not just different hues: the
+   same delta in --color-rule/--color-accent-soft reads clearly against a
+   near-black canvas but nearly vanishes against off-white (sRGB's gamma
+   curve is much steeper near black than near white). Dark keeps the values
+   this shipped with; light gets stronger dot colour, opacity, and glow. */
+:root {
+  --bg3d-dot: var(--color-text-faint);
+  --bg3d-grid-opacity: 0.55;
+  --bg3d-glow-accent: color-mix(in srgb, var(--color-accent) 20%, transparent);
+  --bg3d-glow-neutral: var(--color-border);
+}
+
+:root[data-theme='dark'] {
+  --bg3d-dot: var(--color-rule);
+  --bg3d-grid-opacity: 0.4;
+  --bg3d-glow-accent: var(--color-accent-soft);
+  --bg3d-glow-neutral: var(--color-surface);
+}
+
 /* Fixed behind every route (see App.jsx). Negative z-index keeps it under
    normal-flow content while still painting above the html/body canvas. */
 .bg3d {
@@ -39,8 +58,8 @@
 .bg3d__grid {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, var(--color-rule) 1px, transparent 1px);
-  opacity: 0.4;
+  background-image: radial-gradient(circle, var(--bg3d-dot) 1px, transparent 1px);
+  opacity: var(--bg3d-grid-opacity);
 }
 
 .bg3d__grid--far {
@@ -62,7 +81,7 @@
   right: 6%;
   width: 46vw;
   height: 46vw;
-  background: radial-gradient(circle, var(--color-accent-soft), transparent 70%);
+  background: radial-gradient(circle, var(--bg3d-glow-accent), transparent 70%);
   animation: bg3d-drift-a 48s ease-in-out infinite;
 }
 
@@ -71,8 +90,8 @@
   left: 4%;
   width: 38vw;
   height: 38vw;
-  background: radial-gradient(circle, var(--color-surface), transparent 72%);
-  opacity: 0.7;
+  background: radial-gradient(circle, var(--bg3d-glow-neutral), transparent 72%);
+  opacity: 0.85;
   animation: bg3d-drift-b 60s ease-in-out infinite;
 }
 
