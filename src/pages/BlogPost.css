@@ -64,19 +64,19 @@
 .blog-post__body {
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 28px;
 }
 
 .blog-post__section h2 {
   font-size: 26px;
-  margin: 0 0 20px;
+  margin: 0 0 14px;
 }
 
 .blog-post__section p {
   font-size: 17px;
   line-height: 1.75;
   color: var(--color-text-muted);
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .blog-post__section p:last-child {

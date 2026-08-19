@@ -9,8 +9,8 @@ export const blogPosts = [
       de: 'Modell-Uneinigkeit zum Signal machen, nicht zum Rauschen',
     },
     excerpt: {
-      en: 'Why I built a system where three independently modeled LLM critics review the same output in parallel, and let their disagreements, not their agreement, do the actual diagnostic work.',
-      de: 'Warum ich ein System gebaut habe, in dem drei unabhängig modellierte LLM-Kritiker dieselbe Ausgabe parallel prüfen, und ihre Meinungsverschiedenheiten, nicht ihre Übereinstimmung, die eigentliche diagnostische Arbeit leisten lässt.',
+      en: "Three LLM critics look at the same output and argue about it on purpose, each running on a different model so they can't quietly agree for the wrong reasons. An adjudicator reads the argument and decides who's right.",
+      de: 'Drei LLM-Kritiker sehen sich dieselbe Ausgabe an und streiten absichtlich darüber, jeder auf einem anderen Modell, damit sie sich nicht aus den falschen Gründen leise einig werden. Ein Adjudicator liest den Streit und entscheidet, wer recht hat.',
     },
     sections: {
       en: [
@@ -77,8 +77,8 @@ export const blogPosts = [
       de: 'Eine Prompt-Änderung wie jeden anderen Pull Request behandeln',
     },
     excerpt: {
-      en: 'Why I built a small CI pipeline that tests every prompt change against a golden dataset before it can merge, and what a real pull request against my own repo caught that reading the code never would have.',
-      de: 'Warum ich eine kleine CI-Pipeline gebaut habe, die jede Prompt-Änderung vor dem Merge gegen einen Golden-Datensatz testet, und was ein echter Pull Request gegen mein eigenes Repo aufgedeckt hat, was mir beim bloßen Lesen des Codes nie aufgefallen wäre.',
+      en: 'A prompt change now has to clear a CI gate before it can merge, same as any other code change would. Building that gate caught two bugs a code review never would have.',
+      de: 'Eine Prompt-Änderung muss jetzt ein CI-Tor passieren, bevor sie gemerged werden kann, genau wie jede andere Code-Änderung auch. Beim Bau dieses Tors sind zwei Bugs aufgetaucht, die ein Code-Review nie gefunden hätte.',
     },
     sections: {
       en: [
@@ -153,14 +153,14 @@ export const blogPosts = [
     slug: 'llm-cost-autopilot-build',
     date: '2026-07-28',
     readTime: { en: '6 min read', de: '6 Min. Lesezeit' },
-    tags: ['AI Engineering', 'Cost Optimization', 'Side Project'],
+    tags: ['Model Routing', 'FastAPI', 'Side Project'],
     title: {
       en: 'Cutting LLM Costs by Doing Less, Not More',
       de: 'LLM-Kosten senken, indem man weniger tut, nicht mehr',
     },
     excerpt: {
-      en: "Why I built a routing layer that scores every request's complexity, sends it to the cheapest model that can handle it, and checks its own decisions in the background.",
-      de: 'Warum ich eine Routing-Schicht gebaut habe, die jede Anfrage nach Komplexität bewertet, sie an das günstigste passende Modell schickt, und ihre eigenen Entscheidungen im Hintergrund überprüft.',
+      en: 'A 633-request load test cut LLM spend by 57%, using nothing more clever than sending each request to the cheapest model that could actually handle it instead of defaulting to the biggest one.',
+      de: 'Ein Lasttest mit 633 Anfragen hat die LLM-Kosten um 57 % gesenkt, mit nichts Cleverem als jede Anfrage an das günstigste Modell zu schicken, das sie tatsächlich bewältigen konnte, statt pauschal ans größte zu gehen.',
     },
     sections: {
       en: [
@@ -179,15 +179,16 @@ export const blogPosts = [
         {
           heading: "The boring part, and the part I'm proud of",
           body: [
-            'I started with the unglamorous half: a scikit-learn classifier that scores incoming prompts into three complexity tiers using lightweight text features. Nothing clever, just enough signal to tell "extract this date" apart from "walk me through this multi-step proof." It hits 86% accuracy on held-out data. Good enough to route with. Not good enough to trust blindly.',
+            'I started with the unglamorous half: a scikit-learn classifier that scores incoming prompts into three complexity tiers using nine lightweight text features, word count, whether the prompt contains an analysis verb like "compare" or "design," how complex the requested output format is, that kind of thing. Nothing clever, just enough signal to tell "extract this date" apart from "walk me through this multi-step proof." It hits 86% accuracy on held-out data. Good enough to route with. Not good enough to trust blindly.',
             "Which is where the async verifier comes in, running quietly in the background after every response. It re-runs the same prompt through a stronger reference model, compares the two answers, and escalates the moment they diverge too much instead of letting a bad answer slide through unnoticed. Those escalations don't die in a log file, either. They feed back into the training set for the next classifier retrain, so the routing judgment is supposed to sharpen the longer the system runs, instead of freezing at whatever it learned on day one.",
             "Routing changes shouldn't need a redeploy every time I second-guess a threshold, so the tier-to-model mapping lives in a config file the API can hot-reload. And because I wanted to watch the thing work rather than trust numbers buried in a log, there's a live Streamlit dashboard on top of the FastAPI backend showing real spend against baseline, routing distribution, and escalation rate.",
-            "Tier 1 and Tier 2 run on real, free inference through Groq. Real responses, real near-zero cost and latency, nothing mocked. Tier 3 still routes to a mocked GPT-4o, since there's no free tier for frontier models, but every provider adapter falls back cleanly to a mock, so I could build and validate the whole system before spending a cent.",
+            "None of that sits behind a demo that only ever looks good, either. The live API runs on Render's free tier, which spins down after about fifteen minutes of quiet, so the first request after a lull can take up to a minute to wake back up. It's rate-limited to ten requests a minute per IP, mostly to protect the free Groq quota underneath it. Small, unglamorous constraints, but real ones, and worth saying out loud instead of only showing the parts that make the system look fast.",
+            "Tier 1 and Tier 2 run on real, free inference through Groq. Real responses, real near-zero cost, and real latency somewhere between 150 milliseconds and just under two seconds depending on model size, nothing mocked. Tier 3 still routes to a mocked GPT-4o, since there's no free tier for frontier models, but every provider adapter falls back cleanly to a mock, so I could build and validate the whole system before spending a cent.",
           ],
         },
         {
           body: [
-            "What came out of it is a working, containerized, CI-covered system rather than a notebook demo: a FastAPI service with a live dashboard, a classifier honest about its own limits, and a verification loop built to catch its own mistakes instead of assuming it's right. The core claim, that most requests don't need the most expensive model, holds up under that setup: route with a little judgment instead of defaulting to \"send everything to the biggest model,\" and that's where most of the 2 to 20x savings in this space comes from.",
+            "What came out of it is a working, containerized, CI-covered system rather than a notebook demo: a FastAPI service with a live dashboard, a classifier honest about its own limits, and a verification loop built to catch its own mistakes instead of assuming it's right. A 633-request load test put a real number on the core claim: routing instead of defaulting everything to GPT-4o cost $0.3632 rather than $0.8493, a 57.2% cut, with a 0% escalation rate along the way. Moving the simple tier off a paid model partway through pushed that number up from an earlier 49.4%, and that was the moment the project stopped feeling like a toy.",
             "The lesson that stuck with me wasn't about routing specifically. The expensive mistake in most systems isn't picking the wrong model. It's never checking whether the model you picked was necessary at all.",
           ],
         },
@@ -208,15 +209,16 @@ export const blogPosts = [
         {
           heading: 'Der langweilige Teil, und der Teil, auf den ich stolz bin',
           body: [
-            'Angefangen habe ich mit der unspektakulären Hälfte: einem Scikit-learn-Klassifikator, der eingehende Prompts anhand leichtgewichtiger Textmerkmale in drei Komplexitätsstufen einteilt. Nichts Ausgefallenes, nur genug Signal, um „extrahiere dieses Datum" von „führe mich durch diesen mehrstufigen Beweis" zu unterscheiden. Er erreicht 86 % Genauigkeit auf Testdaten. Gut genug zum Routen. Nicht gut genug, um ihm blind zu vertrauen.',
+            'Angefangen habe ich mit der unspektakulären Hälfte: einem Scikit-learn-Klassifikator, der eingehende Prompts anhand von neun leichtgewichtigen Textmerkmalen in drei Komplexitätsstufen einteilt, Wortanzahl, ob der Prompt ein Analyseverb wie „vergleiche" oder „entwirf" enthält, wie komplex das verlangte Ausgabeformat ist, solche Dinge. Nichts Ausgefallenes, nur genug Signal, um „extrahiere dieses Datum" von „führe mich durch diesen mehrstufigen Beweis" zu unterscheiden. Er erreicht 86 % Genauigkeit auf Testdaten. Gut genug zum Routen. Nicht gut genug, um ihm blind zu vertrauen.',
             'Und hier kommt der asynchrone Verifier ins Spiel, der still im Hintergrund läuft, nachdem jede Antwort raus ist. Er führt denselben Prompt erneut über ein stärkeres Referenzmodell aus, vergleicht beide Antworten und eskaliert, sobald sie zu stark auseinanderlaufen, statt eine schlechte Antwort unbemerkt durchzulassen. Diese Eskalationen verschwinden auch nicht in einer Log-Datei, sondern fließen direkt zurück ins Trainingsset für das nächste Nachtraining, sodass das Routing-Urteil mit der Laufzeit schärfer werden soll, statt auf dem Stand des ersten Tages einzufrieren.',
             'Routing-Änderungen sollten kein Redeploy brauchen, nur weil ich einen Schwellenwert noch mal überdenke, also liegt die Zuordnung von Stufe zu Modell in einer Konfigurationsdatei, die die API live nachladen kann. Und weil ich dem System beim Arbeiten zusehen wollte, statt Zahlen in einem Log zu vertrauen, gibt es ein Live-Streamlit-Dashboard über dem FastAPI-Backend, das echte Kosten gegen die Baseline, die Routing-Verteilung und die Eskalationsrate zeigt.',
-            'Stufe 1 und Stufe 2 laufen über echte, kostenlose Inferenz via Groq. Echte Antworten, echte, nahezu kostenlose Latenz, nichts simuliert. Stufe 3 geht weiterhin simuliert an GPT-4o, da es für Frontier-Modelle keine kostenlose Stufe gibt, aber jeder Provider-Adapter fällt sauber auf einen Mock zurück, sodass ich das gesamte System bauen und validieren konnte, bevor ich auch nur einen Cent ausgegeben habe.',
+            'Das bleibt auch nicht hinter einer Demo versteckt, die immer nur gut aussieht. Die Live-API läuft auf der kostenlosen Stufe von Render, die nach etwa fünfzehn Minuten Ruhe herunterfährt, sodass die erste Anfrage nach einer Pause bis zu einer Minute zum Aufwachen braucht. Sie ist auf zehn Anfragen pro Minute und IP begrenzt, hauptsächlich um das kostenlose Groq-Kontingent darunter zu schützen. Kleine, unspektakuläre Einschränkungen, aber echte, und es lohnt sich, sie laut auszusprechen, statt nur die Seiten zu zeigen, die das System schnell aussehen lassen.',
+            'Stufe 1 und Stufe 2 laufen über echte, kostenlose Inferenz via Groq. Echte Antworten, echte, nahezu kostenlose Latenz irgendwo zwischen 150 Millisekunden und knapp zwei Sekunden je nach Modellgröße, nichts simuliert. Stufe 3 geht weiterhin simuliert an GPT-4o, da es für Frontier-Modelle keine kostenlose Stufe gibt, aber jeder Provider-Adapter fällt sauber auf einen Mock zurück, sodass ich das gesamte System bauen und validieren konnte, bevor ich auch nur einen Cent ausgegeben habe.',
           ],
         },
         {
           body: [
-            'Am Ende stand ein funktionierendes, containerisiertes, mit CI abgesichertes System statt einer Notebook-Demo: ein FastAPI-Service mit Live-Dashboard, ein Klassifikator, der ehrlich mit seinen Grenzen umgeht, und eine Verifikationsschleife, die eigene Fehler erkennen soll, statt einfach von sich auszugehen. Die Kernaussage, dass die meisten Anfragen nicht das teuerste Modell brauchen, hält stand: mit etwas Urteilsvermögen routen statt „schick einfach alles ans größte Modell", genau daher kommt der Großteil der 2- bis 20-fachen Ersparnis in diesem Bereich.',
+            'Am Ende stand ein funktionierendes, containerisiertes, mit CI abgesichertes System statt einer Notebook-Demo: ein FastAPI-Service mit Live-Dashboard, ein Klassifikator, der ehrlich mit seinen Grenzen umgeht, und eine Verifikationsschleife, die eigene Fehler erkennen soll, statt einfach von sich auszugehen. Ein Lasttest mit 633 Anfragen hat der Kernaussage eine echte Zahl gegeben: Routing statt alles pauschal an GPT-4o zu schicken, kostete 0,3632 $ statt 0,8493 $, eine Ersparnis von 57,2 %, bei einer Eskalationsrate von 0 %. Die einfache Stufe von einem bezahlten Modell wegzuholen, hat diese Zahl von vorher 49,4 % nach oben geschoben, und genau in dem Moment hat sich das Projekt zum ersten Mal nicht mehr wie ein Spielzeug angefühlt.',
             'Die Lektion, die hängen geblieben ist, hatte weniger mit Routing im Speziellen zu tun. Der teuerste Fehler in den meisten Systemen ist nicht die Wahl des falschen Modells. Es ist, nie zu prüfen, ob das gewählte Modell überhaupt nötig war.',
           ],
         },
