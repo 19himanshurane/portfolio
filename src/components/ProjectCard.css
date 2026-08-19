@@ -74,7 +74,8 @@
 .accent-clay,
 .accent-gold,
 .accent-plum,
-.accent-teal {
+.accent-teal,
+.accent-slate {
   border: 1px solid var(--color-border);
 }
 
@@ -84,6 +85,7 @@
 .accent-gold  { background: var(--tint-4); }
 .accent-plum  { background: var(--tint-5); }
 .accent-teal  { background: var(--tint-6); }
+.accent-slate { background: var(--tint-7); }
 
 /* The hovered card is the one that earns the accent. */
 .project-card:hover .project-card__icon {

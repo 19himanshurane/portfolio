@@ -48,6 +48,46 @@ export const projects = [
     },
   },
   {
+    id: 'quorum',
+    letter: 'Q',
+    accent: 'slate',
+    org: 'Personal project',
+    period: '2026',
+    tags: ['Python', 'LangGraph', 'FastAPI', 'Streamlit', 'Pydantic', 'Docker'],
+    category: { en: 'Signature · AI Systems', de: 'Signature · KI-Systeme' },
+    title: 'Quorum',
+    summary: {
+      en: 'A multi-agent system that puts three independently modeled LLM critics against a single output, then has an adjudicator resolve their disagreements into one verdict with a confidence score.',
+      de: 'Ein Multi-Agenten-System, das drei unabhängig modellierte LLM-Kritiker gegen eine einzelne Ausgabe antreten lässt und ihre Meinungsverschiedenheiten von einem Adjudicator zu einem Verdikt mit Konfidenzwert auflösen lässt.',
+    },
+    description: {
+      en: "Quorum exists because a single model reviewing its own output tends to share that output's blind spots. Three critic agents, each scoped to one dimension (accuracy, logic, completeness) and routed through a different model family (Groq and Mistral), examine the output in parallel. Where they disagree, a LangGraph-orchestrated adjudicator reads through the disagreement, decides what to confirm and what to dismiss, and writes up a single verdict with a confidence score and the specific evidence behind every flagged issue. The whole pipeline also runs through a deterministic offline mock mode, so it's demoable end to end, from parallel dispatch to the Streamlit Verdict Explorer, without a single API key.",
+      de: 'Quorum gibt es, weil ein einzelnes Modell, das die eigene Ausgabe überprüft, meist deren blinde Flecken teilt. Drei Kritiker-Agenten, jeweils auf eine Dimension spezialisiert (Genauigkeit, Logik, Vollständigkeit) und über eine andere Modellfamilie angebunden (Groq und Mistral), prüfen die Ausgabe parallel. Wo sie sich uneinig sind, geht ein von LangGraph orchestrierter Adjudicator die Meinungsverschiedenheit durch, entscheidet, was bestätigt und was verworfen wird, und erstellt ein einzelnes Verdikt mit Konfidenzwert und den konkreten Belegen für jeden markierten Punkt. Die gesamte Pipeline läuft zusätzlich in einem deterministischen Offline-Mock-Modus, ist also end-to-end vom parallelen Dispatch bis zum Streamlit Verdict Explorer ohne einen einzigen API-Key vorführbar.',
+    },
+    highlights: {
+      en: [
+        'Three independently modeled critics (accuracy, logic, completeness), each routed through a different model family (Groq and Mistral) so their blind spots never line up.',
+        'A LangGraph-orchestrated adjudicator that reads through every disagreement, decides what to confirm and what to dismiss, and writes up one verdict with a confidence score and the specific evidence behind each flagged issue.',
+        'Parallel critic dispatch with automatic retries, graceful degradation when a critic fails, and a short-circuit path that skips straight to a clean verdict when nothing is wrong.',
+        'A deterministic offline mock-provider mode where the entire pipeline (dispatch, disagreement detection, adjudication, storage, API, UI) runs end to end without a single API key.',
+        "Tracked down and fixed a thread-safety deadlock in provider client construction, caused by LangGraph's parallel dispatch racing to build the same HTTP client on first use, with a per-provider lock and cache.",
+        'A Streamlit Verdict Explorer (inline color-coded annotations, batch mode, searchable history, cross-run analytics) backed by a documented FastAPI service, a full SQLite audit trail, one-command Docker Compose, and a pytest suite covering every LangGraph routing path.',
+      ],
+      de: [
+        'Drei unabhängig modellierte Kritiker (Genauigkeit, Logik, Vollständigkeit), jeweils über eine andere Modellfamilie (Groq und Mistral) angebunden, damit ihre blinden Flecken nie zusammenfallen.',
+        'Ein von LangGraph orchestrierter Adjudicator, der jede Meinungsverschiedenheit durchgeht, entscheidet, was bestätigt und was verworfen wird, und ein einzelnes Verdikt mit Konfidenzwert und den konkreten Belegen für jeden markierten Punkt erstellt.',
+        'Paralleles Dispatching der Kritiker mit automatischen Wiederholungsversuchen, gracefuler Degradation bei Ausfall eines Kritikers und einem Short-Circuit-Pfad, der bei einwandfreien Fällen direkt zu einem sauberen Verdikt springt.',
+        'Ein deterministischer Offline-Mock-Provider-Modus, in dem die gesamte Pipeline (Dispatch, Erkennung von Meinungsverschiedenheiten, Adjudikation, Speicherung, API, UI) end-to-end ohne einen einzigen API-Key läuft.',
+        'Einen Thread-Safety-Deadlock bei der Provider-Client-Erstellung aufgespürt und behoben, verursacht dadurch, dass LangGraphs paralleles Dispatching beim ersten Aufruf denselben HTTP-Client gleichzeitig aufbauen wollte, gelöst mit einem Lock und Cache pro Provider.',
+        'Ein Streamlit Verdict Explorer (inline farbcodierte Annotationen, Batch-Modus, durchsuchbare Historie, laufübergreifende Analytics) mit dokumentiertem FastAPI-Service, vollständigem SQLite-Audit-Trail, Ein-Befehl-Docker-Compose-Setup und einer pytest-Suite, die jeden LangGraph-Routing-Pfad abdeckt.',
+      ],
+    },
+    status: { en: 'Shipped · Open source', de: 'Veröffentlicht · Open Source' },
+    links: {
+      github: 'https://github.com/19himanshurane/Quorum',
+    },
+  },
+  {
     id: 'llm-cost-autopilot',
     letter: 'L',
     accent: 'gold',
@@ -317,7 +357,7 @@ export const content = {
       degree: 'M.Sc. AI & Data Analytics',
       tz: 'CET · Neu-Ulm',
       stats: [
-        { value: '6', label: 'Projects' },
+        { value: '7', label: 'Projects' },
         { value: '2+', label: 'Years Practice' },
         { value: '1', label: 'Publication' },
       ],
@@ -459,7 +499,7 @@ export const content = {
       degree: 'M.Sc. AI & Data Analytics',
       tz: 'MEZ · Neu-Ulm',
       stats: [
-        { value: '6', label: 'Projekte' },
+        { value: '7', label: 'Projekte' },
         { value: '2+', label: 'Jahre Praxis' },
         { value: '1', label: 'Publikation' },
       ],
