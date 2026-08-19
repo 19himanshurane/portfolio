@@ -3,11 +3,13 @@ import { useLanguage } from '../context/LanguageContext.jsx';
 import { blogPosts } from '../data/blogPosts.js';
 import Reveal from '../components/Reveal.jsx';
 import CostAutopilotArt from '../components/illustrations/CostAutopilotArt.jsx';
+import EvalGateArt from '../components/illustrations/EvalGateArt.jsx';
 import Reactions from '../components/Reactions.jsx';
 import './BlogPost.css';
 
 const artBySlug = {
   'llm-cost-autopilot-build': CostAutopilotArt,
+  'evalgate-build': EvalGateArt,
 };
 
 export default function BlogPost() {

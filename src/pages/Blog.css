@@ -90,7 +90,25 @@
 
 .blog-card__link {
   display: block;
-  padding: 36px;
+}
+
+.blog-card__thumb {
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  overflow: hidden;
+}
+
+.blog-card__thumb .evalgate-art,
+.blog-card__thumb .autopilot-art {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.blog-card__body {
+  padding: 28px 36px 36px;
+}
+
+.blog-card__thumb + .blog-card__body {
+  padding-top: 24px;
 }
 
 .blog-card__meta {
