@@ -1,5 +1,5 @@
 .blog-post {
-  padding: 96px 0;
+  padding: 64px 0;
 }
 
 .blog-post__container {
@@ -54,29 +54,29 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 48px;
+  margin-bottom: 28px;
 }
 
 .blog-post__art {
-  margin-bottom: 56px;
+  margin-bottom: 28px;
 }
 
 .blog-post__body {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 18px;
 }
 
 .blog-post__section h2 {
   font-size: 26px;
-  margin: 0 0 14px;
+  margin: 0 0 10px;
 }
 
 .blog-post__section p {
   font-size: 17px;
   line-height: 1.75;
   color: var(--color-text-muted);
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .blog-post__section p:last-child {
@@ -84,12 +84,12 @@
 }
 
 .blog-post__reactions {
-  margin-top: 56px;
+  margin-top: 32px;
 }
 
 .blog-post__footer {
-  margin-top: 40px;
-  padding-top: 32px;
+  margin-top: 28px;
+  padding-top: 20px;
   border-top: 1px solid var(--color-border);
 }
 
