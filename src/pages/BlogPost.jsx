@@ -56,9 +56,8 @@ export default function BlogPost() {
 
         <div className="blog-post__body">
           {post.sections[lang].map((section, i) => (
-            <Reveal key={section.label} y={20} delay={i * 0.06} as="section" className="blog-post__section">
-              <span className="blog-post__star-label">{section.label}</span>
-              <h2>{section.heading}</h2>
+            <Reveal key={i} y={20} delay={i * 0.06} as="section" className="blog-post__section">
+              {section.heading && <h2>{section.heading}</h2>}
               {section.body.map((para, j) => (
                 <p key={j}>{para}</p>
               ))}

@@ -69,7 +69,7 @@
 
 .blog-post__section h2 {
   font-size: 26px;
-  margin: 8px 0 20px;
+  margin: 0 0 20px;
 }
 
 .blog-post__section p {
@@ -81,18 +81,6 @@
 
 .blog-post__section p:last-child {
   margin-bottom: 0;
-}
-
-.blog-post__star-label {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-sage-ink);
-  background: color-mix(in srgb, var(--color-accent-sage) 14%, transparent);
-  padding: 5px 14px;
-  border-radius: var(--radius-pill);
 }
 
 .blog-post__reactions {
