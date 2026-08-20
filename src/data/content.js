@@ -347,7 +347,7 @@ export const certifications = [
 
 export const languages = [
   { name: { en: 'English', de: 'Englisch' }, level: 'C1', note: { en: 'Professional Working Proficiency (CEFR)', de: 'Verhandlungssicher (CEFR)' } },
-  { name: { en: 'German', de: 'Deutsch' }, level: 'A2', note: { en: 'Goethe-Zertifikat A1 certified 2025, actively improving toward B1', de: 'Goethe-Zertifikat A1 (2025), aktiv auf dem Weg zu B1' } },
+  { name: { en: 'German', de: 'Deutsch' }, level: 'B1', note: { en: 'Goethe-Zertifikat A1 certified 2025, now at B1', de: 'Goethe-Zertifikat A1 (2025), aktuell auf B1' } },
 ];
 
 export const skillGroups = [
@@ -460,7 +460,7 @@ export const content = {
       heading: 'A bit more about how I work',
       body1: "I'm Himanshu Rane, a Master's student in AI & Data Analytics at Hochschule Neu-Ulm (HNU), currently looking for Working Student positions and internships in Data and AI, with the plan to move into a thesis from October 2026.",
       body2: "My hands-on experience is a 6-month Business Analyst internship at BitFlyer Technologies, where I automated data pipelines that cut 8+ hours of manual work a week and built Power BI dashboards that took the reporting cycle from 5 hours to 2. Everything since has been about pushing that further on my own: leading the AI research agent behind Meter Mate, then building EvalGate, Quorum, and LLM Cost Autopilot to work through the harder problems around running LLMs in production, testing them, catching their disagreements, and keeping their cost in check.",
-      body3: "Outside of coursework and projects, I'm working on my German (currently A2, aiming for B1) and staying comfortable moving between hands-on engineering and the business conversations that decide whether a system actually gets used.",
+      body3: "Outside of coursework and projects, I'm working on my German (currently B1) and staying comfortable moving between hands-on engineering and the business conversations that decide whether a system actually gets used.",
       experienceHeading: 'Professional Experience',
       educationHeading: 'Education',
       skillsHeading: 'Technical Skills',
@@ -480,7 +480,7 @@ export const content = {
       linkedinLabel: 'LinkedIn',
       githubLabel: 'GitHub',
       locationLabel: 'Location',
-      locationValue: 'Neu-Ulm, Germany (open to relocating to Melle)',
+      locationValue: 'Neu-Ulm, Germany (Open to Relocate)',
       availabilityLabel: 'Availability',
       availabilityValue: 'Open to building something together',
       availabilityRoles: 'Working Student · Internship · Practical Semester',
@@ -489,7 +489,7 @@ export const content = {
       quickInfo: 'Quick info',
       languagesLabel: 'Languages',
       englishLine: 'English (C1, professional)',
-      germanLine: 'German (A2, actively improving)',
+      germanLine: 'German (B1)',
       downloadLabel: 'Download',
       resumeFile: 'CV (PDF)',
       interestsHeading: 'Areas of interest',
@@ -602,7 +602,7 @@ export const content = {
       heading: 'Etwas mehr darüber, wie ich arbeite',
       body1: 'Ich bin Himanshu Rane, Masterstudent für KI & Data Analytics an der Hochschule Neu-Ulm (HNU) und suche aktuell nach Werkstudententätigkeiten und Praktika im Bereich Data und KI, mit dem Ziel, ab Oktober 2026 in eine Abschlussarbeit überzugehen.',
       body2: 'Praktische Erfahrung habe ich aus einem sechsmonatigen Praktikum als Business Analyst bei BitFlyer Technologies, wo ich Datenpipelines automatisiert habe, die 8+ Stunden manuelle Arbeit pro Woche eingespart haben, und Power-BI-Dashboards gebaut habe, die den Reporting-Zyklus von 5 auf 2 Stunden verkürzt haben. Alles danach war der Versuch, das auf eigene Faust weiterzutreiben: Projektleitung für den KI-Recherche-Agenten hinter Meter Mate, danach EvalGate, Quorum und LLM Cost Autopilot gebaut, um mich an den härteren Problemen rund um LLMs in Produktion abzuarbeiten, sie zu testen, ihre Widersprüche aufzufangen und ihre Kosten im Griff zu behalten.',
-      body3: 'Neben Studium und Projekten arbeite ich an meinem Deutsch (aktuell A2, Ziel B1) und bewege mich gerne zwischen praktischer Entwicklungsarbeit und den geschäftlichen Gesprächen, die darüber entscheiden, ob ein System am Ende wirklich genutzt wird.',
+      body3: 'Neben Studium und Projekten arbeite ich an meinem Deutsch (aktuell B1) und bewege mich gerne zwischen praktischer Entwicklungsarbeit und den geschäftlichen Gesprächen, die darüber entscheiden, ob ein System am Ende wirklich genutzt wird.',
       experienceHeading: 'Berufserfahrung',
       educationHeading: 'Ausbildung',
       skillsHeading: 'Technische Fähigkeiten',
@@ -622,7 +622,7 @@ export const content = {
       linkedinLabel: 'LinkedIn',
       githubLabel: 'GitHub',
       locationLabel: 'Standort',
-      locationValue: 'Neu-Ulm, Deutschland (offen für Umzug nach Melle)',
+      locationValue: 'Neu-Ulm, Deutschland (Offen für Umzug)',
       availabilityLabel: 'Verfügbarkeit',
       availabilityValue: 'Offen dafür, gemeinsam etwas zu bauen',
       availabilityRoles: 'Werkstudent · Praktikum · Praxissemester',
@@ -631,7 +631,7 @@ export const content = {
       quickInfo: 'Kurzüberblick',
       languagesLabel: 'Sprachen',
       englishLine: 'Englisch (C1, beruflich)',
-      germanLine: 'Deutsch (A2, ich übe aktiv weiter)',
+      germanLine: 'Deutsch (B1)',
       downloadLabel: 'Download',
       resumeFile: 'Lebenslauf (PDF)',
       interestsHeading: 'Interessenschwerpunkte',
