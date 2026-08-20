@@ -353,15 +353,19 @@ export const languages = [
 export const skillGroups = [
   {
     heading: { en: 'AI & Machine Learning', de: 'KI & Machine Learning' },
-    items: ['AI Agents', 'Agentic AI', 'RAG', 'LangChain', 'ChromaDB', 'Prompt Engineering', 'LLMs', 'NLP', 'Generative AI'],
+    items: ['AI Agents', 'Agentic AI', 'LLMs', 'LangChain', 'LangGraph', 'RAG', 'Prompt Engineering', 'LLM Evaluation', 'ChromaDB', 'Transformers', 'Attention Mechanism', 'Deep Learning', 'MCP Servers', 'Machine Learning', 'NLP', 'Generative AI'],
   },
   {
     heading: { en: 'Data & Engineering', de: 'Daten & Engineering' },
-    items: ['Python', 'SQL', 'pandas', 'FastAPI', 'REST APIs', 'Streamlit', 'Git'],
+    items: ['Python', 'SQL', 'pandas', 'FastAPI', 'REST APIs', 'Streamlit', 'ETL Pipelines', 'Data Modelling'],
   },
   {
-    heading: { en: 'Analytics & Tools', de: 'Analytics & Tools' },
-    items: ['Power BI', 'Data Visualization', 'Data Structuring', 'Web Data Collection', 'Jira', 'Microsoft 365', 'Agile', 'Scrum'],
+    heading: { en: 'Analytics & BI', de: 'Analytics & BI' },
+    items: ['Power BI', 'DAX', 'Excel', 'Data Visualization', 'Data Structuring', 'Data Quality', 'Web Data Collection'],
+  },
+  {
+    heading: { en: 'Tools & Ways of Working', de: 'Tools & Arbeitsweisen' },
+    items: ['Git', 'GitHub', 'Docker', 'n8n', 'Claude Code', 'Cursor', 'VSCode', 'SAP Signavio', 'Power Automate', 'Microsoft 365', 'Jira', 'Agile', 'Scrum'],
   },
 ];
 
