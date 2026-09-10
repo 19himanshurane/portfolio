@@ -40,15 +40,9 @@ export default function Background3D() {
         className="bg3d__scene"
         style={reduceMotion ? undefined : { rotateX, rotateY, y: scrollY }}
       >
-        <div className="bg3d__layer bg3d__layer--far">
-          <div className="bg3d__grid bg3d__grid--far" />
-        </div>
         <div className="bg3d__layer bg3d__layer--mid">
           <div className="bg3d__orb bg3d__orb--accent" />
           <div className="bg3d__orb bg3d__orb--neutral" />
-        </div>
-        <div className="bg3d__layer bg3d__layer--near">
-          <div className="bg3d__grid bg3d__grid--near" />
         </div>
       </motion.div>
     </div>

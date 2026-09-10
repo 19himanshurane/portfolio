@@ -7,7 +7,6 @@ import Avatar from '../components/Avatar.jsx';
 import ProjectCard from '../components/ProjectCard.jsx';
 import Reveal from '../components/Reveal.jsx';
 import { MapPinIcon, GraduationCapIcon, GithubIcon, LinkedinIcon } from '../components/icons/ContactIcons.jsx';
-import HeroIllustration from '../components/HeroIllustration.jsx';
 import AccentLine from '../components/AccentLine.jsx';
 import CountUp from '../components/CountUp.jsx';
 import RoutingDemo from '../components/RoutingDemo.jsx';
@@ -141,18 +140,6 @@ export default function Home() {
           </Reveal>
           <Reveal y={24} delay={0.1}>
             <RoutingDemo />
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="about-preview">
-        <div className="container about-preview__grid">
-          <Reveal y={20}>
-            <HeroIllustration />
-          </Reveal>
-          <Reveal y={20} delay={0.1}>
-            <p className="about-preview__intro">{t.aboutPreview.intro}</p>
-            <p className="muted">{t.aboutPreview.body}</p>
           </Reveal>
         </div>
       </section>

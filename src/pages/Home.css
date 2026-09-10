@@ -188,21 +188,6 @@
   max-width: 420px;
 }
 
-.about-preview__grid {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 48px;
-  align-items: center;
-}
-
-.about-preview__intro {
-  font-family: var(--font-heading);
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 1.4;
-  margin-bottom: 16px;
-}
-
 .focus__heading {
   max-width: 640px;
   margin: 12px 0 48px;
@@ -365,12 +350,6 @@
 
   .signature__grid {
     grid-template-columns: 1fr;
-  }
-
-  .about-preview__grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-    justify-items: center;
   }
 
   .flagship__card {

@@ -1,18 +1,14 @@
 /* Light and dark need different intensities, not just different hues: the
-   same delta in --color-rule/--color-accent-soft reads clearly against a
-   near-black canvas but nearly vanishes against off-white (sRGB's gamma
-   curve is much steeper near black than near white). Dark keeps the values
-   this shipped with; light gets stronger dot colour, opacity, and glow. */
+   same delta in --color-accent-soft reads clearly against a near-black
+   canvas but nearly vanishes against off-white (sRGB's gamma curve is much
+   steeper near black than near white). Dark keeps the values this shipped
+   with; light gets a stronger glow. */
 :root {
-  --bg3d-dot: var(--color-text-faint);
-  --bg3d-grid-opacity: 0.55;
   --bg3d-glow-accent: color-mix(in srgb, var(--color-accent) 20%, transparent);
   --bg3d-glow-neutral: var(--color-border);
 }
 
 :root[data-theme='dark'] {
-  --bg3d-dot: var(--color-rule);
-  --bg3d-grid-opacity: 0.4;
   --bg3d-glow-accent: var(--color-accent-soft);
   --bg3d-glow-neutral: var(--color-surface);
 }
@@ -41,35 +37,8 @@
   transform-style: preserve-3d;
 }
 
-.bg3d__layer--far {
-  transform: translateZ(-520px) scale(1.45);
-  opacity: 0.5;
-}
-
 .bg3d__layer--mid {
   transform: translateZ(-320px) scale(1.28);
-}
-
-.bg3d__layer--near {
-  transform: translateZ(-160px) scale(1.14);
-  opacity: 0.7;
-}
-
-.bg3d__grid {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, var(--bg3d-dot) 1px, transparent 1px);
-  opacity: var(--bg3d-grid-opacity);
-  transition: opacity 0.4s var(--ease-standard);
-}
-
-.bg3d__grid--far {
-  background-size: 34px 34px;
-}
-
-.bg3d__grid--near {
-  background-size: 54px 54px;
-  animation: bg3d-grid-drift 70s linear infinite;
 }
 
 .bg3d__orb {
@@ -106,19 +75,6 @@
 @keyframes bg3d-drift-b {
   0%, 100% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(5%, -4%) scale(1.05); }
-}
-
-@keyframes bg3d-grid-drift {
-  0% { background-position: 0 0; }
-  100% { background-position: 54px 108px; }
-}
-
-/* Blur is expensive per-frame at full-viewport size on mobile GPUs; the glow
-   already comes from a soft gradient stop, so drop only the grid layers. */
-@media (max-width: 640px) {
-  .bg3d__layer--far {
-    display: none;
-  }
 }
 
 @media (prefers-reduced-transparency: reduce) {

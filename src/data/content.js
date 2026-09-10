@@ -394,11 +394,6 @@ export const content = {
       heading: 'A live trace from LLM Cost Autopilot',
       sub: 'Every request gets scored for complexity, routed to the cheapest model that can handle it, and checked by a background verifier that catches its own mistakes. This is that loop, running.',
     },
-    aboutPreview: {
-      label: 'About Me',
-      intro: "What drives me is simple: understand the problem before writing a line of code, ship something that works, and keep learning past the point where it's comfortable.",
-      body: "Most requests start the same way: a folder of PDFs, spreadsheets, or logs that nobody fully trusts anymore, plus a deadline. I build the agent or retrieval layer that turns that pile into an answer someone can act on, then stay close enough to the people who asked for it to know I've solved their problem, not just shipped a demo.",
-    },
     focus: {
       label: 'Focus',
       heading: 'Turning messy data into systems people can trust',
@@ -535,11 +530,6 @@ export const content = {
       label: 'Wie es denkt',
       heading: 'Ein Live-Trace aus LLM Cost Autopilot',
       sub: 'Jede Anfrage wird nach Komplexität bewertet, an das günstigste passende Modell geleitet und von einem Verifier im Hintergrund geprüft, der eigene Fehler erkennt. Das ist diese Schleife, live.',
-    },
-    aboutPreview: {
-      label: 'Über mich',
-      intro: 'Mich treibt etwas Einfaches an: das Problem verstehen, bevor ich eine Zeile Code schreibe, etwas bauen, das funktioniert, und weiterlernen, auch wenn es unbequem wird.',
-      body: 'Die meisten Anfragen beginnen gleich: ein Ordner voller PDFs, Tabellen oder Logs, denen niemand mehr so richtig traut, dazu eine Deadline. Ich baue den Agenten oder die Retrieval-Schicht, die aus diesem Haufen eine Antwort macht, auf die man sich verlassen kann, und bleibe nah genug an den Leuten, die gefragt haben, um zu wissen, dass ich ihr Problem gelöst habe, nicht nur eine Demo abgeliefert habe.',
     },
     focus: {
       label: 'Schwerpunkte',
