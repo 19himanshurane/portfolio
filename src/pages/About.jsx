@@ -16,14 +16,15 @@ export default function About() {
       <div className="container">
         <div className="about-page__intro">
           <Reveal y={20}>
-            <span className="eyebrow">{t.aboutPage.eyebrow}</span>
             <h1>{t.aboutPage.heading}</h1>
             <p className="about-page__body">{t.aboutPage.body1}</p>
             <p className="muted about-page__body">{t.aboutPage.body2}</p>
             <p className="muted about-page__body">{t.aboutPage.body3}</p>
           </Reveal>
           <Reveal y={20} delay={0.15} className="about-page__avatar-wrap">
-            <Avatar size="lg" />
+            <div className="photo-frame">
+              <Avatar size="lg" />
+            </div>
           </Reveal>
         </div>
 

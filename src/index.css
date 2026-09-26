@@ -1,30 +1,35 @@
 /* ==========================================================================
    Design tokens
-   True-neutral greys, one indigo accent, hairline rules instead of shadows.
-   Neutrals stay free of any blue cast so the accent is the only chromatic
-   voice on the page. Fonts are loaded in index.html (preconnect + stylesheet)
+   Near-neutral greys, one deep-emerald accent, hairline rules instead of
+   heavy shadows. Surfaces are flat and opaque; blur is reserved for the
+   sticky navbar. Fonts are loaded in index.html (preconnect + stylesheet)
    rather than @import here, which is render-blocking.
    ========================================================================== */
 
 :root {
-  /* Neutrals: true neutral, no blue cast. Off-white, never pure #fff. */
-  --color-bg: #fafaf9;
-  --color-text: #18181a;
-  --color-text-muted: #56565c;
-  --color-text-faint: #78787f;
-  --color-surface: #f1f1ef;
-  --color-surface-soft: rgba(241, 241, 239, 0.6);
-  --color-border: #e2e2de;
-  --color-rule: #d8d8d3;
+  /* Neutrals: off-white and ink, never pure #fff / #000. */
+  --color-bg: #f7f7f6;
+  --color-text: #111113;
+  --color-text-muted: #505055;
+  --color-text-faint: #6b6b70;
+  --color-surface: #efefec;
+  --color-surface-soft: rgba(239, 239, 236, 0.6);
+  --color-surface-raised: #fcfcfb;
+  --color-border: #e3e3df;
+  --color-rule: #d9d9d4;
 
   /* One accent, in two roles. `accent` fills (buttons, dots, badges);
      `accent-ink` is the same hue tuned to sit as text on the page canvas.
-     On light they can be the same value; on dark they cannot. */
-  --color-accent: #4a54c4;
-  --color-accent-hover: #3f48ab;
-  --color-accent-ink: #4a54c4;
-  --color-accent-soft: rgba(74, 84, 196, 0.1);
+     Light: #0b6e57 is 5.8:1 on the canvas and carries white text at 6.2:1. */
+  --color-accent: #0b6e57;
+  --color-accent-hover: #095a47;
+  --color-accent-ink: #0b6e57;
+  --color-accent-soft: rgba(11, 110, 87, 0.09);
   --color-on-accent: #ffffff;
+
+  /* Semantic danger, used only for real error/disagreement states. */
+  --color-danger: #b42318;
+  --color-danger-soft: rgba(180, 35, 24, 0.1);
 
   /* Project badge ladder: differentiated by value, not hue, so the accent
      stays the only chromatic voice on the page. */
@@ -37,39 +42,40 @@
   --tint-7: #b2b2a9;
   --tint-ink: #46464a;
 
-  --color-warm-white: #fdfdfc;
-  --color-soft-gray: #56565c;
-  --color-dark: #18181a;
-  --color-on-dark: #fafaf9;
+  --color-warm-white: #fcfcfb;
+  --color-soft-gray: #505055;
+  --color-dark: #111113;
+  --color-on-dark: #f7f7f6;
 
-  /* Light mode carries depth with a soft frosted material. */
-  --glass-surface: linear-gradient(150deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.25) 60%), rgba(255, 255, 255, 0.45);
-  --glass-surface-strong: rgba(255, 255, 255, 0.72);
-  --glass-border: rgba(255, 255, 255, 0.75);
-  --glass-sheen: rgba(255, 255, 255, 0.55);
-  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  --glass-blur-px: 16px;
+  /* The old frosted-glass tokens now resolve to flat, opaque surfaces so every
+     card reads as one calm material. Blur is kept only for the sticky navbar
+     (--nav-blur-px): blurring scrolling content costs repaints and adds noise. */
+  --glass-surface: var(--color-surface-raised);
+  --glass-surface-strong: var(--color-surface-raised);
+  --glass-border: var(--color-border);
+  --glass-sheen: rgba(255, 255, 255, 0.5);
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  --glass-blur-px: 0px;
+  --nav-blur-px: 14px;
 
   --depth-1: 1000px;
   --depth-2: 1400px;
 
-  /* Bricolage Grotesque over the usual Space Grotesk or Geist: optical-size
-     aware, and enough contrast against Inter Tight that display and body
-     read as two deliberate voices rather than one family at two sizes. */
-  --font-heading: 'Bricolage Grotesque', system-ui, sans-serif;
-  --font-body: 'Inter Tight', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  /* Geist throughout: one confident family, display and body separated by
+     size, weight and tracking. Geist Mono only for figures and metrics. */
+  --font-heading: 'Geist', system-ui, sans-serif;
+  --font-body: 'Geist', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
 
   /* One radius scale, applied strictly by role. Nothing picks a radius freehand.
        sm   tags, badges, inputs
-       md   buttons, icon buttons, controls
+       md   icon buttons, controls
        lg   cards, panels, media
-       pill state toggles and filter chips only, where the shape signals
-            "this switches" rather than "this contains" */
+       pill buttons, toggles and filter chips */
   --radius-sm: 6px;
   --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-btn: var(--radius-md);
+  --radius-lg: 16px;
+  --radius-btn: var(--radius-pill);
   --radius-card: var(--radius-lg);
   --radius-pill: 9999px;
 
@@ -85,60 +91,57 @@
 
   --container-w: 1200px;
 
-  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-standard: cubic-bezier(0.32, 0.72, 0, 1);
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
-  /* Shadows tinted to the background hue, never pure black. */
-  --shadow-soft: 0 2px 10px -3px rgba(60, 56, 48, 0.1);
-  --shadow-card: 0 1px 3px -1px rgba(60, 56, 48, 0.07);
-  --shadow-lift: 0 24px 60px -28px rgba(60, 56, 48, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.6);
+  /* Shadows tinted to the ink hue, offset and soft, never pure black. */
+  --shadow-soft: 0 2px 10px -4px rgba(17, 17, 19, 0.08);
+  --shadow-card: 0 1px 2px rgba(17, 17, 19, 0.04);
+  --shadow-lift: 0 18px 40px -22px rgba(17, 17, 19, 0.22), 0 2px 6px -2px rgba(17, 17, 19, 0.06);
 
   color-scheme: light;
   transition: background-color 0.4s var(--ease-standard);
 }
 
 :root[data-theme='dark'] {
-  /* Off-black with a trace of warmth, not #000: pure black flattens depth. */
-  --color-bg: #0d0d0c;
-  --color-text: #f4f4f2;
-  --color-text-muted: #a8a8a3;
-  --color-text-faint: #7a7a75;
-  --color-surface: #161615;
-  --color-surface-soft: #1c1c1a;
-  --color-border: #2b2b28;
-  --color-rule: #333330;
+  /* Off-black, not #000: pure black flattens depth. */
+  --color-bg: #0e0f0e;
+  --color-text: #f2f2f0;
+  --color-text-muted: #a6a7a3;
+  --color-text-faint: #85867f;
+  --color-surface: #161716;
+  --color-surface-soft: #1b1c1b;
+  --color-surface-raised: #141514;
+  --color-border: #2a2b29;
+  --color-rule: #333431;
 
-  /* Fill stays saturated so buttons keep their weight. Ink lifts to a lighter
-     tint because the fill value only reaches 3.9:1 as text on this canvas,
-     which is under AA. */
-  --color-accent: #5e6ad2;
-  --color-accent-hover: #828fff;
-  --color-accent-ink: #a3aaf0;
-  --color-accent-soft: rgba(94, 106, 210, 0.16);
+  /* Lighter emerald on dark: 7.5:1 as text on the canvas, and it carries the
+     ink colour (not white) as its label for the same reason. */
+  --color-accent: #3fb58f;
+  --color-accent-hover: #57c9a2;
+  --color-accent-ink: #5ccaa4;
+  --color-accent-soft: rgba(63, 181, 143, 0.13);
+  --color-on-accent: #0b1210;
 
-  --tint-1: #232321;
-  --tint-2: #2a2a27;
-  --tint-3: #31312d;
-  --tint-4: #383833;
-  --tint-5: #3f3f39;
-  --tint-6: #46463f;
-  --tint-7: #4d4d45;
-  --tint-ink: #c9c9c3;
+  --color-danger: #f28b82;
+  --color-danger-soft: rgba(242, 139, 130, 0.14);
 
-  --color-soft-gray: #a8a8a3;
+  --tint-1: #1f201f;
+  --tint-2: #242524;
+  --tint-3: #292a28;
+  --tint-4: #2e2f2d;
+  --tint-5: #333432;
+  --tint-6: #383937;
+  --tint-7: #3d3e3c;
+  --tint-ink: #d2d3cf;
 
-  /* Dark runs a lighter frost than light mode: enough translucency to read as
-     material, not so much that the panels lose their edge. The surface must
-     stay partly transparent or the blur has nothing to sample. */
-  --glass-surface: linear-gradient(150deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.012) 58%), rgba(22, 22, 21, 0.74);
-  --glass-surface-strong: rgba(31, 31, 29, 0.86);
-  --glass-border: rgba(255, 255, 255, 0.085);
-  --glass-sheen: rgba(255, 255, 255, 0.06);
-  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  --glass-blur-px: 8px;
+  --color-soft-gray: #a6a7a3;
+
+  --glass-sheen: rgba(255, 255, 255, 0.05);
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 
   --shadow-soft: inset 0 1px 0 rgba(255, 255, 255, 0.03);
   --shadow-card: none;
-  --shadow-lift: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 0 1px var(--color-border);
+  --shadow-lift: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 0 1px var(--color-rule);
 
   color-scheme: dark;
 }
@@ -156,11 +159,13 @@
   --color-accent-teal: var(--color-accent);
 }
 
+/* Reduced motion: stop looping and travelling animation, but keep short
+   colour/opacity transitions so hover and state changes still read as
+   feedback. Framer Motion is handled by <MotionConfig reducedMotion="user">. */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
 }
@@ -190,14 +195,21 @@ body {
   color: var(--color-text);
   font-family: var(--font-body);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
+  font-feature-settings: 'ss01', 'cv11';
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  caret-color: var(--color-accent);
   overflow-x: hidden;
 }
 
 main {
   position: relative;
   z-index: 1;
+}
+
+main:focus {
+  outline: none;
 }
 
 ::selection {
@@ -255,32 +267,34 @@ h1, h2, h3, h4 {
   font-family: var(--font-heading);
   font-weight: 500;
   margin: 0;
-  line-height: 1.14;
+  line-height: 1.12;
   letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(2.6rem, 5.4vw, 4.5rem);
+  font-size: clamp(2.5rem, 5.2vw, 4.25rem);
   font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.035em;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
 }
 
 h2 {
-  font-size: clamp(1.85rem, 3.6vw, 2.85rem);
+  font-size: clamp(1.75rem, 3.2vw, 2.6rem);
   font-weight: 600;
-  line-height: 1.06;
-  letter-spacing: -0.03em;
+  line-height: 1.08;
+  letter-spacing: -0.032em;
 }
 
 h3 {
-  font-size: 1.24rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.018em;
 }
 
 p {
   margin: 0;
+  text-wrap: pretty;
 }
 
 .container {
@@ -289,8 +303,9 @@ p {
   padding: 0 28px;
 }
 
+/* Optically, a section needs a little more room below than above. */
 section {
-  padding: 112px 0;
+  padding: 112px 0 128px;
 }
 
 @media (max-width: 640px) {
@@ -299,7 +314,7 @@ section {
   }
 
   section {
-    padding: 72px 0;
+    padding: 72px 0 84px;
   }
 }
 
@@ -323,40 +338,38 @@ section {
   }
 }
 
-/* Availability marker. The dot is reserved for real status, never decoration. */
+/* Availability line. Sentence case, and the dot is reserved for that one real
+   status, never decoration. */
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 12px;
+  gap: 10px;
+  font-size: 14px;
   font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: -0.005em;
   color: var(--color-text-muted);
   animation: kicker-rise 0.5s var(--ease-standard) both;
 }
 
 .eyebrow--status::before {
   content: '';
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--color-accent);
+  box-shadow: 0 0 0 4px var(--color-accent-soft);
   flex-shrink: 0;
 }
 
-/* Section labels are rationed. See the eyebrow budget note in Home.jsx. */
+/* A quiet sentence-case subheading, not a mono all-caps kicker: where it
+   sits above a list it names the list; it is never stacked over an h2. */
 .section-label {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-text-faint);
-  margin-bottom: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin-bottom: 16px;
   display: block;
-  animation: kicker-rise 0.5s var(--ease-standard) both;
 }
 
 .muted {
@@ -367,19 +380,21 @@ section {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   font-family: var(--font-body);
   font-weight: 500;
   font-size: 15px;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.01em;
   white-space: nowrap;
-  padding: 13px 24px;
+  min-height: 46px;
+  padding: 12px 22px;
   border-radius: var(--radius-btn);
   border: 1px solid transparent;
-  transition: background-color 0.2s var(--ease-standard),
-              border-color 0.2s var(--ease-standard),
-              color 0.2s var(--ease-standard),
-              transform 0.14s var(--ease-standard);
+  transition: background-color 0.25s var(--ease-standard),
+              border-color 0.25s var(--ease-standard),
+              color 0.25s var(--ease-standard),
+              box-shadow 0.25s var(--ease-standard),
+              transform 0.3s var(--ease-spring);
 }
 
 /* Tactile press rather than a hover scale-up. */
@@ -388,12 +403,14 @@ section {
 }
 
 .btn:active {
-  transform: translateY(0) scale(0.985);
+  transform: translateY(0) scale(0.97);
+  transition-duration: 0.1s;
 }
 
 .btn-primary {
   background: var(--color-accent);
   color: var(--color-on-accent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 6px 16px -8px var(--color-accent);
 }
 
 .btn-primary:hover {
@@ -401,14 +418,14 @@ section {
 }
 
 .btn-secondary {
-  background: var(--color-surface);
+  background: var(--color-surface-raised);
   color: var(--color-text);
   border-color: var(--color-border);
 }
 
 .btn-secondary:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent-ink);
+  border-color: var(--color-rule);
+  background: var(--color-surface);
 }
 
 .btn-ghost {
@@ -422,39 +439,85 @@ section {
   color: var(--color-accent-ink);
 }
 
+/* Trailing arrow sits in its own circle inside the button and nudges on hover. */
+.btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  margin-right: -10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 14px;
+  line-height: 1;
+  transition: transform 0.35s var(--ease-spring);
+}
+
+.btn-secondary .btn__icon {
+  background: var(--color-surface);
+}
+
+.btn:hover .btn__icon {
+  transform: translate(2px, -1px);
+}
+
 .tag {
   display: inline-flex;
   align-items: center;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  letter-spacing: 0.01em;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
   padding: 5px 10px;
   border-radius: var(--radius-sm);
-  background: transparent;
+  background: var(--color-surface);
   color: var(--color-text-muted);
   white-space: nowrap;
-  border: 1px solid var(--color-border);
-  transition: border-color 0.2s var(--ease-standard), color 0.2s var(--ease-standard);
+  border: 1px solid transparent;
+  transition: border-color 0.25s var(--ease-standard), color 0.25s var(--ease-standard);
 }
 
 .tag:hover {
-  border-color: var(--color-accent);
+  border-color: var(--color-rule);
   color: var(--color-text);
 }
 
 .card {
-  background: var(--glass-surface);
-  backdrop-filter: blur(var(--glass-blur-px)) saturate(150%);
-  -webkit-backdrop-filter: blur(var(--glass-blur-px)) saturate(150%);
-  border: 1px solid var(--glass-border);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
   padding: 30px;
   box-shadow: var(--shadow-card), var(--glass-inset);
   overflow: hidden;
 }
 
-.transition-smooth {
-  transition: all 0.3s var(--ease-standard);
+/* Photo sits in a machined tray: outer shell with a hairline, the image
+   inside with a concentric, smaller radius (see .avatar). */
+.photo-frame {
+  display: inline-flex;
+  padding: 8px;
+  border-radius: 26px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lift);
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-weight: 500;
+  transform: translateY(-160%);
+  transition: transform 0.3s var(--ease-spring);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
 }
 
 .arrow-link {

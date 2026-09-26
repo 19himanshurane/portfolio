@@ -47,7 +47,6 @@ export default function Contact() {
     <section className="contact-page">
       <div className="container">
         <Reveal y={20} className="contact-page__header">
-          <span className="eyebrow contact-page__eyebrow">{c.eyebrow}</span>
           <h1>{c.heading}</h1>
           <p className="contact-page__sub">{c.sub}</p>
         </Reveal>

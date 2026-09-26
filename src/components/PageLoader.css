@@ -7,11 +7,12 @@
 }
 
 .page-loader__dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: var(--color-accent-sage);
-  animation: page-loader-bounce 1s ease-in-out infinite;
+  background: var(--color-accent);
+  opacity: 0.25;
+  animation: page-loader-fade 1.2s cubic-bezier(0.32, 0.72, 0, 1) infinite;
 }
 
 .page-loader__dot:nth-child(2) {
@@ -22,13 +23,11 @@
   animation-delay: 0.3s;
 }
 
-@keyframes page-loader-bounce {
-  0%, 80%, 100% {
-    transform: scale(0.6);
-    opacity: 0.4;
+@keyframes page-loader-fade {
+  0%, 100% {
+    opacity: 0.25;
   }
   40% {
-    transform: scale(1);
     opacity: 1;
   }
 }

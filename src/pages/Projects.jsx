@@ -26,7 +26,6 @@ export default function Projects() {
   return (
     <section className="projects-page">
       <div className="container">
-        <span className="eyebrow">{t.projectsPage.eyebrow}</span>
         <Reveal as="h1" y={20} className="projects-page__heading">{t.projectsPage.heading}</Reveal>
         <Reveal as="p" y={20} delay={0.08} className="muted projects-page__sub">{t.projectsPage.sub}</Reveal>
 
@@ -80,7 +79,6 @@ export default function Projects() {
 
                 {project.metric && (
                   <div className="project-detail__metric">
-                    <span className="project-detail__metric-dot" aria-hidden="true" />
                     <span className="project-detail__metric-value">{project.metric.value}</span>
                     <span className="project-detail__metric-label">{project.metric.label[lang]}</span>
                   </div>

@@ -13,8 +13,8 @@ export default function ProjectCard({ project, index = 0 }) {
   const my = useMotionValue(0.5);
   const springX = useSpring(mx, { stiffness: 300, damping: 30 });
   const springY = useSpring(my, { stiffness: 300, damping: 30 });
-  const rotateX = useTransform(springY, [0, 1], [7, -7]);
-  const rotateY = useTransform(springX, [0, 1], [-7, 7]);
+  const rotateX = useTransform(springY, [0, 1], [4, -4]);
+  const rotateY = useTransform(springX, [0, 1], [-4, 4]);
   const shineX = useTransform(springX, (v) => `${v * 100}%`);
   const shineY = useTransform(springY, (v) => `${v * 100}%`);
 
@@ -36,11 +36,11 @@ export default function ProjectCard({ project, index = 0 }) {
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.4, 0, 0.2, 1] }}
-      whileHover={{ y: -6 }}
+      transition={{ duration: 0.6, delay: (index % 2) * 0.08, ease: [0.32, 0.72, 0, 1] }}
+      whileHover={{ y: -4 }}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       style={{ perspective: 1000 }}
@@ -79,7 +79,6 @@ export default function ProjectCard({ project, index = 0 }) {
 
         {project.metric && (
           <div className="project-card__metric">
-            <span className="project-card__metric-dot" aria-hidden="true" />
             <span className="project-card__metric-value">{project.metric.value}</span>
             <span className="project-card__metric-label">{project.metric.label[lang]}</span>
           </div>

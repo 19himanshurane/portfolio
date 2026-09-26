@@ -20,11 +20,6 @@ describe('App routing', () => {
     expect(await screen.findByText(content.en.aboutPage.heading)).toBeInTheDocument();
   });
 
-  it('renders the blog page at /blog', async () => {
-    renderWithProviders(<App />, { route: '/blog' });
-    expect(await screen.findByText(content.en.blogPage.heading)).toBeInTheDocument();
-  });
-
   it('renders the contact page at /contact', async () => {
     renderWithProviders(<App />, { route: '/contact' });
     expect(await screen.findByText(content.en.contactPage.heading)).toBeInTheDocument();

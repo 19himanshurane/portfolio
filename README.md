@@ -16,9 +16,9 @@ No CSS framework — styling is hand-written per component/page (`*.css` files c
 
 ```
 src/
-  components/   Reusable UI (Navbar, Footer, ProjectCard, icons, illustrations, ...)
-  pages/        Route-level views (Home, Projects, About, Contact, Blog, BlogPost)
-  data/         Site content (content.js — EN/DE copy, projects, experience) and blog posts
+  components/   Reusable UI (Navbar, Footer, ProjectCard, icons, ...)
+  pages/        Route-level views (Home, Projects, About, Contact)
+  data/         Site content (content.js — EN/DE copy, projects, experience)
   context/      LanguageContext (EN/DE toggle)
   lib/          Third-party integration glue (Lenis)
   utils/        Small helpers (asset path resolution for GitHub Pages base path)

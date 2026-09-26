@@ -19,3 +19,5 @@ Thumbs.db
 skills-lock.json
 design-md/
 Documents/
+# Playwright CLI output (may contain credentials)
+.playwright-cli/

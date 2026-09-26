@@ -23,7 +23,6 @@ export default function Navbar() {
     { to: '/', label: t.nav.home },
     { to: '/projects', label: t.nav.projects },
     { to: '/about', label: t.nav.about },
-    { to: '/blog', label: t.nav.blog },
     { to: '/contact', label: t.nav.contact },
   ];
 
@@ -33,6 +32,7 @@ export default function Navbar() {
         <NavLink to="/" className="navbar__brand-link" onClick={() => setOpen(false)}>
           <motion.span
             className="navbar__brand"
+            translate="no"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
